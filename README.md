@@ -22,4 +22,4 @@ It is a memory, not an AI. Nothing here runs by itself; the AIs follow the rules
 
 ## The one hard rule
 
-Only project information goes in. No other classes, no personal topics, no grades, no passwords or API keys. AIs must strip anything else before writing.
+Only project information goes in. No other classes, no personal topics, no grades, no passwords or API keys, unless they are for the Pendulum project. AIs must strip anything else before writing.
