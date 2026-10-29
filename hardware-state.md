@@ -1,6 +1,6 @@
 ---
 updated: 2026-10-29
-updated_by: Barney (Claude, new arms model session)
+updated_by: Barney (Claude, new arms model session, correction)
 ---
 # Hardware state
 
@@ -14,8 +14,8 @@ What is physically on the rig right now. Update this whenever you flash, rewire,
 | Mega 2560 | `ArduinoSlave` | [?] | [cart](subsystems/cart-arduino.md) |
 | Cart motor | UIM5756PM closed-loop stepper, UIM344 controller built in. Microstep setting [?] | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
 | Raspberry Pi | Raspberry Pi 4 Model B, 8 GB | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
-| Arm 1 | New PLA arm (`arm_1_3dp`, 200 mm, 34.5 g printed) with shaft holder + 608, sensor mount + MT6701, ESP32 mount + XIAO, battery case. LiPo still fitted? [?] | 2026-10-27 | [arms](subsystems/arms-and-model.md) |
-| Arm 2 | Old second arm. New `arm_2_3dp` (250 mm) STL exists 2026-10-29; not confirmed printed or fitted [?] | | [arms](subsystems/arms-and-model.md) |
+| Arm 1 | New PLA arm (`arm_1_3dp`, 200 mm, 34.5 g printed). Pivots on the cart shaft at its small Ø8 hole. Hub = joint 2: shaft holder + 608, sensor mount + MT6701, ESP32 mount + XIAO (TX2), battery case + LiPo | 2026-10-27 | [arms](subsystems/arms-and-model.md) |
+| Arm 2 | Old second arm. New `arm_2_3dp` (250 mm): clamps on the joint-2 shaft at its small hole; its hub electronics are for a future joint 3 (no shaft yet). Fitted on the rig? [?] | | [arms](subsystems/arms-and-model.md) |
 | Track limits | Limit switches must be more than 0.40 m from centre for current swing-up settings [?] unconfirmed | | [swing-up](subsystems/swing-up.md) |
 
 Datasheets and pinouts for all parts: [Hardware/Datasheets](Hardware/Datasheets/README.md).

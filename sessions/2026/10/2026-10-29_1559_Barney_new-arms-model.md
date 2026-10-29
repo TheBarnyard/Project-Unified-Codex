@@ -47,3 +47,12 @@ Accurate 3D model of the new arms with calculated mass, centre of mass and inert
 
 ## Proposed page updates
 Applied: params.md, subsystems/arms-and-model.md, open-questions.md (8 answered; 10-13 added), hardware-state.md, decisions/0003, BRIEF.md.
+
+## Correction (2026-10-29 17:21 UTC, Barney)
+Barney: the arms were coupled and hinged wrong. Each arm pivots on its small hole (arm 1 on the cart shaft). The encoder, XIAO and battery at arm 1's far end are joint 2 and read arm 2's angle; arm 2's small hole clamps onto that shaft. Arm 2's hub electronics are for joint 3; no shaft there yet. So the CoM is far from each pivot.
+- Rebuilt with `build_arms_v3.py` (same viewer URL, rev C, hanging view). Link 2 now carries the joint-2 shaft (8x100, 39.2 g), collar, magnet and arm 1's bearing inner ring; arm 2's bearing counts whole.
+- Arm 1 alone: 98.1 g, CoM 147.8 mm from the small hole, Izz pivot 2.484e-3 kg m², period 0.830 s (0.858 s with the joint-2 shaft in) vs rig IDENTIFY 0.84-0.89 s [HW]. Open question 10 answered.
+- Link 2: 161.8 g, CoM 128.9 mm, Izz pivot 4.507e-3 kg m². Arm 2 spacing 25 mm on arm 1's shaft-holder side (assumed).
+- Ratios: both new arms P1 5.233, P2 2.329, J2r 0.503, H 0.466; new arm 1 + team's old arm-2 constants P1 5.192, P2 2.045, J2r 0.398, H 0.409 (fits: P1 5.11-5.16).
+- Dead end: pivot at the hub, joint-2 shaft counted in link 1. Wrong reading of the STLs; the hub looks like a pivot.
+- Pages corrected: params.md (old table struck), arms-and-model, open-questions 10/12/13, hardware-state, BRIEF, gotchas.

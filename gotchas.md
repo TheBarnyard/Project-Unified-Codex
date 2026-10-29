@@ -15,3 +15,4 @@ Traps that cost someone time. Add one whenever you lose more than 15 minutes to 
 - **TX2 on a USB cable** showed angle gaps up to 3.7 s; on battery it is clean.
 - **Arm cable plugged in** changes the arm dynamics. Run `excite_20261027_154016` is bad for that reason; do not use it for fitting.
 - **Stepper speed rounding:** at about 0.83 m/s one timer step is bigger than the allowed acceleration step, so the cart cannot speed up further. Keep planned speeds well below that.
+- **Arm pivot is the small Ø8 hole, not the big hub.** The hub with the bearing, encoder and XIAO is the *next* joint (arm 1's hub reads arm 2's angle). A model built with the pivot at the hub gave a 0.69 s period instead of 0.83 s (2026-10-29, [session](sessions/2026/10/2026-10-29_1559_Barney_new-arms-model.md)).

@@ -1,6 +1,6 @@
 ---
 updated: 2026-10-29
-updated_by: Barney (Claude, new arms model session)
+updated_by: Barney (Claude, new arms model session, correction)
 ---
 # Key parameters
 
@@ -57,12 +57,21 @@ Constants and settings people keep needing. Each value has a source. Conflicting
 ~~106.6 g, CoM 46.1 mm from pivot, Izz about pivot 5.99e-4 kg m^2. Do not use for control; it does not match the rig. Weigh the real arm.~~ Superseded 2026-10-29 by [new arms model session](sessions/2026/10/2026-10-29_1559_Barney_new-arms-model.md): that estimate came from photos only.
 
 ## New arms mass properties (STLs + measured weights, 2026-10-29)
-Model from the team STLs and Barney's weights; LiPo (14 g) and MT6701 board (1.5 g) assumed. [?] not yet checked on the rig. Frame: origin on the hinge axis, x toward the tip hole. "Link" = parts that turn with the arm (bearing outer ring and balls count; shaft, collar, magnet, inner ring do not).
+~~First version (pivot wrongly placed at the hub): arm 1 98.1 g, CoM 52.2 mm, Izz 6.07e-4 kg m², period 0.691 s; arm 2 107.1 g, 66.3 mm, 1.069e-3; link 1 with joint-2 shaft in its tip 124.6 g, 83.6 mm, 1.668e-3.~~ Superseded 2026-10-29 17:21 UTC by Barney's correction in the [same session](sessions/2026/10/2026-10-29_1559_Barney_new-arms-model.md): each arm pivots on its small Ø8 hole; the hub electronics measure the next joint.
 
-| Body | Mass | CoM along arm | Izz about hinge | Izz about CoM | Hanging period |
+Model from the team STLs and Barney's weights; LiPo (14 g) and MT6701 board (1.5 g) assumed. Frame: origin on the arm's own pivot (small Ø8 hole), x toward the hub (down when hanging). Link 1 = arm 1 with its hub parts (cart shaft on the axis, left out). Link 2 = arm 2 with its hub parts plus the joint-2 shaft (8x100, 39.2 g), collar, magnet and arm 1's bearing inner ring, because that shaft is clamped in arm 2's small hole.
+
+| Body | Mass | CoM from own pivot | Izz about pivot | Izz about CoM | Hanging period |
 | --- | --- | --- | --- | --- | --- |
-| Arm 1 alone (200 mm) | 98.1 g | 52.2 mm | 6.07e-4 kg m² | 3.40e-4 kg m² | 0.691 s |
-| Arm 2 alone (250 mm, same mounts, arm mass scaled by volume) | 107.1 g | 66.3 mm | 1.069e-3 kg m² | 5.97e-4 kg m² | |
-| Double link 1 = arm 1 + joint-2 shaft 8x40 (assumed), collar, magnet in its tip | 124.6 g | 83.6 mm | 1.668e-3 kg m² | 7.96e-4 kg m² | |
+| Arm 1 alone = link 1 (200 mm) | 98.1 g | 147.8 mm | 2.484e-3 kg m² | 3.40e-4 kg m² | 0.830 s |
+| Arm 1 with joint-2 shaft parts in its hub, no arm 2 | 148.1 g | 165.4 mm | 4.482e-3 kg m² | 4.31e-4 kg m² | 0.858 s |
+| Arm 2 alone (250 mm, same mounts, arm mass scaled by volume, no shaft in its hub) | 111.9 g | 186.5 mm | 4.506e-3 kg m² | 6.17e-4 kg m² | |
+| Link 2 = arm 2 + joint-2 shaft parts | 161.8 g | 128.9 mm | 4.507e-3 kg m² | 1.818e-3 kg m² | |
 
-Source: `build_arms_v2.py` in the [viewer](https://claude.ai/artifact/8SnLwfoxa9DyULJxHKt21b) download and `/mnt/project-files/NewArmModel_v2/`. Conflict: rig IDENTIFY period 0.84-0.89 s vs 0.691 s here, see open question 10.
+Ratios ([Math/Double 1.5](Math/Double/01_variables.md#15-the-ratios-what-the-scripts-and-system-id-really-use) definitions) [?]:
+| Set | P1 | P2 | J2r | H |
+| --- | --- | --- | --- | --- |
+| Model, new arm 1 + new arm 2 | 5.233 | 2.329 | 0.503 | 0.466 |
+| Model new arm 1 + team's arm 2 constants (0.210 kg, 0.106 m, 0.00197564 kg m²) | 5.192 | 2.045 | 0.398 | 0.409 |
+
+Rig check: single IDENTIFY period 0.84-0.89 s [HW] vs 0.830 s (shaft out) / 0.858 s (shaft in) here. Source: `build_arms_v3.py` in the [viewer](https://claude.ai/artifact/8SnLwfoxa9DyULJxHKt21b) download and `/mnt/project-files/NewArmModel_v2/` (Claude project).
