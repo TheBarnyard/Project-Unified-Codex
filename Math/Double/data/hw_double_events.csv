@@ -1,0 +1,342 @@
+run,script,event,elapsed_s,message
+balance_double_20260930_091945_250924,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_091945_250924,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_091945_250924,,check,0.18429201199978706,arm1_deg=+1.033; arm2_deg=-0.890; joint2_deg=-1.923
+balance_double_20260930_091945_250924,,motor_start,0.18730524099964896,initial_command=-65535; initial_cart_steps=-73; initial_cart_m=-0.00727918359375
+balance_double_20260930_091945_250924,,stop,,Ctrl+C; dropped_samples=0
+balance_double_20260930_153628_301248,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_153628_301248,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_153628_301248,,check,0.19568110500006242,arm1_deg=+0.044; arm2_deg=+1.384; joint2_deg=+1.340
+balance_double_20260930_153628_301248,,motor_start,0.20064521500000865,initial_command=-65535; initial_cart_steps=-41; initial_cart_m=-0.00408830859375
+balance_double_20260930_153628_301248,,fault,4.962768746000052,"stage=control loop; cycle=478; raw_angles=(65535, 65535, 65535); cart_steps=-28628; motor_command=2; RuntimeError: Pendulum angle channel(s) 1, 2 missing (ESP32 packet (65535, 65535, 65535), bytes fff"
+balance_double_20260930_153628_301248,,stop,,"RuntimeError: Pendulum angle channel(s) 1, 2 missing (ESP32 packet (65535, 65535, 65535), bytes ffffffffffff); dropped_samples=0"
+balance_double_20260930_153735_793214,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_153735_793214,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_153735_793214,,check,0.1878638470000169,arm1_deg=-0.396; arm2_deg=-0.681; joint2_deg=-0.286
+balance_double_20260930_153735_793214,,motor_start,0.18991119899999376,initial_command=-65535; initial_cart_steps=-31; initial_cart_m=-0.0030911601562500003
+balance_double_20260930_153735_793214,,fault,0.2213088799999241,"stage=control loop; cycle=4; raw_angles=(65535, 15917, 65535); cart_steps=-30; motor_command=-2211; RuntimeError: Pendulum angle channel(s) 1 missing (ESP32 packet (65535, 15917, 65535), bytes ffff3e2"
+balance_double_20260930_153735_793214,,stop,,"RuntimeError: Pendulum angle channel(s) 1 missing (ESP32 packet (65535, 15917, 65535), bytes ffff3e2dffff); dropped_samples=0"
+balance_double_20260930_153830_866658,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_153830_866658,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_153830_866658,,check,0.18657588500002475,arm1_deg=-2.076; arm2_deg=-1.560; joint2_deg=+0.516
+balance_double_20260930_153830_866658,,motor_start,0.18790782899998248,initial_command=-65535; initial_cart_steps=-30; initial_cart_m=-0.0029914453125
+balance_double_20260930_153830_866658,,fault,1.4734156320000693,"stage=control loop; cycle=129; raw_angles=(65535, 15896, 65535); cart_steps=-2921; motor_command=20; RuntimeError: Pendulum angle channel(s) 1 missing (ESP32 packet (65535, 15896, 65535), bytes ffff3e"
+balance_double_20260930_153830_866658,,stop,,"RuntimeError: Pendulum angle channel(s) 1 missing (ESP32 packet (65535, 15896, 65535), bytes ffff3e18ffff); dropped_samples=0"
+balance_double_20260930_163938_902196,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_163938_902196,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_163938_902196,,check,0.1905103079999435,arm1_deg=-0.011; arm2_deg=-0.692; joint2_deg=-0.681
+balance_double_20260930_163938_902196,,motor_start,0.19581711899991205,initial_command=-65535; initial_cart_steps=-40; initial_cart_m=-0.00398859375
+balance_double_20260930_163938_902196,,sensor_fallback,23.039593735999915,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_163938_902196,,sensor_fallback,25.146118153999964,"ESP32 angle channel(s) [1, 2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_163938_902196,,sensor_fallback,25.156392463999964,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=2"
+balance_double_20260930_163938_902196,,fault,25.156474630999924,"stage=reading ESP32 angles; cycle=2497; raw_angles=(8090, 65535, 65535); cart_steps=11049; motor_command=2; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_double_20260930_163938_902196,,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_double_20260930_164110_136838,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_164110_136838,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_164110_136838,,check,0.18631101399989802,arm1_deg=-1.826; arm2_deg=-1.354; joint2_deg=+0.472
+balance_double_20260930_164110_136838,,motor_start,0.19035818399993332,initial_command=-65535; initial_cart_steps=-41; initial_cart_m=-0.00408830859375
+balance_double_20260930_164110_136838,,sensor_fallback,3.291790876999926,"ESP32 angle channel(s) [1, 2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_164110_136838,,sensor_fallback,3.812730669999951,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_164110_136838,,sensor_fallback,4.2917484479999075,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_164110_136838,,sensor_fallback,4.301966719999996,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=2"
+balance_double_20260930_164110_136838,,fault,4.302046440999902,"stage=reading ESP32 angles; cycle=412; raw_angles=(8119, 65535, 65535); cart_steps=-10302; motor_command=-3; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_double_20260930_164110_136838,,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_double_20260930_164306_263158,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_164306_263158,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_164306_263158,,check,0.18934158399997614,arm1_deg=-2.747; arm2_deg=+0.725; joint2_deg=+3.472
+balance_double_20260930_164306_263158,,motor_start,0.19313755799998944,initial_command=-65535; initial_cart_steps=-35; initial_cart_m=-0.0034900195312500006
+balance_double_20260930_164306_263158,,stop,,Ctrl+C; dropped_samples=0
+balance_double_20260930_165304_013313,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_165304_013313,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_165304_013313,,check,0.1872791060000054,arm1_deg=+1.428; arm2_deg=+0.758; joint2_deg=-0.670
+balance_double_20260930_165304_013313,,fault,0.29216222199988806,"stage=initial Arduino command; cycle=0; raw_angles=(8017, 15973, 65535); cart_steps=None; motor_command=-65535; TimeoutError: /dev/ttyACM0: received 0/2 bytes in 0.10s"
+balance_double_20260930_165304_013313,,stop,,TimeoutError: /dev/ttyACM0: received 0/2 bytes in 0.10s; dropped_samples=0
+balance_double_20260930_165357_585640,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_165357_585640,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_165357_585640,,check,0.18491351599982409,arm1_deg=+0.022; arm2_deg=-0.352; joint2_deg=-0.374
+balance_double_20260930_165357_585640,,fault,0.2896871589998682,"stage=initial Arduino command; cycle=0; raw_angles=(8063, 15996, 65535); cart_steps=None; motor_command=-65535; TimeoutError: /dev/ttyACM0: received 0/2 bytes in 0.10s"
+balance_double_20260930_165357_585640,,stop,,TimeoutError: /dev/ttyACM0: received 0/2 bytes in 0.10s; dropped_samples=0
+balance_double_20260930_165603_306614,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_165603_306614,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_165603_306614,,check,0.18411296199997196,arm1_deg=+1.615; arm2_deg=+1.230; joint2_deg=-0.385
+balance_double_20260930_165603_306614,,motor_start,0.1886144290001539,initial_command=-65535; initial_cart_steps=-36; initial_cart_m=-0.0035897343750000005
+balance_double_20260930_165603_306614,,sensor_fallback,4.030609286000072,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_165603_306614,,fault,6.790461493000066,"stage=reading ESP32 angles; cycle=661; raw_angles=(5434, 2018, 65535); cart_steps=-2268; motor_command=-29; RuntimeError: Angle limit exceeded: arm1=+57.7deg, arm2=+4.3deg"
+balance_double_20260930_165603_306614,,stop,,"RuntimeError: Angle limit exceeded: arm1=+57.7deg, arm2=+4.3deg; dropped_samples=0"
+balance_double_20260930_165721_946153,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_165721_946153,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_165721_946153,,check,0.1845909500000289,arm1_deg=+0.494; arm2_deg=-3.582; joint2_deg=-4.076
+balance_double_20260930_165721_946153,,motor_start,0.1879296049999084,initial_command=-65535; initial_cart_steps=-40; initial_cart_m=-0.00398859375
+balance_double_20260930_165721_946153,,sensor_fallback,0.3152801090000139,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=1"
+balance_double_20260930_165721_946153,,sensor_fallback,0.3252404810000371,"ESP32 angle channel(s) [2] unavailable; using predicted angle, consecutive=2"
+balance_double_20260930_165721_946153,,fault,0.32536842199988314,"stage=reading ESP32 angles; cycle=15; raw_angles=(8188, 65535, 65535); cart_steps=136; motor_command=-27; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_double_20260930_165721_946153,,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_double_20260930_165817_601512,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_165817_601512,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_165817_601512,,check,0.18528553800001646,arm1_deg=+0.967; arm2_deg=+0.956; joint2_deg=-0.011
+balance_double_20260930_165817_601512,,motor_start,0.18735414999991917,initial_command=-65535; initial_cart_steps=-28; initial_cart_m=-0.002792015625
+balance_double_20260930_165817_601512,,fault,1.7142486830000507,"stage=reading ESP32 angles; cycle=153; raw_angles=(0, 13440, 65535); cart_steps=986; motor_command=-11; RuntimeError: Angle limit exceeded: arm1=+176.9deg, arm2=+233.7deg"
+balance_double_20260930_165817_601512,,stop,,"RuntimeError: Angle limit exceeded: arm1=+176.9deg, arm2=+233.7deg; dropped_samples=0"
+balance_double_20260930_170421_497469,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20260930_170421_497469,,start,0.0,Double pendulum balancing requested
+balance_double_20260930_170421_497469,,check,0.1846321089999492,arm1_deg=+0.428; arm2_deg=+0.242; joint2_deg=-0.187
+balance_double_20260930_170421_497469,,motor_start,0.18908258600004046,initial_command=-65535; initial_cart_steps=-29; initial_cart_m=-0.00289173046875
+balance_double_20260930_170421_497469,,fault,1.29759904499997,"stage=reading ESP32 angles; cycle=112; raw_angles=(10852, 13486, 65535); cart_steps=-3435; motor_command=7; RuntimeError: Angle limit exceeded: arm1=-61.2deg, arm2=-6.0deg"
+balance_double_20260930_170421_497469,,stop,,"RuntimeError: Angle limit exceeded: arm1=-61.2deg, arm2=-6.0deg; dropped_samples=0"
+balance_double_20261016_151240_596620,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_151240_596620,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_151240_596620,PythonMaster2_auto_improved.py,motor_start,0.21208877700155426,initial_command=-65535; initial_cart_steps=-43
+balance_double_20261016_151240_596620,PythonMaster2_auto_improved.py,fault,11.88018477300102,"stage=reading ESP32 angles; cycle=1168; raw_angles=(12495, 10059, 65535); cart_steps=-43; motor_command=-20; angle_details=; RuntimeError: Angle limit: arm1=+30.0deg arm2=-20.4deg"
+balance_double_20261016_151240_596620,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+30.0deg arm2=-20.4deg; dropped_samples=0
+balance_double_20261016_152008_162217,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_152008_162217,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_152008_162217,PythonMaster2_auto_improved.py,motor_start,0.2281580339986249,initial_command=-65535; initial_cart_steps=-191
+balance_double_20261016_152008_162217,PythonMaster2_auto_improved.py,fault,0.791163357998812,"stage=reading ESP32 angles; cycle=57; raw_angles=(13316, 9600, 65535); cart_steps=165; motor_command=-20; angle_details=; RuntimeError: Angle limit: arm1=+14.0deg arm2=-31.6deg"
+balance_double_20261016_152008_162217,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+14.0deg arm2=-31.6deg; dropped_samples=0
+balance_double_20261016_161258_792936,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_161258_792936,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_161258_792936,PythonMaster2_auto_improved.py,motor_start,0.23099825000008423,initial_command=-65535; initial_cart_steps=18
+balance_double_20261016_161258_792936,PythonMaster2_auto_improved.py,fault,8.851981384000283,"stage=reading ESP32 angles; cycle=863; raw_angles=(6699, 3996, 65535); cart_steps=18; motor_command=-20; angle_details=; RuntimeError: Angle limit: arm1=+31.0deg arm2=-24.1deg"
+balance_double_20261016_161258_792936,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+31.0deg arm2=-24.1deg; dropped_samples=0
+balance_double_20261016_161519_386775,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_161519_386775,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_161519_386775,PythonMaster2_auto_improved.py,motor_start,0.21184633400025632,initial_command=-65535; initial_cart_steps=-35
+balance_double_20261016_161519_386775,PythonMaster2_auto_improved.py,fault,305.9179689970001,"stage=reading ESP32 angles; cycle=30571; raw_angles=(6775, 1528, 65535); cart_steps=-1915; motor_command=20; angle_details=; RuntimeError: Angle limit: arm1=+30.9deg arm2=+27.7deg"
+balance_double_20261016_161519_386775,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+30.9deg arm2=+27.7deg; dropped_samples=0
+balance_double_20261016_164743_714515,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_164743_714515,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_164743_714515,PythonMaster2_auto_improved.py,motor_start,0.23862792099953367,initial_command=-65535; initial_cart_steps=-62
+balance_double_20261016_164743_714515,PythonMaster2_auto_improved.py,stop,,Ctrl+C; dropped_samples=0
+balance_double_20261016_165152_881718,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_165152_881718,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_165152_881718,PythonMaster2_auto_improved.py,motor_start,0.2291080189997956,initial_command=-65535; initial_cart_steps=-68
+balance_double_20261016_165152_881718,PythonMaster2_auto_improved.py,stop,,Ctrl+C; dropped_samples=0
+balance_double_20261016_165701_155131,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_165701_155131,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_165701_155131,PythonMaster2_auto_improved.py,motor_start,0.22846269699948607,initial_command=-65535; initial_cart_steps=-158
+balance_double_20261016_165844_532553,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_165844_532553,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_165844_532553,PythonMaster2_auto_improved.py,fault,0.32814888000029896,"stage=initial Arduino command; cycle=0; raw_angles=(8200, 1292, 65535); cart_steps=None; motor_command=-65535; angle_details=; TimeoutError: /dev/ttyACM0: received 0/2 bytes in 0.10s (limit switch or "
+balance_double_20261016_165844_532553,PythonMaster2_auto_improved.py,stop,,TimeoutError: /dev/ttyACM0: received 0/2 bytes in 0.10s (limit switch or stop button pressed? reset the Arduino); dropped_samples=0
+balance_double_20261016_170327_777119,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.357930680082322,""P2"":1.987494158186813,""J2r"":0.38706999354069743,""H"":0.39749883163736266,""B1"":0.01785709037005223,""B2"":0.008928545185026115}}"
+balance_double_20261016_170327_777119,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_170327_777119,PythonMaster2_auto_improved.py,motor_start,0.2201687540000421,initial_command=-65535; initial_cart_steps=-515
+balance_double_20261016_170327_777119,PythonMaster2_auto_improved.py,stop,,Ctrl+C; dropped_samples=0
+balance_double_20261016_174459_288875,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261016_174459_288875,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_174459_288875,PythonMaster2_auto_improved.py,motor_start,0.21200825600044482,initial_command=-65535; initial_cart_steps=-33
+balance_double_20261016_174459_288875,PythonMaster2_auto_improved.py,stop,,Ctrl+C; dropped_samples=0
+balance_double_20261016_174717_060817,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261016_174717_060817,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_174717_060817,PythonMaster2_auto_improved.py,fault,0.04096395299893629,"stage=upright check; cycle=0; raw_angles=(None, None, None); cart_steps=None; motor_command=None; angle_details=serial_backlog: more than 4096 bytes queued; no angle used; RuntimeError: 2 consecutive "
+balance_double_20261016_174717_060817,PythonMaster2_auto_improved.py,stop,,RuntimeError: 2 consecutive ESP32 angle packets were unusable during setup (allowed 1); dropped_samples=0
+balance_double_20261016_175016_625855,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261016_175016_625855,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261016_175016_625855,PythonMaster2_auto_improved.py,motor_start,0.2364475019985548,initial_command=-65535; initial_cart_steps=-25
+balance_double_20261016_175016_625855,PythonMaster2_auto_improved.py,fault,43.69250038999962,"stage=reading ESP32 angles; cycle=4347; raw_angles=(8667, 15921, 65535); cart_steps=-1145; motor_command=20; angle_details=; RuntimeError: Angle limit: arm1=-9.8deg arm2=+30.1deg"
+balance_double_20261016_175016_625855,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=-9.8deg arm2=+30.1deg; dropped_samples=0
+balance_double_20261021_090035_601653,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_090035_601653,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_090035_601653,PythonMaster2_auto_improved.py,motor_start,0.21915910800021265,initial_command=-65535; initial_cart_steps=-40
+balance_double_20261021_090035_601653,PythonMaster2_auto_improved.py,fault,0.7229081950001728,"stage=reading ESP32 angles; cycle=51; raw_angles=(10031, 14869, 65535); cart_steps=-1430; motor_command=20; angle_details=; RuntimeError: Angle limit: arm1=+31.3deg arm2=+30.9deg"
+balance_double_20261021_090035_601653,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+31.3deg arm2=+30.9deg; dropped_samples=0
+balance_double_20261021_090201_991607,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20261021_090201_991607,,start,0.0,Double pendulum balancing requested
+balance_double_20261021_090201_991607,,check,0.2253090469998824,arm1_deg=-3.985; arm2_deg=+2.739; joint2_deg=+6.724
+balance_double_20261021_090201_991607,,motor_start,0.23032704399997783,initial_command=-65535; initial_cart_steps=-34; initial_cart_m=-0.0033903046875000003
+balance_double_20261021_090201_991607,,fault,0.7929350929998691,"stage=reading ESP32 angles; cycle=57; raw_angles=(11983, 658, 65535); cart_steps=2643; motor_command=-6; angle_details=; RuntimeError: Angle limit exceeded: arm1=-13.5deg, arm2=-60.9deg"
+balance_double_20261021_090201_991607,,stop,,"RuntimeError: Angle limit exceeded: arm1=-13.5deg, arm2=-60.9deg; dropped_samples=0"
+balance_double_20261021_090250_767834,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_090250_767834,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_090250_767834,PythonMaster2_auto_improved.py,motor_start,0.2236223190000146,initial_command=-65535; initial_cart_steps=-40
+balance_double_20261021_090250_767834,PythonMaster2_auto_improved.py,fault,1.005935989000136,"stage=reading ESP32 angles; cycle=79; raw_angles=(9991, 16006, 65535); cart_steps=518; motor_command=-20; angle_details=; RuntimeError: Angle limit: arm1=+30.8deg arm2=+5.1deg"
+balance_double_20261021_090250_767834,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+30.8deg arm2=+5.1deg; dropped_samples=0
+balance_double_20261021_090712_584326,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_090712_584326,PythonMaster2_auto_improved.py,stop,,Ctrl+C; dropped_samples=0
+balance_double_20261021_090728_596204,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_090728_596204,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_090728_596204,PythonMaster2_auto_improved.py,motor_start,0.20497251800000527,initial_command=-65535; initial_cart_steps=-31
+balance_double_20261021_090728_596204,PythonMaster2_auto_improved.py,fault,0.8920979899999963,"stage=reading ESP32 angles; cycle=70; raw_angles=(10005, 15427, 65535); cart_steps=-432; motor_command=-20; angle_details=; RuntimeError: Angle limit: arm1=+30.7deg arm2=+15.7deg"
+balance_double_20261021_090728_596204,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+30.7deg arm2=+15.7deg; dropped_samples=0
+balance_double_20261021_090858_524250,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_090858_524250,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_090858_524250,PythonMaster2_auto_improved.py,motor_start,0.21365834600001676,initial_command=-65535; initial_cart_steps=-47
+balance_double_20261021_090858_524250,PythonMaster2_auto_improved.py,fault,0.8874129530000232,"stage=reading ESP32 angles; cycle=68; raw_angles=(12790, 13736, 65535); cart_steps=-563; motor_command=20; angle_details=; RuntimeError: Angle limit: arm1=-31.9deg arm2=-6.7deg"
+balance_double_20261021_090858_524250,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=-31.9deg arm2=-6.7deg; dropped_samples=0
+balance_double_20261021_091928_787987,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_091928_787987,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_091928_787987,PythonMaster2_auto_improved.py,motor_start,0.20193131099995298,initial_command=-65535; initial_cart_steps=-27
+balance_double_20261021_091928_787987,PythonMaster2_auto_improved.py,fault,1.145267198000056,"stage=reading ESP32 angles; cycle=95; raw_angles=(9914, 270, 65535); cart_steps=1152; motor_command=-15; angle_details=; RuntimeError: Angle limit: arm1=+31.4deg arm2=-8.0deg"
+balance_double_20261021_091928_787987,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+31.4deg arm2=-8.0deg; dropped_samples=0
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,motor_start,0.23321564499997294,initial_command=-65535; initial_cart_steps=-38
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,sensor_fallback,1.3940300470001148,"angle channel(s) [1] unavailable; angle1 reason=wireless_timeout radio_age_ms=55; using prediction, consecutive=1"
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,sensor_fallback,1.404008291000082,"angle channel(s) [1] unavailable; angle1 reason=wireless_timeout radio_age_ms=65; using prediction, consecutive=2"
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,fault,2.233758648000048,"stage=reading ESP32 angles; cycle=201; raw_angles=(1156, 14904, 65535); cart_steps=1163; motor_command=-15; angle_details=; RuntimeError: Angle limit: arm1=+31.3deg arm2=-16.0deg"
+balance_double_20261021_154529_243817,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+31.3deg arm2=-16.0deg; dropped_samples=0
+balance_double_20261021_154741_671521,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_154741_671521,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_154741_671521,PythonMaster2_auto_improved.py,motor_start,0.19982407300039995,initial_command=-65535; initial_cart_steps=-28
+balance_double_20261021_154741_671521,PythonMaster2_auto_improved.py,fault,2.3820203750001383,"stage=reading ESP32 angles; cycle=219; raw_angles=(2151, 15032, 65535); cart_steps=1616; motor_command=-15; angle_details=; RuntimeError: Angle limit: arm1=+10.1deg arm2=-41.9deg"
+balance_double_20261021_154741_671521,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+10.1deg arm2=-41.9deg; dropped_samples=0
+balance_double_20261021_155055_577223,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_155055_577223,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_155055_577223,PythonMaster2_auto_improved.py,motor_start,0.22319824800024435,initial_command=-65535; initial_cart_steps=-23
+balance_double_20261021_155055_577223,PythonMaster2_auto_improved.py,fault,0.987405150000086,"stage=reading ESP32 angles; cycle=77; raw_angles=(2356, 13044, 65535); cart_steps=2972; motor_command=-15; angle_details=; RuntimeError: Cart at +0.304 m passed TRACK_SOFT_LIMIT_M=0.3"
+balance_double_20261021_155055_577223,PythonMaster2_auto_improved.py,stop,,RuntimeError: Cart at +0.304 m passed TRACK_SOFT_LIMIT_M=0.3; dropped_samples=0
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,motor_start,0.22929684199971234,initial_command=-65535; initial_cart_steps=-20
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,sensor_fallback,0.5912373999999545,"angle channel(s) [1] unavailable; angle1 reason=wireless_timeout radio_age_ms=55; using prediction, consecutive=1"
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,sensor_fallback,0.6011435020000135,"angle channel(s) [1] unavailable; angle1 reason=wireless_timeout radio_age_ms=65; using prediction, consecutive=2"
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,sensor_fallback,0.6112133239998911,"angle channel(s) [1] unavailable; angle1 reason=wireless_timeout radio_age_ms=75; using prediction, consecutive=3"
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,fault,0.8310810220000349,"stage=reading ESP32 angles; cycle=61; raw_angles=(2455, 12772, 65535); cart_steps=2972; motor_command=-23; angle_details=; RuntimeError: Cart at +0.303 m passed TRACK_SOFT_LIMIT_M=0.3"
+balance_double_20261021_155143_986816,PythonMaster2_auto_improved.py,stop,,RuntimeError: Cart at +0.303 m passed TRACK_SOFT_LIMIT_M=0.3; dropped_samples=0
+balance_double_20261021_155229_066849,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_155229_066849,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_155229_066849,PythonMaster2_auto_improved.py,motor_start,0.21639334700012114,initial_command=-65535; initial_cart_steps=-34
+balance_double_20261021_155229_066849,PythonMaster2_auto_improved.py,sensor_fallback,0.7275755489999938,"angle channel(s) [1] unavailable; angle1 reason=wireless_timeout radio_age_ms=60; using prediction, consecutive=1"
+balance_double_20261021_155229_066849,PythonMaster2_auto_improved.py,fault,0.7970448250002846,"stage=reading ESP32 angles; cycle=59; raw_angles=(2442, 12745, 65535); cart_steps=2995; motor_command=-16; angle_details=; RuntimeError: Cart at +0.307 m passed TRACK_SOFT_LIMIT_M=0.3"
+balance_double_20261021_155229_066849,PythonMaster2_auto_improved.py,stop,,RuntimeError: Cart at +0.307 m passed TRACK_SOFT_LIMIT_M=0.3; dropped_samples=0
+balance_double_20261021_155716_826128,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_155716_826128,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_155716_826128,PythonMaster2_auto_improved.py,fault,0.1204219500000363,"stage=upright check; cycle=0; raw_angles=(10737, 65535, 65535); cart_steps=None; motor_command=None; angle_details=angle2 reason=wireless_timeout radio_age_ms=800; RuntimeError: 6 consecutive ESP32 an"
+balance_double_20261021_155716_826128,PythonMaster2_auto_improved.py,stop,,RuntimeError: 6 consecutive ESP32 angle packets were unusable during setup (allowed 5); dropped_samples=0
+balance_double_20261021_161020_082686,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_161020_082686,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_161020_082686,PythonMaster2_auto_improved.py,motor_start,0.2144620379999651,initial_command=-65535; initial_cart_steps=-32
+balance_double_20261021_161020_082686,PythonMaster2_auto_improved.py,fault,82.69186978000005,"stage=reading ESP32 angles; cycle=8249; raw_angles=(4221, 2239, 65535); cart_steps=-44; motor_command=15; angle_details=; RuntimeError: Angle limit: arm1=-31.0deg arm2=-4.1deg"
+balance_double_20261021_161020_082686,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=-31.0deg arm2=-4.1deg; dropped_samples=0
+balance_double_20261021_161533_357781,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_161533_357781,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_161533_357781,PythonMaster2_auto_improved.py,motor_start,0.21021943799996734,initial_command=-65535; initial_cart_steps=-61
+balance_double_20261021_161533_357781,PythonMaster2_auto_improved.py,fault,0.5946055949999618,"stage=reading ESP32 angles; cycle=39; raw_angles=(2049, 5673, 65535); cart_steps=273; motor_command=-15; angle_details=; RuntimeError: Angle limit: arm1=+16.7deg arm2=-31.4deg"
+balance_double_20261021_161533_357781,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=+16.7deg arm2=-31.4deg; dropped_samples=0
+balance_double_20261021_161621_899189,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261021_161621_899189,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261021_161621_899189,PythonMaster2_auto_improved.py,motor_start,0.22228524299998753,initial_command=-65535; initial_cart_steps=-28
+balance_double_20261021_161621_899189,PythonMaster2_auto_improved.py,fault,767.9881543079999,"stage=reading ESP32 angles; cycle=76778; raw_angles=(3679, 4013, 65535); cart_steps=576; motor_command=-15; angle_details=; RuntimeError: Angle limit: arm1=-19.8deg arm2=-31.5deg"
+balance_double_20261021_161621_899189,PythonMaster2_auto_improved.py,stop,,RuntimeError: Angle limit: arm1=-19.8deg arm2=-31.5deg; dropped_samples=0
+balance_double_20261027_172959_363769,PythonMaster2_auto_improved.py,config,0.0,"{""made"":null,""limits"":null,""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.03}}"
+balance_double_20261027_172959_363769,PythonMaster2_auto_improved.py,start,0.0,Double pendulum balancing requested
+balance_double_20261027_172959_363769,PythonMaster2_auto_improved.py,fault,0.2037883069988311,"stage=upright check; cycle=0; raw_angles=(2782, 13216, 65535); cart_steps=None; motor_command=None; angle_details=; RuntimeError: Upright check failed: hold both arms upright and restart. No motor com"
+balance_double_20261027_172959_363769,PythonMaster2_auto_improved.py,stop,,RuntimeError: Upright check failed: hold both arms upright and restart. No motor command was sent.; dropped_samples=0
+balance_double_20261027_173049_320132,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20261027_173049_320132,,start,0.0,Double pendulum balancing requested
+balance_double_20261027_173049_320132,,fault,0.20623002399952384,"stage=upright check; cycle=0; raw_angles=(2783, 13216, 65535); cart_steps=None; motor_command=None; angle_details=; RuntimeError: Upright check failed: hold both arms upright and restart. No motor com"
+balance_double_20261027_173049_320132,,stop,,RuntimeError: Upright check failed: hold both arms upright and restart. No motor command was sent.; dropped_samples=0
+balance_double_20261028_085124_196634,,config,0.0,"{""made"":null,""limits"":null,""ratios"":null}"
+balance_double_20261028_085124_196634,,start,0.0,Double pendulum balancing requested
+balance_double_20261028_085124_196634,,fault,0.23672686300000123,"stage=upright check; cycle=0; raw_angles=(2438, 12780, 65535); cart_steps=None; motor_command=None; angle_details=; RuntimeError: Upright check failed: hold both arms upright and restart. No motor com"
+balance_double_20261028_085124_196634,,stop,,RuntimeError: Upright check failed: hold both arms upright and restart. No motor command was sent.; dropped_samples=0
+swingup_double_20261021_165958_084460,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-16T22:13:34+00:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.168816}}"
+swingup_double_20261021_165958_084460,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=61; RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=101
+swingup_double_20261021_165958_084460,PythonMaster2_swingup.py,stop,,RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=101; dropped_samples=0
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-16T22:13:34+00:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.168816}}"
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,swing,1.0147192670000322,attempt=1
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,abort,2.431861380999976,mode=SWING; k=142; err_deg=37.0
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,swing,12.754641585999991,attempt=2
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,abort,14.315142937000019,mode=SWING; k=156; err_deg=26.0
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,swing,26.865024629000004,attempt=3
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,abort,28.572711120000008,mode=SWING; k=171; err_deg=35.7
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=6856; RuntimeError: the arms did not settle; stopping
+swingup_double_20261021_170755_806827,PythonMaster2_swingup.py,stop,,RuntimeError: the arms did not settle; stopping; dropped_samples=0
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-16T22:13:34+00:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.168816}}"
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,swing,0.9952367480000248,attempt=1
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,abort,2.1133113340000023,mode=SWING; k=112; err_deg=35.6
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,swing,14.28761281200002,attempt=2
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,abort,16.265672507000033,mode=SWING; k=198; err_deg=16.5
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,swing,28.823491117000003,attempt=3
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,abort,29.90479651100003,mode=SWING; k=108; err_deg=35.9
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=4118; RuntimeError: no catch after 3 attempts
+swingup_double_20261021_170950_055561,PythonMaster2_swingup.py,stop,,RuntimeError: no catch after 3 attempts; dropped_samples=0
+swingup_double_20261021_171442_014662,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-16T22:13:34+00:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.0468816}}"
+swingup_double_20261021_171442_014662,PythonMaster2_swingup.py,swing,1.0056947279999804,attempt=1
+swingup_double_20261021_171442_014662,PythonMaster2_swingup.py,abort,2.4064932969999973,mode=SWING; k=140; err_deg=35.2
+swingup_double_20261021_171442_014662,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=252; RuntimeError: 6 unusable angle frames in a row; stopping. angle1 reason=wireless_timeout radio_age_ms=107
+swingup_double_20261021_171442_014662,PythonMaster2_swingup.py,stop,,RuntimeError: 6 unusable angle frames in a row; stopping. angle1 reason=wireless_timeout radio_age_ms=107; dropped_samples=0
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-16T22:13:34+00:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.0868816}}"
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,swing,0.9986399829995207,attempt=1
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,abort,2.4486178570004995,mode=SWING; k=145; err_deg=35.3
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,swing,15.018492236999009,attempt=2
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,abort,16.579249608999817,mode=SWING; k=156; err_deg=22.2
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,swing,29.504177098000582,attempt=3
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,abort,31.01548898600049,mode=SWING; k=151; err_deg=28.4
+swingup_double_20261027_173146_753180,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_173546_928034,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-16T22:13:34+00:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.1268816}}"
+swingup_double_20261027_173546_928034,PythonMaster2_swingup.py,swing,1.0232853229990724,attempt=1
+swingup_double_20261027_173546_928034,PythonMaster2_swingup.py,abort,2.5056339610000578,mode=SWING; k=148; err_deg=36.3
+swingup_double_20261027_173546_928034,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=4249; RuntimeError: the arms did not settle; stopping
+swingup_double_20261027_173546_928034,PythonMaster2_swingup.py,stop,,RuntimeError: the arms did not settle; stopping; dropped_samples=0
+swingup_double_20261027_174205_948687,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T17:40:27-04:00"",""limits"":{""track_m"":0.2,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.22342,""P2"":2.01257,""J2r"":0.414023,""H"":0.394859,""B1"":3.91127e-11,""B2"":0.1268816}}"
+swingup_double_20261027_174205_948687,PythonMaster2_swingup.py,swing,1.0038584329995501,attempt=1
+swingup_double_20261027_174205_948687,PythonMaster2_swingup.py,abort,3.2442534510009864,mode=SWING; k=224; err_deg=37.1
+swingup_double_20261027_174205_948687,PythonMaster2_swingup.py,swing,17.077396837999913,attempt=2
+swingup_double_20261027_174205_948687,PythonMaster2_swingup.py,abort,19.305351197001073,mode=SWING; k=223; err_deg=36.6
+swingup_double_20261027_174205_948687,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:21:47+00:00"",""limits"":{""track_m"":0.3,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.10701,""P2"":1.86426,""J2r"":0.389109,""H"":0.384233,""B1"":0.100002,""B2"":0.00487974}}"
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,swing,1.013337173999389,attempt=1
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,abort,2.2830474659986066,mode=SWING; k=127; err_deg=25.9
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,swing,12.474663877999774,attempt=2
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,abort,13.924487150999994,mode=SWING; k=145; err_deg=20.7
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,swing,25.335419205999642,attempt=3
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,abort,26.79347391400006,mode=SWING; k=146; err_deg=23.0
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,swing,36.36543915099901,attempt=4
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,abort,37.975106181998854,mode=SWING; k=161; err_deg=36.9
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,swing,52.034756051998556,attempt=5
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,abort,53.47232755699952,mode=SWING; k=144; err_deg=12.4
+swingup_double_20261027_182845_619344,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_183422_623317,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:21:47+00:00"",""limits"":{""track_m"":0.3,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.10701,""P2"":1.86426,""J2r"":0.389109,""H"":0.384233,""B1"":0.100002,""B2"":0.00487974}}"
+swingup_double_20261027_183422_623317,PythonMaster2_swingup.py,swing,1.0007537359997514,attempt=1
+swingup_double_20261027_183422_623317,PythonMaster2_swingup.py,abort,2.9585222099995008,mode=SWING; k=196; err_deg=36.7
+swingup_double_20261027_183422_623317,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_183541_221410,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:21:47+00:00"",""limits"":{""track_m"":0.3,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.10701,""P2"":1.86426,""J2r"":0.389109,""H"":0.384233,""B1"":0.100002,""B2"":0.00487974}}"
+swingup_double_20261027_183541_221410,PythonMaster2_swingup.py,swing,1.0021954549993097,attempt=1
+swingup_double_20261027_183541_221410,PythonMaster2_swingup.py,abort,2.443866605999574,mode=SWING; k=144; err_deg=17.4
+swingup_double_20261027_183541_221410,PythonMaster2_swingup.py,swing,13.293388398999014,attempt=2
+swingup_double_20261027_183541_221410,PythonMaster2_swingup.py,abort,15.152874888999577,mode=SWING; k=186; err_deg=35.8
+swingup_double_20261027_183541_221410,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_183727_829946,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:21:47+00:00"",""limits"":{""track_m"":0.3,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.10701,""P2"":1.86426,""J2r"":0.389109,""H"":0.384233,""B1"":0.100002,""B2"":0.00487974}}"
+swingup_double_20261027_183727_829946,PythonMaster2_swingup.py,swing,1.0126403280009981,attempt=1
+swingup_double_20261027_183727_829946,PythonMaster2_swingup.py,abort,2.8803620700000465,mode=SWING; k=187; err_deg=36.6
+swingup_double_20261027_183727_829946,PythonMaster2_swingup.py,swing,13.481768469000599,attempt=2
+swingup_double_20261027_183727_829946,PythonMaster2_swingup.py,abort,14.923195692999798,mode=SWING; k=144; err_deg=18.0
+swingup_double_20261027_183727_829946,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_184311_783011,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:39:56+00:00"",""limits"":{""track_m"":0.25,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.16428,""P2"":1.80161,""J2r"":0.39142,""H"":0.39247,""B1"":0.0,""B2"":0.11396}}"
+swingup_double_20261027_184311_783011,PythonMaster2_swingup.py,swing,1.0029983610002091,attempt=1
+swingup_double_20261027_184311_783011,PythonMaster2_swingup.py,abort,2.915174099000069,mode=SWING; k=191; err_deg=36.9
+swingup_double_20261027_184311_783011,PythonMaster2_swingup.py,swing,12.995245101999899,attempt=2
+swingup_double_20261027_184311_783011,PythonMaster2_swingup.py,abort,14.77312904000064,mode=SWING; k=178; err_deg=35.5
+swingup_double_20261027_184311_783011,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:39:56+00:00"",""limits"":{""track_m"":0.25,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.16428,""P2"":1.80161,""J2r"":0.39142,""H"":0.39247,""B1"":0.0,""B2"":0.11396}}"
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,swing,1.0047726680004416,attempt=1
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,abort,2.9339825000006385,mode=SWING; k=193; err_deg=35.6
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,swing,13.5339318059996,attempt=2
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,abort,15.59400970599927,mode=SWING; k=206; err_deg=35.1
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,swing,28.48345484499987,attempt=3
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,abort,30.564165065999987,mode=SWING; k=208; err_deg=36.8
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,swing,43.68293820399958,attempt=4
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,abort,45.78412896900045,mode=SWING; k=210; err_deg=35.5
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,swing,65.08464291000018,attempt=5
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,abort,67.46306242299943,mode=SWING; k=238; err_deg=37.4
+swingup_double_20261027_184605_859262,PythonMaster2_swingup.py,stop,,Ctrl+C; dropped_samples=0
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:39:56+00:00"",""limits"":{""track_m"":0.25,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.16428,""P2"":1.80161,""J2r"":0.39142,""H"":0.39247,""B1"":0.0,""B2"":0.11396}}"
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,swing,0.9987635450015659,attempt=1
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,abort,2.94010761500067,mode=SWING; k=194; err_deg=35.7
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,swing,13.492550151000614,attempt=2
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,abort,15.548179271001572,mode=SWING; k=206; err_deg=37.0
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,swing,24.468830778001575,attempt=3
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,abort,26.541609155001424,mode=SWING; k=207; err_deg=35.8
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=6589; RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=104
+swingup_double_20261027_185639_236068,PythonMaster2_swingup.py,stop,,RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=104; dropped_samples=0
+swingup_double_20261028_085228_953527,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:39:56+00:00"",""limits"":{""track_m"":0.25,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.16428,""P2"":1.80161,""J2r"":0.39142,""H"":0.39247,""B1"":0.0,""B2"":0.11396}}"
+swingup_double_20261028_085228_953527,PythonMaster2_swingup.py,swing,1.0106995179999672,attempt=1
+swingup_double_20261028_085228_953527,PythonMaster2_swingup.py,abort,2.362234774000001,mode=SWING; k=135; err_deg=23.8
+swingup_double_20261028_085228_953527,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=536; RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=108
+swingup_double_20261028_085228_953527,PythonMaster2_swingup.py,stop,,RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=108; dropped_samples=0
+swingup_double_20261028_090204_390987,PythonMaster2_swingup.py,config,0.0,"{""made"":""2026-10-27T22:39:56+00:00"",""limits"":{""track_m"":0.25,""speed_m_s"":0.75,""accel_m_s2"":8.0,""motor_top_speed_m_s"":1.0},""ratios"":{""P1"":5.16428,""P2"":1.80161,""J2r"":0.39142,""H"":0.39247,""B1"":0.0,""B2"":0.11396}}"
+swingup_double_20261028_090204_390987,PythonMaster2_swingup.py,swing,1.026117531000068,attempt=1
+swingup_double_20261028_090204_390987,PythonMaster2_swingup.py,abort,2.6153434139999945,mode=SWING; k=159; err_deg=35.1
+swingup_double_20261028_090204_390987,PythonMaster2_swingup.py,fault,,stage=control loop; cycle=722; RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=108
+swingup_double_20261028_090204_390987,PythonMaster2_swingup.py,stop,,RuntimeError: 6 unusable angle frames in a row; stopping. angle2 reason=wireless_timeout radio_age_ms=108; dropped_samples=0

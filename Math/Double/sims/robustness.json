@@ -1,0 +1,908 @@
+{
+ "nominal": {
+  "ok": true,
+  "why": "",
+  "k_end": 250,
+  "max_v": 0.733197380514706,
+  "max_x": 0.24986331564171133,
+  "capped": false
+ },
+ "b2x15": {
+  "ok": false,
+  "why": "35 deg off the plan at k=169",
+  "k_end": 169,
+  "max_v": 0.8309570312500001,
+  "max_x": 0.3490271660380323,
+  "capped": true
+ },
+ "b2x15_exact": {
+  "ok": false,
+  "why": "36 deg off the plan at k=177",
+  "k_end": 177,
+  "max_v": 1.0,
+  "max_x": 0.3597532858169142,
+  "capped": false
+ },
+ "cases": [
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.733197380514706,
+   "max_x": 0.24986331564171133,
+   "capped": false,
+   "case": "nominal",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=241",
+   "k_end": 241,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2843458454376808,
+   "capped": true,
+   "case": "P1 -8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=244",
+   "k_end": 244,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2709163527515946,
+   "capped": true,
+   "case": "P1 -6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "balance lost",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2542290713017883,
+   "capped": true,
+   "case": "P1 -4%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24906804106889335,
+   "capped": false,
+   "case": "P1 -2%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24793032929401826,
+   "capped": false,
+   "case": "P1 +2%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.24867259593516713,
+   "capped": true,
+   "case": "P1 +4%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "balance lost",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.24594602803048737,
+   "capped": true,
+   "case": "P1 +6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=224",
+   "k_end": 224,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.24595529282341597,
+   "capped": true,
+   "case": "P1 +8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=154",
+   "k_end": 154,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2495925026170168,
+   "capped": true,
+   "case": "P2 -8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=240",
+   "k_end": 240,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2493732940060597,
+   "capped": true,
+   "case": "P2 -6%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2493547571045205,
+   "capped": true,
+   "case": "P2 -4%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.24935459210428904,
+   "capped": true,
+   "case": "P2 -2%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.27598406510845075,
+   "capped": true,
+   "case": "P2 +2%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=183",
+   "k_end": 183,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3396056241099264,
+   "capped": true,
+   "case": "P2 +4%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=147",
+   "k_end": 147,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3611868830170742,
+   "capped": true,
+   "case": "P2 +6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "38 deg off the plan at k=145",
+   "k_end": 145,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3625583746665996,
+   "capped": true,
+   "case": "P2 +8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=122",
+   "k_end": 122,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2482617470002388,
+   "capped": true,
+   "case": "J2r -8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "40 deg off the plan at k=144",
+   "k_end": 144,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.34285291945203755,
+   "capped": true,
+   "case": "J2r -6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=145",
+   "k_end": 145,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3411864048341045,
+   "capped": true,
+   "case": "J2r -4%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.30202143340889187,
+   "capped": true,
+   "case": "J2r -2%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.24991101246134012,
+   "capped": true,
+   "case": "J2r +2%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=181",
+   "k_end": 181,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2831633169214579,
+   "capped": true,
+   "case": "J2r +4%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "39 deg off the plan at k=154",
+   "k_end": 154,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.27357025181479844,
+   "capped": true,
+   "case": "J2r +6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "38 deg off the plan at k=124",
+   "k_end": 124,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.25008354809458677,
+   "capped": true,
+   "case": "J2r +8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=173",
+   "k_end": 173,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.320845684806571,
+   "capped": true,
+   "case": "H -8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=203",
+   "k_end": 203,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3164604967349889,
+   "capped": true,
+   "case": "H -6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "balance lost",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.26504811722824334,
+   "capped": true,
+   "case": "H -4%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2473229635365961,
+   "capped": true,
+   "case": "H -2%",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24990053532141193,
+   "capped": false,
+   "case": "H +2%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=222",
+   "k_end": 222,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2777177156355896,
+   "capped": true,
+   "case": "H +4%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=171",
+   "k_end": 171,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3098526023047355,
+   "capped": true,
+   "case": "H +6%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=145",
+   "k_end": 145,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3180319767000061,
+   "capped": true,
+   "case": "H +8%",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=181",
+   "k_end": 181,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.26069864488012345,
+   "capped": true,
+   "case": "B2 x0.5",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=169",
+   "k_end": 169,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.3490271660380323,
+   "capped": true,
+   "case": "B2 x1.5",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "cart at -363 mm at k=141",
+   "k_end": 141,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.385903797139135,
+   "capped": true,
+   "case": "B2 x2",
+   "timer": true
+  },
+  {
+   "ok": false,
+   "why": "38 deg off the plan at k=120",
+   "k_end": 120,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2522420776317595,
+   "capped": true,
+   "case": "B2 x3",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.25100287238497554,
+   "capped": false,
+   "case": "B1 +0.02",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24990092326709895,
+   "capped": false,
+   "case": "B1 +0.05",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8309570312500001,
+   "max_x": 0.2513091780460866,
+   "capped": true,
+   "case": "B1 +0.1",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24812403711724204,
+   "capped": false,
+   "case": "delay 5 ms",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24819250040518112,
+   "capped": false,
+   "case": "delay 6 ms",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.779022216796875,
+   "max_x": 0.24841114613958074,
+   "capped": false,
+   "case": "delay 10 ms",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.733197380514706,
+   "max_x": 0.24883052360219435,
+   "capped": false,
+   "case": "delay 12 ms",
+   "timer": true
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7654421344205531,
+   "max_x": 0.24955648800179667,
+   "capped": false,
+   "case": "nominal",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=241",
+   "k_end": 241,
+   "max_v": 1.0,
+   "max_x": 0.2972999302145576,
+   "capped": false,
+   "case": "P1 -8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=243",
+   "k_end": 243,
+   "max_v": 0.9867521316235159,
+   "max_x": 0.2735539618391638,
+   "capped": true,
+   "case": "P1 -6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "balance lost",
+   "k_end": 250,
+   "max_v": 0.9999293886614704,
+   "max_x": 0.2641637556153123,
+   "capped": false,
+   "case": "P1 -4%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7753486469108175,
+   "max_x": 0.25597875312964996,
+   "capped": false,
+   "case": "P1 -2%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7584521695626641,
+   "max_x": 0.24901867555510346,
+   "capped": false,
+   "case": "P1 +2%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.839700303066835,
+   "max_x": 0.2484783205443896,
+   "capped": false,
+   "case": "P1 +4%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.9551341482781431,
+   "max_x": 0.24804725060372332,
+   "capped": false,
+   "case": "P1 +6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=223",
+   "k_end": 223,
+   "max_v": 0.9310031996206892,
+   "max_x": 0.24769127966960403,
+   "capped": false,
+   "case": "P1 +8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=224",
+   "k_end": 224,
+   "max_v": 0.992304210570339,
+   "max_x": 0.25453472462372656,
+   "capped": false,
+   "case": "P2 -8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=248",
+   "k_end": 248,
+   "max_v": 0.9873825263930035,
+   "max_x": 0.3207036940085295,
+   "capped": false,
+   "case": "P2 -6%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.9368421289130843,
+   "max_x": 0.3260671007283215,
+   "capped": false,
+   "case": "P2 -4%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8712460433395794,
+   "max_x": 0.24979381203082898,
+   "capped": false,
+   "case": "P2 -2%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8113629654083654,
+   "max_x": 0.26889217892423645,
+   "capped": false,
+   "case": "P2 +2%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "39 deg off the plan at k=191",
+   "k_end": 191,
+   "max_v": 1.0,
+   "max_x": 0.3548768408388885,
+   "capped": false,
+   "case": "P2 +4%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "cart at -362 mm at k=144",
+   "k_end": 144,
+   "max_v": 0.9446095641983225,
+   "max_x": 0.37540053986829797,
+   "capped": false,
+   "case": "P2 +6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=144",
+   "k_end": 144,
+   "max_v": 0.9523522921456531,
+   "max_x": 0.38326947120186483,
+   "capped": false,
+   "case": "P2 +8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=122",
+   "k_end": 122,
+   "max_v": 0.8773988272893812,
+   "max_x": 0.2483980885623611,
+   "capped": false,
+   "case": "J2r -8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=143",
+   "k_end": 143,
+   "max_v": 0.9546599681990356,
+   "max_x": 0.35487713370267615,
+   "capped": false,
+   "case": "J2r -6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "38 deg off the plan at k=145",
+   "k_end": 145,
+   "max_v": 0.9400143188893366,
+   "max_x": 0.35191774266712406,
+   "capped": false,
+   "case": "J2r -4%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8203479594921866,
+   "max_x": 0.29233464487065103,
+   "capped": false,
+   "case": "J2r -2%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.9330355785899046,
+   "max_x": 0.30156529722814956,
+   "capped": false,
+   "case": "J2r +2%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.9904534975449907,
+   "max_x": 0.2809528382977784,
+   "capped": false,
+   "case": "J2r +4%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=158",
+   "k_end": 158,
+   "max_v": 0.9939824103491888,
+   "max_x": 0.29192722458938336,
+   "capped": false,
+   "case": "J2r +6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=124",
+   "k_end": 124,
+   "max_v": 0.9503412145628761,
+   "max_x": 0.2509192058816041,
+   "capped": false,
+   "case": "J2r +8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=206",
+   "k_end": 206,
+   "max_v": 1.0,
+   "max_x": 0.30423516196704464,
+   "capped": false,
+   "case": "H -8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=212",
+   "k_end": 212,
+   "max_v": 0.9907870992236086,
+   "max_x": 0.3005251868487736,
+   "capped": true,
+   "case": "H -6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=234",
+   "k_end": 234,
+   "max_v": 0.9906931055463472,
+   "max_x": 0.2877322703754185,
+   "capped": true,
+   "case": "H -4%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8493144699477492,
+   "max_x": 0.24902054438506796,
+   "capped": true,
+   "case": "H -2%",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7827199935341461,
+   "max_x": 0.2501898335073814,
+   "capped": false,
+   "case": "H +2%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=221",
+   "k_end": 221,
+   "max_v": 0.9693006133016014,
+   "max_x": 0.2639840020420501,
+   "capped": false,
+   "case": "H +4%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=147",
+   "k_end": 147,
+   "max_v": 0.9138913256286018,
+   "max_x": 0.3200268096404025,
+   "capped": false,
+   "case": "H +6%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=144",
+   "k_end": 144,
+   "max_v": 0.9442767271606277,
+   "max_x": 0.32821051563171855,
+   "capped": false,
+   "case": "H +8%",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "35 deg off the plan at k=183",
+   "k_end": 183,
+   "max_v": 0.8973709916990614,
+   "max_x": 0.2653003479185112,
+   "capped": false,
+   "case": "B2 x0.5",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "36 deg off the plan at k=177",
+   "k_end": 177,
+   "max_v": 1.0,
+   "max_x": 0.3597532858169142,
+   "capped": false,
+   "case": "B2 x1.5",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "cart at -367 mm at k=142",
+   "k_end": 142,
+   "max_v": 0.9563799178031501,
+   "max_x": 0.3969054239611722,
+   "capped": false,
+   "case": "B2 x2",
+   "timer": false
+  },
+  {
+   "ok": false,
+   "why": "37 deg off the plan at k=136",
+   "k_end": 136,
+   "max_v": 0.9548564382631466,
+   "max_x": 0.3508452051981284,
+   "capped": false,
+   "case": "B2 x3",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7683517557218593,
+   "max_x": 0.2498092321108554,
+   "capped": false,
+   "case": "B1 +0.02",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7726524061741251,
+   "max_x": 0.25385775496934426,
+   "capped": false,
+   "case": "B1 +0.05",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.8014382655899606,
+   "max_x": 0.2612035345993293,
+   "capped": false,
+   "case": "B1 +0.1",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7811810116149571,
+   "max_x": 0.24942411697487513,
+   "capped": false,
+   "case": "delay 5 ms",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7740435882162838,
+   "max_x": 0.24947843329010205,
+   "capped": false,
+   "case": "delay 6 ms",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7576340244974719,
+   "max_x": 0.2497549973061688,
+   "capped": false,
+   "case": "delay 10 ms",
+   "timer": false
+  },
+  {
+   "ok": true,
+   "why": "",
+   "k_end": 250,
+   "max_v": 0.7598639227839706,
+   "max_x": 0.2499332676145529,
+   "capped": false,
+   "case": "delay 12 ms",
+   "timer": false
+  }
+ ]
+}
