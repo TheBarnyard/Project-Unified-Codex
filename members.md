@@ -7,7 +7,7 @@ Each member: what they own, which AI they use, and their PUC preferences. Edit y
 
 | Member | GitHub | Owns / works on | AI tools | context | transcripts |
 | --- | --- | --- | --- | --- | --- |
-| Barney (Ryan Barney) | TheBarnyard | Controls, swing-up, system ID, digital twin, wireless debugging | Claude | ask | no |
+| Barney (Ryan Barney; commits as "Ryan") | TheBarnyard | Controls, swing-up, system ID, digital twin, wireless debugging | Claude | topic | no |
 | Ethan [?] | etwan007 | ENGT480 repo owner, Pi automation, wireless TX (`Ethan_EXP`, `Ethan-wirelessTX`) | [?] | ask | no |
 | Jaren [?] | [?] | `Jaren_EXP` branch | [?] | ask | no |
 

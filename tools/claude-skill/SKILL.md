@@ -27,7 +27,7 @@ Re-pull before re-reading after a few minutes. Update the matching page as soon 
 Follow `AGENTS.md` section 3:
 1. Add one line to your final reply: "Anything to add to PUC before I save?" If the user answers later, append it to the same session file.
 2. Write the session file from `templates/session.md` and update the shared pages it touched.
-3. Commit `puc: <member> - <title>`, `git pull --rebase`, push. On a conflict keep both sides and push again.
+3. Commit `PUC: <member> - <title>`, `git pull --rebase`, push. On a conflict keep both sides and push again.
 4. Tell the user in one short line that PUC was updated, naming the session file.
 
 ## Hard rules

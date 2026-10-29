@@ -13,7 +13,7 @@ You are working with the Project Unified Codex (PUC): the shared memory of the E
    - `full`: also read every page linked from INDEX.md.
    - `ask` or not listed: ask the user once which they want, and offer to save it as their default.
 5. Before trusting a page for a decision, check its `updated:` date and any `[?]` or `[HYP]` tags.
-6. If you can push: find session files with `pages_applied: no` (written from ChatGPT and other AIs without git). Apply their "Proposed page updates" to the shared pages, set `pages_applied: yes`, and commit as `puc: apply updates from <session file>`.
+6. If you can push: find session files with `pages_applied: no` (written from ChatGPT and other AIs without git). Apply their "Proposed page updates" to the shared pages, set `pages_applied: yes`, and commit as `PUC: apply updates from <session file>`.
 
 ## 2. During the session
 
@@ -26,7 +26,7 @@ You are working with the Project Unified Codex (PUC): the shared memory of the E
 2. Write one session file: `sessions/YYYY/MM/YYYY-MM-DD_HHMM_<member>_<short-slug>.md` from [templates/session.md](templates/session.md). One file per session; if you continue the same session later, append to it.
 3. Update the shared pages the session touched: [BRIEF.md](BRIEF.md) if the project state changed, [hardware-state.md](hardware-state.md), [params.md](params.md), [open-questions.md](open-questions.md), [gotchas.md](gotchas.md), `subsystems/`, `debug/`, `decisions/`. Add new pages to [INDEX.md](INDEX.md).
 4. Full transcript: only if the member has `transcripts: yes` in members.md. Save it to `transcripts/YYYY/MM/<same name as the session>.md` after applying rule 4 below.
-5. Commit with the message `puc: <member> - <session title>`, then `git pull --rebase` and push. On a conflict, keep both sides' text and push again.
+5. Commit with the message `PUC: <member> - <session title>`, then `git pull --rebase` and push. On a conflict, keep both sides' text and push again.
 
 ## 4. What may go in (hard rule)
 
