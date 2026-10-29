@@ -15,7 +15,7 @@ transcript: none
 Interpret Barney's bench supply test on a XIAO transmitter.
 
 ## What happened
-- Barney powered one transmitter from a DC bench supply and varied voltage and current limit.
+- Barney powered TX1 (on 2026-10-28) from a DC bench supply and varied voltage and current limit.
 
 ## Findings
 - 3.3 V vs 5 V: little or no difference in radio age or timeouts [HW].
@@ -37,4 +37,4 @@ Interpret Barney's bench supply test on a XIAO transmitter.
 - Receiver lockup cause (esptool chip-id --before no-reset check).
 
 ## Update 20:30 UTC
-- After the bench-supply tests, angle 2 reports `encoder_read_failed` continuously while radio age stays 1-6 ms [HW]: TX2's radio link works but its MT6701 I2C read fails. Reflashing repo `TX2.ino` (MAC e8:f6:0a:15:1b:48) did not change it [HW]. Suspect wiring/power to the encoder after the bench test, or damage if 5 V reached the 3V3 rail [HYP]. Checks sent: encoder VDD ~3.3 V, SDA D4 / SCL D5, shared GND.
+- After the bench-supply tests, angle 2 reports `encoder_read_failed` continuously while radio age stays 1-6 ms [HW]: TX2's radio link works but its MT6701 I2C read fails. Reflashing repo `TX2.ino` (MAC e8:f6:0a:15:1b:48) did not change it [HW]. ~~Suspect wiring/power to the encoder after the bench test, or damage if 5 V reached the 3V3 rail [HYP].~~ Superseded 20:32 UTC (Barney): the bench test was on TX1, not TX2. Now suspect a loose/broken encoder wire on the moving arm (I2C NACK, not a magnet issue) [HYP]. Checks sent: encoder VDD ~3.3 V, SDA D4 / SCL D5, shared GND.
