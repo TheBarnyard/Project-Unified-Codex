@@ -14,7 +14,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 
 - Single pendulum balance: 22.8 min on 2026-10-14 [HW].
 - Double pendulum balance: 12.8 min on 2026-10-21 with `PythonMaster2_auto_improved.py` [HW].
-- Double swing-up: catches in the digital twin [SIM]; fails on the rig so far.
+- Double swing-up: catches in the digital twin [SIM] (also with the new arms, 2026-10-29: [twin v3](https://claude.ai/artifact/27Ekbq9KoELfP2hwoJJZir)); fails on the rig so far.
 
 ## Current state (2026-10-28)
 

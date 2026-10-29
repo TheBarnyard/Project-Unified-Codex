@@ -25,4 +25,5 @@ updated_by: Barney (Claude, new arms model session, correction)
 ## Digital twin
 - Browser page (`Pendulum_Digital_Twin_1.html`, Pyodide) running the repo Python unchanged against emulated firmware (Arduino, ESP32 receiver, TX1/TX2), stepper and nonlinear arms.
 - Tuning is by SysID fit plus comparing metrics (arm RMS, cart std, time upright) and robustness sweeps. There is no learning algorithm in it.
+- 2026-10-29 v3 ([session](../sessions/2026/10/2026-10-29_2133_Barney_twin-new-arms-math.md)): [Pendulum Digital Twin](https://claude.ai/artifact/27Ekbq9KoELfP2hwoJJZir) now uses the new arms (STL model, 25 mm gap a guess [?]) and only the 4 main controllers, plus a Math tab (16 interactive lessons) and a Math-in-our-code tab. Build files: project files `TwinV3/`.
 - MuJoCo RL is planned after the arms are final; reward terms not yet defined.

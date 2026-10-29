@@ -9,6 +9,7 @@ updated_by: Ryan (Claude, math-folder session)
 - Rig script: `PythonMaster2_swingup.py` with `double_swingup_trajectory.json`. Both live only on the Pi in the legacy ENGT481 checkout [?].
 - Status: catches in the digital twin [SIM]; every rig attempt so far aborts. Current lead and plans: [debug record](../debug/2026-10-27_double-swingup-aborts.md). Limits: [params.md](../params.md).
 - The twin shows the TV-LQR swing is fragile: about 3% model ratio error, or B2 x1.5 or x0.5, makes it fail [SIM].
+- 2026-10-29 ([twin v3 session](../sessions/2026/10/2026-10-29_2133_Barney_twin-new-arms-math.md)): plan re-made for the new arms (`double_swingup_trajectory_newarms.json`, 2.5 s, peak 0.280 m / 0.753 m/s / 8.0 m/s²) with copy `PythonMaster2_swingup_newarms.py`; catches in the twin [SIM], not tried on the rig. Files in project files `TwinV3/ctl3/DoublePendulum/`.
 - 2026-10-29 (Ryan/Claude, [math-folder session](../sessions/2026/10/2026-10-29_1448_Barney_math-folder.md)): full math and an independent simulator in [Math/Double](../Math/Double/README.md); every gain of the double scripts reproduced exactly. Findings:
   - Independent re-implementation agrees with the twin: one ratio off by 2-3 % or B2 x0.5/x1.5 breaks the stored 2.5 s plan [SIM].
   - All 35 rig attempts 2026-10-21 to 2026-10-28: the error from the plan jumps from about 3° to about 9° between k = 100 and 110 in every attempt, before the 0.831 m/s cap at k ≈ 113 [HW]. Model error is the likely cause, the cap the symptom [HYP]. [Math/Double 7.3](../Math/Double/07_results.md#73-what-the-rig-did-hw)
