@@ -13,3 +13,5 @@ status: active
 **Revisit when:** the real arm is weighed and real STLs are available.
 
 **Source:** [arms and model](../subsystems/arms-and-model.md).
+
+**Update 2026-10-29:** the revisit trigger is now met (real STLs and part weights received). An STL-based estimate is in [params.md](../params.md#new-arms-mass-properties-stls--measured-weights-2026-10-29). Not re-decided yet; the fitted ratios stay in use until the team compares them. See [session](../sessions/2026/10/2026-10-29_1559_Barney_new-arms-model.md).

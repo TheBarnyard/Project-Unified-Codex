@@ -1,6 +1,6 @@
 ---
 updated: 2026-10-29
-updated_by: Ryan (Claude, math-folder session)
+updated_by: Barney (Claude, new arms model session)
 ---
 # Key parameters
 
@@ -54,4 +54,15 @@ Constants and settings people keep needing. Each value has a source. Conflicting
 | PLAN_SPEED (latest plan) | 0.60 m/s |
 
 ## New arm 1 estimate (CAD, not measured)
-106.6 g, CoM 46.1 mm from pivot, Izz about pivot 5.99e-4 kg m^2. Do not use for control; it does not match the rig. Weigh the real arm.
+~~106.6 g, CoM 46.1 mm from pivot, Izz about pivot 5.99e-4 kg m^2. Do not use for control; it does not match the rig. Weigh the real arm.~~ Superseded 2026-10-29 by [new arms model session](sessions/2026/10/2026-10-29_1559_Barney_new-arms-model.md): that estimate came from photos only.
+
+## New arms mass properties (STLs + measured weights, 2026-10-29)
+Model from the team STLs and Barney's weights; LiPo (14 g) and MT6701 board (1.5 g) assumed. [?] not yet checked on the rig. Frame: origin on the hinge axis, x toward the tip hole. "Link" = parts that turn with the arm (bearing outer ring and balls count; shaft, collar, magnet, inner ring do not).
+
+| Body | Mass | CoM along arm | Izz about hinge | Izz about CoM | Hanging period |
+| --- | --- | --- | --- | --- | --- |
+| Arm 1 alone (200 mm) | 98.1 g | 52.2 mm | 6.07e-4 kg m² | 3.40e-4 kg m² | 0.691 s |
+| Arm 2 alone (250 mm, same mounts, arm mass scaled by volume) | 107.1 g | 66.3 mm | 1.069e-3 kg m² | 5.97e-4 kg m² | |
+| Double link 1 = arm 1 + joint-2 shaft 8x40 (assumed), collar, magnet in its tip | 124.6 g | 83.6 mm | 1.668e-3 kg m² | 7.96e-4 kg m² | |
+
+Source: `build_arms_v2.py` in the [viewer](https://claude.ai/artifact/8SnLwfoxa9DyULJxHKt21b) download and `/mnt/project-files/NewArmModel_v2/`. Conflict: rig IDENTIFY period 0.84-0.89 s vs 0.691 s here, see open question 10.
