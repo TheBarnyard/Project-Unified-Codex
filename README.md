@@ -17,7 +17,8 @@ It is a memory, not an AI. Nothing here runs by itself; the AIs follow the rules
 
 - **Claude (claude.ai projects, Claude Code):** install the skill in [tools/claude-skill/SKILL.md](tools/claude-skill/SKILL.md). It pulls PUC when you start and pushes a session log when you finish. Claude Code also reads [CLAUDE.md](CLAUDE.md) automatically when this repo is open.
 - **Codex CLI, Cursor, Copilot, Gemini CLI, other coding agents:** open or clone this repo; they read [AGENTS.md](AGENTS.md) automatically.
-- **ChatGPT, Gemini app, local models without git:** paste [prompts/start.md](prompts/start.md) at the start, and [prompts/end.md](prompts/end.md) at the end. The end prompt gives you one block to paste into GitHub (Add file > Create new file).
+- **ChatGPT:** follow [SETUP-CHATGPT.md](SETUP-CHATGPT.md) (10-minute one-time setup).
+- **Gemini app, local models without git:** paste [prompts/start.md](prompts/start.md) at the start, and [prompts/end.md](prompts/end.md) at the end. The end prompt gives you one block to paste into GitHub (Add file > Create new file).
 - **People:** read it on GitHub like any docs folder, or open the folder in Obsidian.
 
 ## The one hard rule

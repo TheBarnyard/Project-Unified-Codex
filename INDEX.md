@@ -42,5 +42,6 @@ Every page in PUC, one line each. Add new pages here.
 
 ## Other
 - [templates/](templates/): session, debug, decision, subsystem templates
+- [SETUP-CHATGPT.md](SETUP-CHATGPT.md): step-by-step setup guide for teammates using ChatGPT
 - [prompts/](prompts/): start and end prompts for ChatGPT and other AIs without git
 - [tools/claude-skill/SKILL.md](tools/claude-skill/SKILL.md): the PUC skill for Claude
