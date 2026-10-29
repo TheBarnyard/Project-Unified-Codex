@@ -35,3 +35,6 @@ Interpret Barney's bench supply test on a XIAO transmitter.
 - Optional: low TX power firmware copies, retest at 150 mA limit.
 - Test whether one transmitter dropping out affects the other (expected: no).
 - Receiver lockup cause (esptool chip-id --before no-reset check).
+
+## Update 20:30 UTC
+- After the bench-supply tests, angle 2 reports `encoder_read_failed` continuously while radio age stays 1-6 ms [HW]: TX2's radio link works but its MT6701 I2C read fails. Reflashing repo `TX2.ino` (MAC e8:f6:0a:15:1b:48) did not change it [HW]. Suspect wiring/power to the encoder after the bench test, or damage if 5 V reached the 3V3 rail [HYP]. Checks sent: encoder VDD ~3.3 V, SDA D4 / SCL D5, shared GND.
