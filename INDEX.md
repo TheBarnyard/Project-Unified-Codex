@@ -20,6 +20,12 @@ Every page in PUC, one line each. Add new pages here.
 - [subsystems/arms-and-model.md](subsystems/arms-and-model.md): arms, model ratios, system ID, digital twin, MuJoCo
 - [subsystems/repos-and-pi-workflow.md](subsystems/repos-and-pi-workflow.md): repos, branches, Pi checkouts, logs branch, run logs
 
+## Math
+- [Math/README.md](Math/README.md): teaching pages for the math behind balance and swing-up
+- [Math/Single/README.md](Math/Single/README.md): single pendulum math and code comparison
+- [Math/Double/README.md](Math/Double/README.md): double pendulum math
+- [Math/Triple/README.md](Math/Triple/README.md): triple pendulum math
+
 ## Debug records
 - [debug/2026-10-07_encoder-data-loss.md](debug/2026-10-07_encoder-data-loss.md): bad angles and startup junk on the receiver link
 - [debug/2026-10-27_angle-dropouts.md](debug/2026-10-27_angle-dropouts.md): ANGLE1_MISSING dropouts (TX1 power) and TX2 never received
