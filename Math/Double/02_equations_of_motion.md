@@ -195,7 +195,7 @@ Upright at rest $`E = g(p_1+p_2) = +0.807`$ J; hanging at rest $`-0.807`$ J. A s
 \frac{dE}{dt} = -a\,(p_1\cos\theta_1\,\omega_1 + p_2\cos\theta_2\,\omega_2) + \tau_1\omega_1 + \tau_2\omega_2
 ```
 
-So the cart adds energy when it accelerates against $`p_1\cos\theta_1\omega_1 + p_2\cos\theta_2\omega_2`$ and removes it when it accelerates with it. The script's RECOVER mode uses $`a = 0.20\,(P_1\cos\theta_1\omega_1 + P_2\cos\theta_2\omega_2)`$ ("swing power"), so $`dE/dt = -0.20 J_1(\ldots)^2 \le 0`$: it only ever takes energy out, which settles the arms for the next attempt ([5.7](05_swing_up.md#57-abort-recover-and-retry)).
+So the cart adds energy when it accelerates against $`p_1\cos\theta_1\omega_1 + p_2\cos\theta_2\omega_2`$ and removes it when it accelerates with it. The script's RECOVER mode uses $`a = 0.20\,(P_1\cos\theta_1\omega_1 + P_2\cos\theta_2\omega_2)`$ ("swing power"), so $`dE/dt = -0.20 J_1(\ldots)^2 \le 0`$: it only ever takes energy out, which settles the arms for the next attempt ([5.7](05_swing_up.md#58-abort-recover-and-retry)).
 
 Why this law cannot do the swing-up the way it does for the single arm: [5.1](05_swing_up.md#51-why-not-energy-pumping-like-the-single).
 

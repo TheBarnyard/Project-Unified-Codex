@@ -39,7 +39,34 @@ So the swing-up needs P1, P2, J2r and H within about 2-3 % and the joint frictio
 
 The ratio sets the team has used differ from each other by up to 10 % (P2) and 7 % (J2r) ([1.5](01_variables.md#15-the-ratios-what-the-scripts-and-system-id-really-use)): far more than this tolerance.
 
+**Physical errors vs ratio errors.** A real arm cannot have one ratio wrong on its own: if arm 2 is heavier than the model, P1, P2, J2r and H all change together, and $`H = L_1P_2`$ always holds ([1.5](01_variables.md#15-the-ratios-what-the-scripts-and-system-id-really-use)). [`sims/physical_errors.py`](sims/physical_errors.py) makes a plan for the physical arm values (with the swing-fit joint friction, same limits as the stored plan, effort 29.3) and tests the same controller against one **physical** value off at a time ([`physical_errors.json`](sims/physical_errors.json)) [SIM]:
+
+| Real arm differs from the model in | Still catches | Fails |
+| --- | --- | --- |
+| arm 1 mass $`m_1`$ (207 g) | -15 % to +20 % | -20 % |
+| arm 1 inertia $`I_1`$ | -40 % to +20 % | +30 % |
+| arm 1 CoM $`c_1`$ (87 mm) | ±10 mm (all tested) | |
+| arm 2 CoM $`c_2`$ (106 mm) | ±10 mm (all tested) | |
+| joint 2 position $`L_1`$ (200 mm) | ±6 mm | ±10 mm |
+| arm 2 mass $`m_2`$ (210 g) | -8 % to +5 % | -10 %, +6 % |
+| **arm 2 inertia $`I_2`$** | **-4 % to +6 %** | -6 %, +10 % |
+| one ratio alone (P1, P2, J2r or H), same model | ±2 % (all four) | ±4 to 6 % (each ratio somewhere) |
+
+So the swing-up is not uniformly fragile: a centre of mass 10 mm off is harmless, because it moves $`p_2`$ and $`J_2`$ together and barely changes how the arms swing. The numbers that really matter are **arm 2's mass and inertia**: at the edge of what still catches ($`m_2`$ -8 % or +5 %, $`I_2`$ -4 % or +6 %), arm 2's own swing frequency $`\sqrt{g\,p_2/J_2}`$ (arm 2 swinging on a fixed joint) has moved by only 1-2 %. Next come $`L_1`$ and arm 1's inertia. Ratio fits that are free to break $`H = L_1P_2`$ can be wrong in exactly the directions that hurt.
+
 **The v060 plan** (`double_swingup_trajectory_v060.json`, PLAN_SPEED 0.60 m/s, branch `claude/project-thread-orcdoj` of TheBarnyard/ChatGPT-Pendulum-Project), same 28 single-error cases (±2, 4, 6 % in each ratio and B2 x0.5, 1.5, 2): 13 catches vs 11 for the stored plan. More speed headroom helps a little; it is not enough on its own [SIM].
+
+**Longer plans** ([`sims/longer_plans.py`](sims/longer_plans.py), [`longer_plans.json`](sims/longer_plans.json)): the same model (swing-fit ratios) and the same limits (±0.25 m, 0.75 m/s, 8 m/s², top 1.0 m/s), but 3.0 or 3.5 s instead of 2.5 s, tested on the same 35 single errors as above (ratios ±2 to 8 %, B2 ×0.5, 1.5, 2) [SIM]:
+
+| Plan | Effort $`\int a^2dt`$ | Peak speed / accel. | Catches (of 35 errors + nominal) | Joint friction B2 ×0.5 / ×1.5 / ×2 |
+| --- | --- | --- | --- | --- |
+| stored, 2.5 s | 29.4 | 0.75 m/s / 7.9 m/s² | 11 of 36 | fail / fail / fail |
+| 3.0 s | 23.8 | 0.75 / 7.4 | 19 of 36 | catch / catch / fail |
+| **3.5 s** | **18.5** | **0.73 / 5.7** | **25 of 36** | **catch / catch / catch** |
+
+A longer plan is gentler and leaves the feedback more time and more speed to correct; it more than doubles the number of model errors survived, including the joint friction being anywhere from half to twice the model's. The triple shows the same effect even more strongly ([Triple 4.7](../Triple/04_swing_up.md#47-which-model-errors-it-survives-sim)).
+
+Both plans are in the swing-up script's own file format ([`data/double_swingup_trajectory_3.5s.json`](data/double_swingup_trajectory_3.5s.json), [`_3.0s.json`](data/double_swingup_trajectory_3.0s.json)) and were checked with the script's own `plan_problem` (dynamics mismatch 2e-11, all limits met) and `load_trajectory` (reads 350 steps) [SIM]. To try one on the rig [HYP], back up `double_swingup_trajectory.json`, copy the 3.5 s file over it and start a normal run: the script takes the plan length from the file. The plans are for the swing-fit ratios; if the script's ratios have changed since, it warns, and `--plan` can walk the 3.5 s plan over to the new ratios (the file carries the script's own unknowns `p`). Not tried on the rig yet.
 
 ## 7.3 What the rig did [HW]
 
@@ -93,6 +120,9 @@ All [HYP]; none of these has been tried on the rig.
 | Add a Coulomb (constant-torque) joint friction term to the model | B2 fits 0.03 for balancing and 0.114 for swinging, a typical sign of Coulomb friction (6.3) | one more parameter to fit |
 | More speed headroom: lower `PLAN_SPEED_M_S`, or fix the rounding (choose the timer value nearest the request when accelerating) | the feedback can then act after k = 113 | v060 plan: 13 vs 11 of 28 in simulation |
 | Plan robustly: one plan that works for several ratio sets at once (minimise the worst case) | trades effort for tolerance | longer planning |
+| **Longer plan: 3.5 s instead of 2.5 s, same limits** | 25 of 36 single errors survived instead of 11, including B2 ×0.5 to ×2 (7.2); plan file ready | one rig session; no code change |
+| Fit the model in physical form, or at least with $`H`$ fixed to 0.200 m x $`P_2`$ | the swing-up tolerates physical errors far better than broken-structure ones (7.2); the swing-fit set implies $`L_1`$ = 0.218 m | refit only, no rig time |
+| Measure arm 2's own swing period: hang it from joint 2 with arm 1 clamped, time 20 swings | gives $`J_2/p_2`$, the most sensitive number (7.2), to well under 1 % | 5 minutes with a phone stopwatch |
 
 ## 7.6 Rerun everything
 

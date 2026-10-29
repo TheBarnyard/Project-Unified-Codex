@@ -20,7 +20,7 @@
   "why": "36 deg off the plan at k=177",
   "k_end": 177,
   "max_v": 1.0,
-  "max_x": 0.3597532858169142,
+  "max_x": 0.3597532858169131,
   "capped": false
  },
  "cases": [
@@ -39,7 +39,7 @@
    "why": "36 deg off the plan at k=241",
    "k_end": 241,
    "max_v": 0.8309570312500001,
-   "max_x": 0.2843458454376808,
+   "max_x": 0.28434584543768077,
    "capped": true,
    "case": "P1 -8%",
    "timer": true
@@ -49,7 +49,7 @@
    "why": "36 deg off the plan at k=244",
    "k_end": 244,
    "max_v": 0.8309570312500001,
-   "max_x": 0.2709163527515946,
+   "max_x": 0.27091635275159454,
    "capped": true,
    "case": "P1 -6%",
    "timer": true
@@ -59,7 +59,7 @@
    "why": "balance lost",
    "k_end": 250,
    "max_v": 0.8309570312500001,
-   "max_x": 0.2542290713017883,
+   "max_x": 0.25422907130178823,
    "capped": true,
    "case": "P1 -4%",
    "timer": true
@@ -69,7 +69,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.779022216796875,
-   "max_x": 0.24906804106889335,
+   "max_x": 0.24906804106889333,
    "capped": false,
    "case": "P1 -2%",
    "timer": true
@@ -79,7 +79,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.779022216796875,
-   "max_x": 0.24793032929401826,
+   "max_x": 0.24793032929401823,
    "capped": false,
    "case": "P1 +2%",
    "timer": true
@@ -99,7 +99,7 @@
    "why": "balance lost",
    "k_end": 250,
    "max_v": 0.8309570312500001,
-   "max_x": 0.24594602803048737,
+   "max_x": 0.24594602803048735,
    "capped": true,
    "case": "P1 +6%",
    "timer": true
@@ -109,7 +109,7 @@
    "why": "36 deg off the plan at k=224",
    "k_end": 224,
    "max_v": 0.8309570312500001,
-   "max_x": 0.24595529282341597,
+   "max_x": 0.24595529282341594,
    "capped": true,
    "case": "P1 +8%",
    "timer": true
@@ -179,7 +179,7 @@
    "why": "36 deg off the plan at k=147",
    "k_end": 147,
    "max_v": 0.8309570312500001,
-   "max_x": 0.3611868830170742,
+   "max_x": 0.36118688301707413,
    "capped": true,
    "case": "P2 +6%",
    "timer": true
@@ -259,7 +259,7 @@
    "why": "39 deg off the plan at k=154",
    "k_end": 154,
    "max_v": 0.8309570312500001,
-   "max_x": 0.27357025181479844,
+   "max_x": 0.2735702518147985,
    "capped": true,
    "case": "J2r +6%",
    "timer": true
@@ -279,7 +279,7 @@
    "why": "35 deg off the plan at k=173",
    "k_end": 173,
    "max_v": 0.8309570312500001,
-   "max_x": 0.320845684806571,
+   "max_x": 0.32084568480657094,
    "capped": true,
    "case": "H -8%",
    "timer": true
@@ -289,7 +289,7 @@
    "why": "36 deg off the plan at k=203",
    "k_end": 203,
    "max_v": 0.8309570312500001,
-   "max_x": 0.3164604967349889,
+   "max_x": 0.3164604967349888,
    "capped": true,
    "case": "H -6%",
    "timer": true
@@ -299,7 +299,7 @@
    "why": "balance lost",
    "k_end": 250,
    "max_v": 0.8309570312500001,
-   "max_x": 0.26504811722824334,
+   "max_x": 0.2650481172282433,
    "capped": true,
    "case": "H -4%",
    "timer": true
@@ -309,7 +309,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.8309570312500001,
-   "max_x": 0.2473229635365961,
+   "max_x": 0.24732296353659608,
    "capped": true,
    "case": "H -2%",
    "timer": true
@@ -349,7 +349,7 @@
    "why": "37 deg off the plan at k=145",
    "k_end": 145,
    "max_v": 0.8309570312500001,
-   "max_x": 0.3180319767000061,
+   "max_x": 0.31803197670000605,
    "capped": true,
    "case": "H +8%",
    "timer": true
@@ -459,7 +459,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.733197380514706,
-   "max_x": 0.24883052360219435,
+   "max_x": 0.24864749730268287,
    "capped": false,
    "case": "delay 12 ms",
    "timer": true
@@ -469,7 +469,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7654421344205531,
-   "max_x": 0.24955648800179667,
+   "max_x": 0.24955648800179756,
    "capped": false,
    "case": "nominal",
    "timer": false
@@ -479,7 +479,7 @@
    "why": "36 deg off the plan at k=241",
    "k_end": 241,
    "max_v": 1.0,
-   "max_x": 0.2972999302145576,
+   "max_x": 0.2972999302145523,
    "capped": false,
    "case": "P1 -8%",
    "timer": false
@@ -489,7 +489,7 @@
    "why": "37 deg off the plan at k=243",
    "k_end": 243,
    "max_v": 0.9867521316235159,
-   "max_x": 0.2735539618391638,
+   "max_x": 0.2735539618391634,
    "capped": true,
    "case": "P1 -6%",
    "timer": false
@@ -499,7 +499,7 @@
    "why": "balance lost",
    "k_end": 250,
    "max_v": 0.9999293886614704,
-   "max_x": 0.2641637556153123,
+   "max_x": 0.26416375561531236,
    "capped": false,
    "case": "P1 -4%",
    "timer": false
@@ -509,7 +509,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7753486469108175,
-   "max_x": 0.25597875312964996,
+   "max_x": 0.25597875312964985,
    "capped": false,
    "case": "P1 -2%",
    "timer": false
@@ -519,7 +519,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7584521695626641,
-   "max_x": 0.24901867555510346,
+   "max_x": 0.2490186755551035,
    "capped": false,
    "case": "P1 +2%",
    "timer": false
@@ -529,7 +529,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.839700303066835,
-   "max_x": 0.2484783205443896,
+   "max_x": 0.24847832054439012,
    "capped": false,
    "case": "P1 +4%",
    "timer": false
@@ -549,7 +549,7 @@
    "why": "35 deg off the plan at k=223",
    "k_end": 223,
    "max_v": 0.9310031996206892,
-   "max_x": 0.24769127966960403,
+   "max_x": 0.2476912796696049,
    "capped": false,
    "case": "P1 +8%",
    "timer": false
@@ -559,7 +559,7 @@
    "why": "36 deg off the plan at k=224",
    "k_end": 224,
    "max_v": 0.992304210570339,
-   "max_x": 0.25453472462372656,
+   "max_x": 0.2545347246237259,
    "capped": false,
    "case": "P2 -8%",
    "timer": false
@@ -569,7 +569,7 @@
    "why": "37 deg off the plan at k=248",
    "k_end": 248,
    "max_v": 0.9873825263930035,
-   "max_x": 0.3207036940085295,
+   "max_x": 0.32070369400852833,
    "capped": false,
    "case": "P2 -6%",
    "timer": false
@@ -599,7 +599,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.8113629654083654,
-   "max_x": 0.26889217892423645,
+   "max_x": 0.26889217892423734,
    "capped": false,
    "case": "P2 +2%",
    "timer": false
@@ -609,7 +609,7 @@
    "why": "39 deg off the plan at k=191",
    "k_end": 191,
    "max_v": 1.0,
-   "max_x": 0.3548768408388885,
+   "max_x": 0.3548768408388886,
    "capped": false,
    "case": "P2 +4%",
    "timer": false
@@ -619,7 +619,7 @@
    "why": "cart at -362 mm at k=144",
    "k_end": 144,
    "max_v": 0.9446095641983225,
-   "max_x": 0.37540053986829797,
+   "max_x": 0.3754005398682985,
    "capped": false,
    "case": "P2 +6%",
    "timer": false
@@ -629,7 +629,7 @@
    "why": "36 deg off the plan at k=144",
    "k_end": 144,
    "max_v": 0.9523522921456531,
-   "max_x": 0.38326947120186483,
+   "max_x": 0.38326947120186494,
    "capped": false,
    "case": "P2 +8%",
    "timer": false
@@ -649,7 +649,7 @@
    "why": "36 deg off the plan at k=143",
    "k_end": 143,
    "max_v": 0.9546599681990356,
-   "max_x": 0.35487713370267615,
+   "max_x": 0.35487713370267754,
    "capped": false,
    "case": "J2r -6%",
    "timer": false
@@ -659,7 +659,7 @@
    "why": "38 deg off the plan at k=145",
    "k_end": 145,
    "max_v": 0.9400143188893366,
-   "max_x": 0.35191774266712406,
+   "max_x": 0.3519177426671248,
    "capped": false,
    "case": "J2r -4%",
    "timer": false
@@ -669,7 +669,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.8203479594921866,
-   "max_x": 0.29233464487065103,
+   "max_x": 0.29233464487065125,
    "capped": false,
    "case": "J2r -2%",
    "timer": false
@@ -679,7 +679,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.9330355785899046,
-   "max_x": 0.30156529722814956,
+   "max_x": 0.3015652972281507,
    "capped": false,
    "case": "J2r +2%",
    "timer": false
@@ -689,7 +689,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.9904534975449907,
-   "max_x": 0.2809528382977784,
+   "max_x": 0.2809528382977785,
    "capped": false,
    "case": "J2r +4%",
    "timer": false
@@ -699,7 +699,7 @@
    "why": "36 deg off the plan at k=158",
    "k_end": 158,
    "max_v": 0.9939824103491888,
-   "max_x": 0.29192722458938336,
+   "max_x": 0.29192722458938386,
    "capped": false,
    "case": "J2r +6%",
    "timer": false
@@ -709,7 +709,7 @@
    "why": "36 deg off the plan at k=124",
    "k_end": 124,
    "max_v": 0.9503412145628761,
-   "max_x": 0.2509192058816041,
+   "max_x": 0.25091920588160443,
    "capped": false,
    "case": "J2r +8%",
    "timer": false
@@ -719,7 +719,7 @@
    "why": "36 deg off the plan at k=206",
    "k_end": 206,
    "max_v": 1.0,
-   "max_x": 0.30423516196704464,
+   "max_x": 0.3042351619670473,
    "capped": false,
    "case": "H -8%",
    "timer": false
@@ -729,7 +729,7 @@
    "why": "36 deg off the plan at k=212",
    "k_end": 212,
    "max_v": 0.9907870992236086,
-   "max_x": 0.3005251868487736,
+   "max_x": 0.3005251868487739,
    "capped": true,
    "case": "H -6%",
    "timer": false
@@ -749,7 +749,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.8493144699477492,
-   "max_x": 0.24902054438506796,
+   "max_x": 0.24902054438506696,
    "capped": true,
    "case": "H -2%",
    "timer": false
@@ -759,7 +759,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7827199935341461,
-   "max_x": 0.2501898335073814,
+   "max_x": 0.25018983350738194,
    "capped": false,
    "case": "H +2%",
    "timer": false
@@ -769,7 +769,7 @@
    "why": "36 deg off the plan at k=221",
    "k_end": 221,
    "max_v": 0.9693006133016014,
-   "max_x": 0.2639840020420501,
+   "max_x": 0.26398400204204936,
    "capped": false,
    "case": "H +4%",
    "timer": false
@@ -779,7 +779,7 @@
    "why": "35 deg off the plan at k=147",
    "k_end": 147,
    "max_v": 0.9138913256286018,
-   "max_x": 0.3200268096404025,
+   "max_x": 0.32002680964040237,
    "capped": false,
    "case": "H +6%",
    "timer": false
@@ -789,7 +789,7 @@
    "why": "36 deg off the plan at k=144",
    "k_end": 144,
    "max_v": 0.9442767271606277,
-   "max_x": 0.32821051563171855,
+   "max_x": 0.32821051563171794,
    "capped": false,
    "case": "H +8%",
    "timer": false
@@ -799,7 +799,7 @@
    "why": "35 deg off the plan at k=183",
    "k_end": 183,
    "max_v": 0.8973709916990614,
-   "max_x": 0.2653003479185112,
+   "max_x": 0.26530034791851165,
    "capped": false,
    "case": "B2 x0.5",
    "timer": false
@@ -809,7 +809,7 @@
    "why": "36 deg off the plan at k=177",
    "k_end": 177,
    "max_v": 1.0,
-   "max_x": 0.3597532858169142,
+   "max_x": 0.3597532858169131,
    "capped": false,
    "case": "B2 x1.5",
    "timer": false
@@ -819,7 +819,7 @@
    "why": "cart at -367 mm at k=142",
    "k_end": 142,
    "max_v": 0.9563799178031501,
-   "max_x": 0.3969054239611722,
+   "max_x": 0.3969054239611726,
    "capped": false,
    "case": "B2 x2",
    "timer": false
@@ -829,7 +829,7 @@
    "why": "37 deg off the plan at k=136",
    "k_end": 136,
    "max_v": 0.9548564382631466,
-   "max_x": 0.3508452051981284,
+   "max_x": 0.3508452051981291,
    "capped": false,
    "case": "B2 x3",
    "timer": false
@@ -839,7 +839,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7683517557218593,
-   "max_x": 0.2498092321108554,
+   "max_x": 0.24980923211085587,
    "capped": false,
    "case": "B1 +0.02",
    "timer": false
@@ -849,7 +849,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7726524061741251,
-   "max_x": 0.25385775496934426,
+   "max_x": 0.25385775496934454,
    "capped": false,
    "case": "B1 +0.05",
    "timer": false
@@ -859,7 +859,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.8014382655899606,
-   "max_x": 0.2612035345993293,
+   "max_x": 0.26120353459933,
    "capped": false,
    "case": "B1 +0.1",
    "timer": false
@@ -869,7 +869,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7811810116149571,
-   "max_x": 0.24942411697487513,
+   "max_x": 0.24942411697487515,
    "capped": false,
    "case": "delay 5 ms",
    "timer": false
@@ -889,7 +889,7 @@
    "why": "",
    "k_end": 250,
    "max_v": 0.7576340244974719,
-   "max_x": 0.2497549973061688,
+   "max_x": 0.24975499730616935,
    "capped": false,
    "case": "delay 10 ms",
    "timer": false
@@ -898,8 +898,8 @@
    "ok": true,
    "why": "",
    "k_end": 250,
-   "max_v": 0.7598639227839706,
-   "max_x": 0.2499332676145529,
+   "max_v": 0.7603485240113785,
+   "max_x": 0.2497293115421217,
    "capped": false,
    "case": "delay 12 ms",
    "timer": false

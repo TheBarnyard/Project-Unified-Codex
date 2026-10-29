@@ -27,8 +27,11 @@ Every page in PUC, one line each. Add new pages here.
 - [Math/README.md](Math/README.md): teaching pages for the math behind balance and swing-up
 - [Math/Single/README.md](Math/Single/README.md): single pendulum math and code comparison (start here)
   - [01 variables](Math/Single/01_variables.md), [02 equations of motion](Math/Single/02_equations_of_motion.md), [03 linear model](Math/Single/03_linear_model.md), [04 LQR](Math/Single/04_lqr.md), [05 Kalman/LQG](Math/Single/05_kalman_lqg.md), [06 sensing and actuation](Math/Single/06_sensing_actuation.md), [07 swing-up](Math/Single/07_swing_up.md), [08 balance vs swing-up](Math/Single/08_balance_vs_swingup.md), [09 code walkthrough](Math/Single/09_code_walkthrough.md), [10 simulations and rig results](Math/Single/10_results.md), [sims](Math/Single/sims/README.md)
-- [Math/Double/README.md](Math/Double/README.md): double pendulum math
-- [Math/Triple/README.md](Math/Triple/README.md): triple pendulum math
+- [Math/Double/README.md](Math/Double/README.md): double pendulum math, balance and planned swing-up, every gain checked against the team's scripts, all 35 rig swing-up attempts
+  - [01 variables](Math/Double/01_variables.md), [02 equations of motion](Math/Double/02_equations_of_motion.md), [03 linear model](Math/Double/03_linear_model.md), [04 balance](Math/Double/04_balance.md), [05 swing-up](Math/Double/05_swing_up.md), [06 balance vs swing-up](Math/Double/06_balance_vs_swingup.md), [07 simulations and rig results](Math/Double/07_results.md), [sims](Math/Double/sims/README.md)
+- [Math/Triple/README.md](Math/Triple/README.md): triple pendulum math on an assumed rig (double + a third arm) [HYP][SIM]
+  - [01 model](Math/Triple/01_model.md), [02 linear model](Math/Triple/02_linear_model.md), [03 balance](Math/Triple/03_balance.md), [04 swing-up](Math/Triple/04_swing_up.md), [05 comparison](Math/Triple/05_comparison.md), [sims](Math/Triple/sims/README.md)
+- [Math/shared/README.md](Math/shared/README.md): n-link model, LQR, Kalman, swing-up planner, TV-LQR and the scripts' control loops in Python (used by Double and Triple)
 
 ## Debug records
 - [debug/2026-10-07_encoder-data-loss.md](debug/2026-10-07_encoder-data-loss.md): bad angles and startup junk on the receiver link

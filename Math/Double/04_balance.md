@@ -198,6 +198,8 @@ Design with the SYSID ratios, simulate arms that differ (one ratio at a time, 1-
 | B2 | 0 to 0.30 (10x) | - |
 | real motor delay | 5 to 18 ms (design 9 ms) | - |
 
+In physical terms (linear closed loop with the Kalman filter, physical arm values, one value at a time; [`../Triple/sims/triple_model.py`](../Triple/sims/triple_model.py) [SIM]) the balance survives arm 1 mass -27 % to +143 %, arm 2 mass -49 % to +34 %, arm 2 inertia -44 % to +125 %, either CoM more than ±37 mm off, and joint 2's position more than ±57 mm off. Real arms are nowhere near those limits.
+
 Linearised closed loop including the Kalman filter agrees: the largest $`|z|`$ crosses 1 at about P1 -5 % and P2 +5 %. So the balance tolerates large errors in most directions but only about 5 % in the direction "arm 2 relatively heavier than the model". The rig balancing for 12.8 minutes with these ratios means the real arms lie inside that region [HW]. The swing-up is far less tolerant: about 2-4 % in every direction ([7.2](07_results.md#72-which-model-errors-the-swing-up-survives-sim)).
 
 ## 4.11 Generation 3: the balance after a swing-up
@@ -211,7 +213,7 @@ Linearised closed loop including the Kalman filter agrees: the largest $`|z|`$ c
 K = [-138.67,\ 0.41,\ 232.78,\ 28.19,\ 20.55,\ 21.32,\ 0]
 ```
 
-(rig log `swingup_double_20261027_184605`: identical). Its cost-to-go matrix $`P`$ is also the end condition of the swing-up's TV-LQR ([5.5](05_swing_up.md#55-tracking-the-plan-time-varying-lqr)), so the swing feedback hands over smoothly.
+(rig log `swingup_double_20261027_184605`: identical). Its cost-to-go matrix $`P`$ is also the end condition of the swing-up's TV-LQR ([5.5](05_swing_up.md#56-tracking-the-plan-time-varying-lqr)), so the swing feedback hands over smoothly.
 
 ## 4.12 Tuning guide (from the script's header)
 

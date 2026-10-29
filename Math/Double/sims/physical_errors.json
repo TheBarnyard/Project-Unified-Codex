@@ -1,0 +1,318 @@
+{
+ "nominal": [
+  true,
+  ""
+ ],
+ "ratio P1 -6%": [
+  false,
+  "36 deg off the plan at k=231"
+ ],
+ "ratio P1 -4%": [
+  false,
+  "36 deg off the plan at k=245"
+ ],
+ "ratio P1 -2%": [
+  true,
+  ""
+ ],
+ "ratio P1 +2%": [
+  true,
+  ""
+ ],
+ "ratio P1 +4%": [
+  true,
+  ""
+ ],
+ "ratio P1 +6%": [
+  false,
+  "balance lost"
+ ],
+ "ratio P2 -6%": [
+  true,
+  ""
+ ],
+ "ratio P2 -4%": [
+  true,
+  ""
+ ],
+ "ratio P2 -2%": [
+  true,
+  ""
+ ],
+ "ratio P2 +2%": [
+  true,
+  ""
+ ],
+ "ratio P2 +4%": [
+  false,
+  "36 deg off the plan at k=136"
+ ],
+ "ratio P2 +6%": [
+  false,
+  "36 deg off the plan at k=134"
+ ],
+ "ratio J2r -6%": [
+  false,
+  "39 deg off the plan at k=133"
+ ],
+ "ratio J2r -4%": [
+  false,
+  "38 deg off the plan at k=134"
+ ],
+ "ratio J2r -2%": [
+  true,
+  ""
+ ],
+ "ratio J2r +2%": [
+  true,
+  ""
+ ],
+ "ratio J2r +4%": [
+  true,
+  ""
+ ],
+ "ratio J2r +6%": [
+  false,
+  "35 deg off the plan at k=158"
+ ],
+ "ratio H -6%": [
+  false,
+  "35 deg off the plan at k=234"
+ ],
+ "ratio H -4%": [
+  true,
+  ""
+ ],
+ "ratio H -2%": [
+  true,
+  ""
+ ],
+ "ratio H +2%": [
+  true,
+  ""
+ ],
+ "ratio H +4%": [
+  false,
+  "balance lost"
+ ],
+ "ratio H +6%": [
+  false,
+  "36 deg off the plan at k=236"
+ ],
+ "phys m1 -20%": [
+  false,
+  "balance lost"
+ ],
+ "phys m1 -15%": [
+  true,
+  ""
+ ],
+ "phys m1 -10%": [
+  true,
+  ""
+ ],
+ "phys m1 -5%": [
+  true,
+  ""
+ ],
+ "phys m1 +5%": [
+  true,
+  ""
+ ],
+ "phys m1 +10%": [
+  true,
+  ""
+ ],
+ "phys m1 +20%": [
+  true,
+  ""
+ ],
+ "phys m2 -20%": [
+  false,
+  "36 deg off the plan at k=112"
+ ],
+ "phys m2 -10%": [
+  false,
+  "37 deg off the plan at k=184"
+ ],
+ "phys m2 -8%": [
+  true,
+  ""
+ ],
+ "phys m2 -6%": [
+  true,
+  ""
+ ],
+ "phys m2 -5%": [
+  true,
+  ""
+ ],
+ "phys m2 +5%": [
+  true,
+  ""
+ ],
+ "phys m2 +6%": [
+  false,
+  "35 deg off the plan at k=214"
+ ],
+ "phys m2 +8%": [
+  false,
+  "36 deg off the plan at k=134"
+ ],
+ "phys m2 +10%": [
+  false,
+  "38 deg off the plan at k=134"
+ ],
+ "phys m2 +20%": [
+  false,
+  "36 deg off the plan at k=113"
+ ],
+ "phys I1 -40%": [
+  true,
+  ""
+ ],
+ "phys I1 -20%": [
+  true,
+  ""
+ ],
+ "phys I1 -10%": [
+  true,
+  ""
+ ],
+ "phys I1 +10%": [
+  true,
+  ""
+ ],
+ "phys I1 +20%": [
+  true,
+  ""
+ ],
+ "phys I1 +30%": [
+  false,
+  "balance lost"
+ ],
+ "phys I1 +40%": [
+  false,
+  "36 deg off the plan at k=231"
+ ],
+ "phys I2 -40%": [
+  false,
+  "38 deg off the plan at k=95"
+ ],
+ "phys I2 -20%": [
+  false,
+  "38 deg off the plan at k=112"
+ ],
+ "phys I2 -10%": [
+  false,
+  "35 deg off the plan at k=133"
+ ],
+ "phys I2 -6%": [
+  false,
+  "36 deg off the plan at k=136"
+ ],
+ "phys I2 -4%": [
+  true,
+  ""
+ ],
+ "phys I2 -2%": [
+  true,
+  ""
+ ],
+ "phys I2 +2%": [
+  true,
+  ""
+ ],
+ "phys I2 +4%": [
+  true,
+  ""
+ ],
+ "phys I2 +6%": [
+  true,
+  ""
+ ],
+ "phys I2 +10%": [
+  false,
+  "balance lost"
+ ],
+ "phys I2 +20%": [
+  false,
+  "37 deg off the plan at k=114"
+ ],
+ "phys I2 +40%": [
+  false,
+  "36 deg off the plan at k=102"
+ ],
+ "phys c1 -10 mm": [
+  true,
+  ""
+ ],
+ "phys c1 -6 mm": [
+  true,
+  ""
+ ],
+ "phys c1 -3 mm": [
+  true,
+  ""
+ ],
+ "phys c1 +3 mm": [
+  true,
+  ""
+ ],
+ "phys c1 +6 mm": [
+  true,
+  ""
+ ],
+ "phys c1 +10 mm": [
+  true,
+  ""
+ ],
+ "phys c2 -10 mm": [
+  true,
+  ""
+ ],
+ "phys c2 -6 mm": [
+  true,
+  ""
+ ],
+ "phys c2 -3 mm": [
+  true,
+  ""
+ ],
+ "phys c2 +3 mm": [
+  true,
+  ""
+ ],
+ "phys c2 +6 mm": [
+  true,
+  ""
+ ],
+ "phys c2 +10 mm": [
+  true,
+  ""
+ ],
+ "phys L1 -10 mm": [
+  false,
+  "36 deg off the plan at k=209"
+ ],
+ "phys L1 -6 mm": [
+  true,
+  ""
+ ],
+ "phys L1 -3 mm": [
+  true,
+  ""
+ ],
+ "phys L1 +3 mm": [
+  true,
+  ""
+ ],
+ "phys L1 +6 mm": [
+  true,
+  ""
+ ],
+ "phys L1 +10 mm": [
+  false,
+  "36 deg off the plan at k=235"
+ ]
+}

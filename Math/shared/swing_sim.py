@@ -120,12 +120,15 @@ def run(rig_true, ctrl, T_total, Ts=0.01, tau_true=0.008, h=0.0005, noise_counts
     f = lambda zz, aa: nl.accel_dynamics(rig_true, zz, aa)
 
     def coast(z, dt):
+        if dt <= 0:
+            return z
         m = max(1, int(round(dt / h)))
         for _ in range(m):
             z = nl.rk4(f, z, 0.0, dt / m)
         return z
 
     out = {k: [] for k in ("t", "z", "x_hat", "v_cmd", "v_sent", "a", "mode", "k")}
+    pending = []
     steps = int(round(T_total / Ts))
     for s in range(steps):
         t = s * Ts
@@ -146,9 +149,15 @@ def run(rig_true, ctrl, T_total, Ts=0.01, tau_true=0.008, h=0.0005, noise_counts
         out["mode"].append(ctrl.log["mode"]); out["k"].append(ctrl.log["k"])
         if "trim" in ctrl.log:
             out.setdefault("trim", []).append(ctrl.log["trim"])
-        z = coast(z, tau_true)
-        z = nl.speed_jump(rig_true, z, v - z[2 * n + 1])
-        z = coast(z, Ts - tau_true)
+        # the new speed lands tau_true after the sample; with tau_true > Ts it lands in a later period
+        pending.append((t + tau_true, v))
+        cur = t
+        while pending and pending[0][0] <= t + Ts + 1e-12:
+            ta, vv = pending.pop(0)
+            z = coast(z, ta - cur)
+            z = nl.speed_jump(rig_true, z, vv - z[2 * n + 1])
+            cur = ta
+        z = coast(z, t + Ts - cur)
         if stop_on_fail and ctrl.mode in ("ABORT", "LOST") and abs(z[2 * n + 1]) < 1e-6:
             break
         if not np.all(np.isfinite(z)):

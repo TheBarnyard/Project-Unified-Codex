@@ -1,6 +1,6 @@
 ---
 updated: 2026-10-29
-updated_by: Barney (Claude, new arms model session, correction)
+updated_by: Ryan (Claude, math-folder session)
 ---
 # Project brief
 
@@ -18,7 +18,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 
 ## Current state (2026-10-28)
 
-- **Double swing-up on the rig:** every attempt aborts around step 110 to 200 of 250. Latest lead: the cart gets stuck at about 0.83 m/s because the torque limit is smaller than one stepper timer step. A slower plan (PLAN_SPEED 0.60) was sent 2026-10-28, untested on the rig. See [debug/2026-10-27_double-swingup-aborts.md](debug/2026-10-27_double-swingup-aborts.md).
+- **Double swing-up on the rig:** every attempt aborts around step 110 to 200 of 250. Latest lead: the cart gets stuck at about 0.83 m/s because the torque limit is smaller than one stepper timer step. A slower plan (PLAN_SPEED 0.60) was sent 2026-10-28, untested on the rig. 2026-10-29 [SIM]: a longer 3.5 s plan with the same limits survives about twice as many model errors; ready to try in `Math/Double/data/`. See [debug/2026-10-27_double-swingup-aborts.md](debug/2026-10-27_double-swingup-aborts.md).
 - **Angle dropouts:** likely fixed by powering TX1 from the Mega 5 V instead of 3.3 V (2026-10-27). A 20+ min controller run to confirm is still pending. See [debug/2026-10-27_angle-dropouts.md](debug/2026-10-27_angle-dropouts.md).
 - **TX2 (angle 2):** working since 2026-10-27 after reflashing the repo `TX2.ino`; the old firmware on it was wrong.
 - **New arm 1 (PLA):** installed. The fitted model ratios still match it; the old photo-based estimate does not. 2026-10-29: arms rebuilt from the team's STLs and measured weights. Arm 1: 98.1 g, CoM 147.8 mm from its pivot (small hole), Izz pivot 2.48e-3 kg m²; predicted hanging period 0.83-0.86 s vs rig 0.84-0.89 s. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
@@ -26,6 +26,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 - **MuJoCo / RL:** planned once the mechanical team finishes updating the arms; reward terms not defined.
 - **Gate Report 2:** drafted 2026-10-26.
 - **PUC:** this codex was set up 2026-10-28.
+- **Math teaching pages:** [Math/](Math/README.md) for single, double (both checked against the team's scripts) and triple (assumed rig), 2026-10-29.
 
 ## Where things live
 

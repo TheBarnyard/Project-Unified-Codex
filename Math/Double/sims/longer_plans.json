@@ -1,0 +1,400 @@
+{
+ "3.0s": {
+  "effort": 23.816300155103427,
+  "peak": {
+   "track_m": 0.25000000983086573,
+   "speed_m_s": 0.7500000097212843,
+   "accel_m_s2": 7.371096177213052
+  },
+  "team_check": {
+   "n_unknowns": 115,
+   "n_in_file": 115,
+   "max_state_diff": 3.7548097964190674e-10,
+   "max_accel_diff": 2.0872192862952943e-14,
+   "max_equality_violation": 3.8758329878874065e-10,
+   "min_inequality_margin": -9.721284444097478e-09,
+   "load_trajectory_N": 300
+  },
+  "robustness": {
+   "nominal": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.779022216796875
+   },
+   "P1 -8%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=278",
+    "max_v": 0.8309570312500001
+   },
+   "P1 -6%": {
+    "ok": false,
+    "why": "balance lost",
+    "max_v": 0.8309570312500001
+   },
+   "P1 -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P1 -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.779022216796875
+   },
+   "P1 +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P1 +4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P1 +6%": {
+    "ok": false,
+    "why": "35 deg off the plan at k=239",
+    "max_v": 0.8309570312500001
+   },
+   "P1 +8%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=242",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -8%": {
+    "ok": false,
+    "why": "35 deg off the plan at k=235",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -6%": {
+    "ok": false,
+    "why": "38 deg off the plan at k=237",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P2 +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.779022216796875
+   },
+   "P2 +4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P2 +6%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=263",
+    "max_v": 0.8309570312500001
+   },
+   "P2 +8%": {
+    "ok": false,
+    "why": "37 deg off the plan at k=242",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -8%": {
+    "ok": false,
+    "why": "38 deg off the plan at k=256",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -6%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.779022216796875
+   },
+   "J2r +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "J2r +4%": {
+    "ok": false,
+    "why": "37 deg off the plan at k=235",
+    "max_v": 0.8309570312500001
+   },
+   "J2r +6%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=238",
+    "max_v": 0.8309570312500001
+   },
+   "J2r +8%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=230",
+    "max_v": 0.8309570312500001
+   },
+   "H -8%": {
+    "ok": false,
+    "why": "37 deg off the plan at k=234",
+    "max_v": 0.8309570312500001
+   },
+   "H -6%": {
+    "ok": false,
+    "why": "37 deg off the plan at k=240",
+    "max_v": 0.8309570312500001
+   },
+   "H -4%": {
+    "ok": false,
+    "why": "35 deg off the plan at k=248",
+    "max_v": 0.8309570312500001
+   },
+   "H -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "H +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "H +4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "H +6%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "H +8%": {
+    "ok": false,
+    "why": "38 deg off the plan at k=274",
+    "max_v": 0.8309570312500001
+   },
+   "B2 x0.5": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "B2 x1.5": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "B2 x2": {
+    "ok": false,
+    "why": "35 deg off the plan at k=266",
+    "max_v": 0.8309570312500001
+   }
+  }
+ },
+ "3.5s": {
+  "effort": 18.4532929227449,
+  "peak": {
+   "track_m": 0.25000000897461894,
+   "speed_m_s": 0.7299777052037649,
+   "accel_m_s2": 5.727521179898144
+  },
+  "team_check": {
+   "n_unknowns": 125,
+   "n_in_file": 125,
+   "max_state_diff": 3.1658231591791264e-11,
+   "max_accel_diff": 9.547918011776346e-15,
+   "max_equality_violation": 2.09241513005054e-11,
+   "min_inequality_margin": 0.00010723368241280506,
+   "load_trajectory_N": 350
+  },
+  "robustness": {
+   "nominal": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "P1 -8%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=320",
+    "max_v": 0.8309570312500001
+   },
+   "P1 -6%": {
+    "ok": false,
+    "why": "balance lost",
+    "max_v": 0.8309570312500001
+   },
+   "P1 -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "P1 -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "P1 +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "P1 +4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "P1 +6%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.779022216796875
+   },
+   "P1 +8%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -8%": {
+    "ok": false,
+    "why": "37 deg off the plan at k=334",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -6%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "P2 -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "P2 +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.656018708881579
+   },
+   "P2 +4%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=346",
+    "max_v": 0.8309570312500001
+   },
+   "P2 +6%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=311",
+    "max_v": 0.8309570312500001
+   },
+   "P2 +8%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=299",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -8%": {
+    "ok": false,
+    "why": "37 deg off the plan at k=318",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -6%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "J2r -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.656018708881579
+   },
+   "J2r -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.656018708881579
+   },
+   "J2r +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.779022216796875
+   },
+   "J2r +4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.8309570312500001
+   },
+   "J2r +6%": {
+    "ok": false,
+    "why": "35 deg off the plan at k=311",
+    "max_v": 0.8309570312500001
+   },
+   "J2r +8%": {
+    "ok": false,
+    "why": "36 deg off the plan at k=296",
+    "max_v": 0.8309570312500001
+   },
+   "H -8%": {
+    "ok": false,
+    "why": "35 deg off the plan at k=321",
+    "max_v": 0.8309570312500001
+   },
+   "H -6%": {
+    "ok": false,
+    "why": "balance lost",
+    "max_v": 0.8309570312500001
+   },
+   "H -4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "H -2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "H +2%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "H +4%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "H +6%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "H +8%": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.733197380514706
+   },
+   "B2 x0.5": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "B2 x1.5": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   },
+   "B2 x2": {
+    "ok": true,
+    "why": "",
+    "max_v": 0.6924641927083334
+   }
+  }
+ }
+}

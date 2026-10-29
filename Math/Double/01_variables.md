@@ -98,9 +98,20 @@ Ratio sets that have been used on the rig (see [params.md](../../params.md) for 
 
 The four sets differ by up to 10 % in P2 and 7 % in J2r. That matters a lot for the swing-up and very little for balancing ([7](07_results.md)).
 
+**A built-in check: $`H = L_1 P_2`$.** Because $`h_{12} = L_1 p_2`$ ([2.9](02_equations_of_motion.md#29-any-number-of-links)), dividing by $`J_1`$ gives $`H = L_1 P_2`$, with $`L_1`$ = 0.200 m the measured distance from the main pivot to joint 2. So only three of the four ratios are really free once $`L_1`$ is known. What each set implies:
+
+| Set | $`H/P_2`$ (the $`L_1`$ the set implies) | vs the real 0.200 m |
+| --- | --- | --- |
+| physical (calculated) | 0.2000 m | 0 |
+| SYSID, first fit | 0.1962 m | -1.9 % |
+| SysID, new arm 1 | 0.2061 m | +3.1 % |
+| swing-fit [HYP] | 0.2178 m | **+8.9 %** |
+
+A fit that moves $`H`$ and $`P_2`$ independently can land on arm values no real arm has. The swing-up tolerates errors in real physical values (mass, CoM, inertia) much better than errors that break this link ([7.2](07_results.md#72-which-model-errors-the-swing-up-survives-sim)) [SIM]. (Found 2026-10-29 in the math-folder session; not yet discussed with the team.)
+
 ## 1.6 Controller constants
 
-All listed with their meaning where they are used: balance weights in [4](04_balance.md#44-the-weights-brysons-rule), swing-up plan limits and tracking weights in [5](05_swing_up.md#58-every-swing-up-constant), rig limits in [params.md](../../params.md).
+All listed with their meaning where they are used: balance weights in [4](04_balance.md#44-the-weights-brysons-rule), swing-up plan limits and tracking weights in [5](05_swing_up.md#59-every-swing-up-constant), rig limits in [params.md](../../params.md).
 
 ## 1.7 Units cheat sheet
 

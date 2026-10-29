@@ -52,7 +52,9 @@ flowchart LR
 | Arm 2 leans 1° | cart first accelerates 5 m/s² **away** from it | same |
 | Energy to add in a swing-up | 1.614 J | [2.8](02_equations_of_motion.md#28-energy-used-by-the-recovery-mode) |
 | Stored plan | 2.5 s, cart ±0.25 m, 0.75 m/s, 7.9 m/s², ∫a²dt = 29.4 | [5.4](05_swing_up.md#54-how---plan-solves-it) |
-| Swing-up tolerance to model error | about 2-3 % per ratio [SIM] | [7.2](07_results.md#72-which-model-errors-the-swing-up-survives-sim) |
+| Swing-up tolerance to model error | about 2-3 % per ratio; in physical values: CoMs ±10 mm, arm 1 mass -15/+20 %, but arm 2 mass -8/+5 % and arm 2 inertia -4/+6 % [SIM] | [7.2](07_results.md#72-which-model-errors-the-swing-up-survives-sim) |
+| Longer plan, same limits [SIM] | 3.5 s plan survives 25 of 36 single model errors (stored 2.5 s plan: 11), incl. joint friction ×0.5 to ×2; file ready in the script's format | [7.2](07_results.md#72-which-model-errors-the-swing-up-survives-sim) |
+| Check on the fitted ratios | $`H = L_1P_2`$ must hold; the swing-fit set implies $`L_1`$ = 0.218 m instead of 0.200 m | [1.5](01_variables.md#15-the-ratios-what-the-scripts-and-system-id-really-use) |
 | Balance tolerance | about 5 % in the worst direction, 15 % in others [SIM] | [4.10](04_balance.md#410-how-sensitive-is-the-balance-to-the-arm-values-sim) |
 | Longest balance | 767.7 s, arm std 0.97° / 0.63°, cart std 10.5 mm [HW] | [4.9](04_balance.md#49-on-the-rig) |
 | Swing-up attempts | 35 on the rig, 0 caught; all hit the 0.831 m/s ceiling [HW] | [7.3](07_results.md#73-what-the-rig-did-hw) |
@@ -60,8 +62,8 @@ flowchart LR
 ## Folders
 
 - [`images/`](images/): figures and animations (made by `sims/make_figures.py`).
-- [`sims/`](sims/README.md): `double_model.py`, `double_sims.py`, `make_figures.py`, `extract_hw_logs.py`, `verify_against_team_code.py`.
-- [`data/`](data/): the stored plan, every swing-up attempt and event from the rig logs, a 10 Hz copy of the 767 s balance run, one swing-up run in full.
+- [`sims/`](sims/README.md): `double_model.py`, `double_sims.py`, `physical_errors.py`, `longer_plans.py`, `make_figures.py`, `extract_hw_logs.py`, `verify_against_team_code.py`.
+- [`data/`](data/): the stored plan, 3.0 s and 3.5 s plans in the same format, a plan for the physical arm values, every swing-up attempt and event from the rig logs, a 10 Hz copy of the 767 s balance run, one swing-up run in full.
 - The model and controller code shared with [Triple](../Triple/README.md) is in [`Math/shared/`](../shared/README.md).
 
 ## Origin

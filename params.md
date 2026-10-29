@@ -1,6 +1,6 @@
 ---
 updated: 2026-10-29
-updated_by: Barney (Claude, new arms model session, correction)
+updated_by: Ryan (Claude, math-folder session)
 ---
 # Key parameters
 
@@ -42,6 +42,16 @@ Constants and settings people keep needing. Each value has a source. Conflicting
 | Previous ratios | 5.22342 | 2.01257 | 0.414 | 0.395 | | | Swing-up CSV config row, 2026-10-27 |
 | SysID with new arm 1 | 5.107 | 1.864 | 0.389 | 0.384 | 0.100 | 0.0049 | `apply_sysid.py`, 2026-10-27 |
 | Fit to 5 swing-ups | 5.164 | 1.802 | 0.391 | 0.392 | 0 | 0.114 | Swing window fit, 2026-10-27 [HYP] B2 about 20x the SysID value |
+
+Implied joint-2 distance H/P2 (must equal L1 = 0.200 m): previous ratios 0.196 m, SysID new arm 1 0.206 m, swing fit 0.218 m. Found 2026-10-29, [math-folder session](sessions/2026/10/2026-10-29_1448_Barney_math-folder.md); see open question 15.
+
+## Double controller gains (recomputed 2026-10-29, identical to the scripts)
+| Controller | Gain | Source |
+| --- | --- | --- |
+| `PythonMasterDouble-Claude.py` (= `PythonMaster2_auto_improved.py`) balance, SYSID ratios, 9 ms | K = [-192.219, -4.407, 283.906, 32.818, 20.537, 21.304, 0.418] on [θ1, ω1, θ2, ω2, x, v, a_prev] | [Math/Double 4.5](Math/Double/04_balance.md#45-the-gains-and-what-they-mean); rig log `balance_double_20261021_161621` identical |
+| `PythonMaster2_swingup.py` balance after the swing (swing-fit ratios, B2 0.03, staircase model) | K = [-138.669, 0.414, 232.784, 28.190, 20.548, 21.318, 0] | [Math/Double 4.11](Math/Double/04_balance.md#411-generation-3-the-balance-after-a-swing-up) |
+| `PythonMasterMath2.py` / `PythonMaster2_auto.py` (gen 1, force model) | Kd = [-165.773, -2.682, 240.538, 27.067, 10.742, 15.810], applied x1.5 | `control_matrices2.txt` |
+| Swing observer, per arm | [0.512, 18.21] per rad of angle innovation | [Math/Double 5.7](Math/Double/05_swing_up.md#57-estimating-the-state-during-the-swing) |
 
 ## Swing-up limits (double, as of 2026-10-28)
 | Parameter | Value |

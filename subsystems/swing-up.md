@@ -9,6 +9,12 @@ updated_by: Ryan (Claude, math-folder session)
 - Rig script: `PythonMaster2_swingup.py` with `double_swingup_trajectory.json`. Both live only on the Pi in the legacy ENGT481 checkout [?].
 - Status: catches in the digital twin [SIM]; every rig attempt so far aborts. Current lead and plans: [debug record](../debug/2026-10-27_double-swingup-aborts.md). Limits: [params.md](../params.md).
 - The twin shows the TV-LQR swing is fragile: about 3% model ratio error, or B2 x1.5 or x0.5, makes it fail [SIM].
+- 2026-10-29 (Ryan/Claude, [math-folder session](../sessions/2026/10/2026-10-29_1448_Barney_math-folder.md)): full math and an independent simulator in [Math/Double](../Math/Double/README.md); every gain of the double scripts reproduced exactly. Findings:
+  - Independent re-implementation agrees with the twin: one ratio off by 2-3 % or B2 x0.5/x1.5 breaks the stored 2.5 s plan [SIM].
+  - All 35 rig attempts 2026-10-21 to 2026-10-28: the error from the plan jumps from about 3° to about 9° between k = 100 and 110 in every attempt, before the 0.831 m/s cap at k ≈ 113 [HW]. Model error is the likely cause, the cap the symptom [HYP]. [Math/Double 7.3](../Math/Double/07_results.md#73-what-the-rig-did-hw)
+  - **A longer plan with the same limits is far more tolerant:** 3.5 s survives 25 of 36 single model errors (incl. B2 x0.5 to x2) vs 11 of 36 for the stored 2.5 s plan [SIM]. Ready in the script's file format: `Math/Double/data/double_swingup_trajectory_3.5s.json`, checked with the script's own `plan_problem` and `load_trajectory`. Untested on the rig. [Math/Double 7.2](../Math/Double/07_results.md#72-which-model-errors-the-swing-up-survives-sim)
+  - The fitted ratio sets break the identity H = L1·P2 (L1 = 0.200 m): the swing-fit set implies L1 = 0.218 m. In simulation the swing-up tolerates real physical errors (CoM ±10 mm, arm 1 mass -15/+20 %) far better than such ratio errors; arm 2's mass and inertia (about ±5 %) are the sensitive values [SIM]. [Math/Double 1.5](../Math/Double/01_variables.md#15-the-ratios-what-the-scripts-and-system-id-really-use)
+- Triple (no rig): the same method with n = 3 needs a 4.0 s plan to stay inside the rig's limits [SIM][HYP]. [Math/Triple](../Math/Triple/README.md)
 
 Plans sent (branch `claude/project-thread-orcdoj` of `TheBarnyard/ChatGPT-Pendulum-Project`, folder `DoubleSwingUp_NewArm/`):
 | File | Notes |

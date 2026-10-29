@@ -493,6 +493,42 @@ def balance_design_ramp(rig, Q, R, T=0.01, tau=0.009, **kal):
             "cl_eig": np.linalg.eigvals(Az - Bz @ K)}
 
 
+def balance_closed_loop_radius(design, rig_true, tau_true=0.009, T=0.01):
+    """Largest |eigenvalue| of the LINEAR closed loop: the real arms (rig_true, motor delay tau_true of any
+    length, also longer than T) with a ramp-model balance controller (balance_design_ramp: Kalman predictor
+    + K on [z, a_prev]) designed for another model. Below 1 = the balance holds. Used for the delay and
+    model-error tolerance tables of Math/Double and Math/Triple."""
+    A, B = linear_accel(rig_true)
+    nz = A.shape[0]
+    m = int(np.floor(tau_true / T + 1e-12))       # whole periods of delay
+    r = tau_true - m * T
+    Phi, G0, G1 = delay_discretize(A, B, T, r)   # z+ = Phi z + G0 u[k-m] + G1 u[k-m-1]
+    nh = m + 1                                   # stored commands u[k-1] ... u[k-m-1]
+    K, L, C = design["K"], design["L"], design["C"]
+    Kz, Ka = K[:, :nz], K[:, nz:]
+    I = np.eye(nz)
+    N = nz + nh + nz                             # [true z, command history, controller's prediction]
+    urow = np.zeros((1, N))                      # u[k] = -Kz x_hat - Ka u[k-1], x_hat = (I-LC) x_pred + LC z
+    urow[:, :nz] = -Kz @ L @ C
+    urow[:, nz] = -Ka[:, 0]
+    urow[:, nz + nh:] = -Kz @ (I - L @ C)
+    M = np.zeros((N, N))
+    if m == 0:
+        M[:nz] = np.hstack([Phi, np.zeros((nz, nh + nz))]) + G0 @ urow
+        M[:nz, nz] += G1[:, 0]
+    else:
+        M[:nz, :nz] = Phi
+        M[:nz, nz + m - 1] += G0[:, 0]
+        M[:nz, nz + m] += G1[:, 0]
+    M[nz] = urow
+    for i in range(1, nh):
+        M[nz + i, nz + i - 1] = 1.0
+    xh_row = np.hstack([L @ C, np.zeros((nz, nh)), I - L @ C])
+    M[nz + nh:] = design["Phi"] @ xh_row + design["G0"] @ urow
+    M[nz + nh:, nz] += design["G1"][:, 0]
+    return float(np.abs(np.linalg.eigvals(M)).max())
+
+
 def balance_design_stair(rig, Q, R, T=0.01, tau=0.009, **kal):
     """PythonMaster2_swingup.balance_design: same weights, staircase actuator model."""
     n = rig.n
