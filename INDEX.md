@@ -20,6 +20,9 @@ Every page in PUC, one line each. Add new pages here.
 - [subsystems/arms-and-model.md](subsystems/arms-and-model.md): arms, model ratios, system ID, digital twin, MuJoCo
 - [subsystems/repos-and-pi-workflow.md](subsystems/repos-and-pi-workflow.md): repos, branches, Pi checkouts, logs branch, run logs
 
+## Hardware
+- [Hardware/Datasheets/README.md](Hardware/Datasheets/README.md): datasheets, pinouts and manuals for every rig part (MT6701, XIAO ESP32-C3, ESP32-WROOM-32, Mega 2560, Pi 4B, UIM5756PM motor)
+
 ## Math
 - [Math/README.md](Math/README.md): teaching pages for the math behind balance and swing-up
 - [Math/Single/README.md](Math/Single/README.md): single pendulum math and code comparison

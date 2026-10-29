@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-28
-updated_by: Barney (Claude, PUC setup session)
+updated: 2026-10-29
+updated_by: Barney (Claude, hardware datasheets session)
 ---
 # Hardware state
 
@@ -12,8 +12,12 @@ What is physically on the rig right now. Update this whenever you flash, rewire,
 | TX2 (XIAO ESP32-C3, arm 2 encoder) | Repo `TX2.ino`, reflashed. MAC e8:f6:0a:15:1b:48. LiPo battery, charged through the XIAO USB | 2026-10-27 | [angle dropouts](debug/2026-10-27_angle-dropouts.md) |
 | Receiver (ESP32-WROOM, CP2102) | Original `Receivermaster` re-flashed after the framed test. [?] Which protocol version (6-byte unframed or v1 framed) is on it now | 2026-10-07 | [receiver](subsystems/receiver.md) |
 | Mega 2560 | `ArduinoSlave` | [?] | [cart](subsystems/cart-arduino.md) |
+| Cart motor | UIM5756PM closed-loop stepper, UIM344 controller built in. Microstep setting [?] | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
+| Raspberry Pi | Raspberry Pi 4 Model B, 8 GB | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
 | Arm 1 | New PLA arm | 2026-10-27 | [arms](subsystems/arms-and-model.md) |
 | Arm 2 | Old second arm | | [arms](subsystems/arms-and-model.md) |
 | Track limits | Limit switches must be more than 0.40 m from centre for current swing-up settings [?] unconfirmed | | [swing-up](subsystems/swing-up.md) |
+
+Datasheets and pinouts for all parts: [Hardware/Datasheets](Hardware/Datasheets/README.md).
 
 Backups: `~/Desktop/TX2Diag/TX2_backup_20261027.bin` on the Pi is TX2. The TX1 backup there may have been overwritten; re-back-up TX1.
