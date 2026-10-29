@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-28
-updated_by: Barney (Claude, PUC setup session)
+updated: 2026-10-29
+updated_by: Ryan (Claude, math-folder session)
 ---
 # Key parameters
 
@@ -21,6 +21,20 @@ Constants and settings people keep needing. Each value has a source. Conflicting
 | Parameter | Value | Source |
 | --- | --- | --- |
 | Single pendulum upright raw value | **CONFLICT:** 10687.7 in `PythonMaster.py` vs about 8994 if raw 802 is the free-hanging reading (about 37 deg apart) | Code vs 2026-10-07 bench. Unresolved, see [open-questions.md](open-questions.md) |
+| Single upright raw value, auto-calibrated each run (hanging + 8192) | 11716-11978 counts on 2026-10-16, 11945-11948 on 2026-10-27 [HW] | `PythonMasterUpExpClaudeImproved.py` run logs |
+
+## Single pendulum model and gains (`PythonMasterUpExpClaudeImproved.py`)
+| Parameter | Value | Source |
+| --- | --- | --- |
+| m, M, l, I (code) | 0.260 kg, 0.969 kg, 0.05 m, 0.003 kg m² | script lines 168-177 |
+| Arm w0 | **CONFLICT:** 5.911 rad/s (1.063 s) from the code's m, l, I vs **7.09-7.47 rad/s (0.84-0.89 s) measured** by IDENTIFY in 20 rig runs [HW] | open question 9 |
+| I used for LQG after IDENTIFY | 0.001634-0.001888 kg m² | rig logs [HW] |
+| LQR | Q = diag(40, 5, 150, 60), R = 1, applied ×2; K ≈ [51.7, 7.24, -10.8, -12.1] after IDENTIFY | [Math/Single 4](Math/Single/04_lqr.md) |
+| Balance-only scripts LQR | Q = diag(5, 5, 5, 5), R = 1, ×2; K = [35.5, 6.27, -2.06, -4.29] | `PythonMaster.py`, `PythonMaster_auto.py` |
+| Kalman | Q_N = 0.5 I4, R_N = 0.01 I2 | script line 230 |
+| Swing-up | accel 6 m/s², speed 0.6 m/s, energy gain 4, target 1.03 (adapts 0.97-1.30) | [Math/Single 7.9](Math/Single/07_swing_up.md#79-every-swing-up-constant) |
+| Catch window | 0.30 rad, 3.5 rad/s, e 0.95-1.15, cart < 0.12 m | same |
+| Cart limits | LQG gives up at 0.22 m, soft stop 0.30 m; LQG clips 0.8 m/s, 15 m/s² | same |
 
 ## Double pendulum model ratios (normalized by M11 = J1cm + m1 c1^2 + m2 L1^2)
 | Set | P1 | P2 | J2r | H | B1 | B2 | Source |

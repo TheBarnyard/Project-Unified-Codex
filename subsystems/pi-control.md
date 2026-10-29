@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-28
-updated_by: Barney (Claude, PUC setup session)
+updated: 2026-10-29
+updated_by: Ryan (Claude, math-folder session)
 ---
 # Raspberry Pi control
 
@@ -11,7 +11,8 @@ A Raspberry Pi 4 runs the controllers in Python (`~/PythonLibraries/bin/python`)
 | `Code/CommunicationTest.py` | Link test (6-byte format) |
 | `Code/SinglePendulum/PythonMaster.py` | Single balance (6-byte format) |
 | `Code/SinglePendulum/PythonMaster_autocalibrate.py` | Single balance with auto-calibration (protocol v1) |
-| `Code/SinglePendulum/PythonMasterSwingUpExp.py`, `swingup_control.py` | Single swing-up |
+| `Code/SinglePendulum/PythonMasterSwingUpExp.py`, `swingup_control.py` | Single swing-up (earlier version) |
+| `LegacyPi/Code/SinglePendulum/PythonMasterUpExpClaudeImproved.py` (ENGT480 `experiment/legacy-pi-recovery`) | Best single swing-up + LQG balance (Barney, 2026-10-29). Explained in [Math/Single](../Math/Single/README.md) |
 | `Code/DoublePendulum/PythonMasterMath2.py` | Offline double-pendulum gains (`control_matrices2.txt`, `symbolic_model2.pkl`) |
 | `Code/DoublePendulum/PythonMasterControl2.py`, `_autocalibrate.py` | Double balance |
 | `PythonMaster2_auto_improved.py` | Double balance, 12.8 min record (2026-10-21). [?] which repo or branch |

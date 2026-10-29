@@ -25,7 +25,8 @@ Every page in PUC, one line each. Add new pages here.
 
 ## Math
 - [Math/README.md](Math/README.md): teaching pages for the math behind balance and swing-up
-- [Math/Single/README.md](Math/Single/README.md): single pendulum math and code comparison
+- [Math/Single/README.md](Math/Single/README.md): single pendulum math and code comparison (start here)
+  - [01 variables](Math/Single/01_variables.md), [02 equations of motion](Math/Single/02_equations_of_motion.md), [03 linear model](Math/Single/03_linear_model.md), [04 LQR](Math/Single/04_lqr.md), [05 Kalman/LQG](Math/Single/05_kalman_lqg.md), [06 sensing and actuation](Math/Single/06_sensing_actuation.md), [07 swing-up](Math/Single/07_swing_up.md), [08 balance vs swing-up](Math/Single/08_balance_vs_swingup.md), [09 code walkthrough](Math/Single/09_code_walkthrough.md), [10 simulations and rig results](Math/Single/10_results.md), [sims](Math/Single/sims/README.md)
 - [Math/Double/README.md](Math/Double/README.md): double pendulum math
 - [Math/Triple/README.md](Math/Triple/README.md): triple pendulum math
 

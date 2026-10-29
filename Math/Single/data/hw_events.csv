@@ -1,0 +1,132 @@
+run,type,elapsed_s,text
+balance_20261016_131628_614744.csv,identify,4.002342259000216,identify=failed; using model w0
+balance_20261016_131628_614744.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261016_132151_303586.csv,identify,3.291282788999524,"identify=ok; period_s=0.8466; w0_rad_s=7.4220; amplitude_deg=21.38; decay_per_period=0.1384; model_period_s=1.0630; Ival_identified=0.001665; Kd=[[51.124058027778055, 7.033655095834644, -10.77009134371795, -12.00311571133322]]"
+balance_20261016_132151_303586.csv,mode_switch,5.267108594000092,to=LQG; theta_deg=-17.161; thetaDot_rad_s=3.202; energy_norm=1.0485
+balance_20261016_132151_303586.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261016_132301_322274.csv,identify,3.2998276789994634,"identify=ok; period_s=0.8465; w0_rad_s=7.4224; amplitude_deg=21.38; decay_per_period=0.1416; model_period_s=1.0630; Ival_identified=0.001665; Kd=[[51.122654899986486, 7.033180335469021, -10.770030568189902, -12.002937914640837]]"
+balance_20261016_132301_322274.csv,mode_switch,5.386713500000042,to=LQG; theta_deg=-16.765; thetaDot_rad_s=1.343; energy_norm=0.9739
+balance_20261016_132301_322274.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261016_160234_984214.csv,identify,3.2435241200000746,"identify=ok; period_s=0.8466; w0_rad_s=7.4219; amplitude_deg=22.09; decay_per_period=0.1324; model_period_s=1.0630; Ival_identified=0.001665; Kd=[[51.12478353972745, 7.033900584958459, -10.770122765697895, -12.00320764158967]]"
+balance_20261016_160234_984214.csv,mode_switch,4.859372399999984,to=LQG; theta_deg=15.732; thetaDot_rad_s=-2.903; energy_norm=1.0390
+balance_20261016_160234_984214.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261019_085318_401915.csv,fault,0.6388149079999721,"stage=updating controller state; cycle=43; raw_angles=(226, 65535, 65535); cart_steps=3256; motor_command=46; angle_details=; RuntimeError: Cart passed the 0.30 m soft limit (+0.326 m from the start); stopping motor"
+balance_20261019_085318_401915.csv,stop,,RuntimeError: Cart passed the 0.30 m soft limit (+0.326 m from the start); stopping motor; dropped_samples=0
+balance_20261019_085419_880270.csv,fault,0.23830502600003456,"stage=updating controller state; cycle=2; raw_angles=(14, 65535, 65535); cart_steps=1249; motor_command=-415; angle_details=; RuntimeError: Cart passed the 0.30 m soft limit (-0.817 m from the start); stopping motor"
+balance_20261019_085419_880270.csv,stop,,RuntimeError: Cart passed the 0.30 m soft limit (-0.817 m from the start); stopping motor; dropped_samples=0
+balance_20261019_085523_628901.csv,fault,0.28467367100006413,"stage=updating controller state; cycle=8; raw_angles=(16258, 65535, 65535); cart_steps=-4352; motor_command=-66; angle_details=; RuntimeError: Cart passed the 0.30 m soft limit (-0.559 m from the start); stopping motor"
+balance_20261019_085523_628901.csv,stop,,RuntimeError: Cart passed the 0.30 m soft limit (-0.559 m from the start); stopping motor; dropped_samples=0
+balance_20261019_085807_544626.csv,fault,0.26629665299992666,"stage=updating controller state; cycle=6; raw_angles=(54, 65535, 65535); cart_steps=-12528; motor_command=-100; angle_details=; RuntimeError: Cart passed the 0.30 m soft limit (-1.351 m from the start); stopping motor"
+balance_20261019_085807_544626.csv,stop,,RuntimeError: Cart passed the 0.30 m soft limit (-1.351 m from the start); stopping motor; dropped_samples=0
+balance_20261019_090350_338789.csv,fault,0.2428396979998979,"stage=updating controller state; cycle=4; raw_angles=(28, 65535, 65535); cart_steps=20449; motor_command=-194; angle_details=; RuntimeError: Cart passed the 0.30 m soft limit (+2.039 m from the start); stopping motor"
+balance_20261019_090350_338789.csv,stop,,RuntimeError: Cart passed the 0.30 m soft limit (+2.039 m from the start); stopping motor; dropped_samples=0
+balance_20261021_084546_638531.csv,identify,3.2339521720000164,"identify=ok; period_s=0.8408; w0_rad_s=7.4725; amplitude_deg=21.43; decay_per_period=0.1556; model_period_s=1.0630; Ival_identified=0.001634; Kd=[[50.90608526735953, 6.960083186802497, -10.7605549590085, -11.975413508969792]]"
+balance_20261021_084546_638531.csv,mode_switch,4.855435555000014,to=LQG; theta_deg=15.913; thetaDot_rad_s=-3.407; energy_norm=1.0656
+balance_20261021_084546_638531.csv,mode_switch,21.26510841000001,to=SWING_UP; theta_deg=-50.498; thetaDot_rad_s=-7.073
+balance_20261021_084546_638531.csv,mode_switch,21.825435318000018,to=LQG; theta_deg=16.430; thetaDot_rad_s=-2.676; energy_norm=1.0233
+balance_20261021_084546_638531.csv,mode_switch,25.57493249800001,to=SWING_UP; theta_deg=-7.036; thetaDot_rad_s=-0.312
+balance_20261021_084546_638531.csv,mode_switch,26.574984995000023,to=LQG; theta_deg=-16.286; thetaDot_rad_s=1.649; energy_norm=0.9842
+balance_20261021_084546_638531.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261021_084713_342118.csv,identify,3.2600995479999995,"identify=ok; period_s=0.8467; w0_rad_s=7.4211; amplitude_deg=21.02; decay_per_period=0.1534; model_period_s=1.0630; Ival_identified=0.001666; Kd=[[51.12816628434001, 7.035045246472447, -10.770269244925384, -12.003636248214145]]"
+balance_20261021_084713_342118.csv,mode_switch,4.948608948999976,to=LQG; theta_deg=17.016; thetaDot_rad_s=-1.918; energy_norm=0.9896
+balance_20261021_084713_342118.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261021_085026_496151.csv,identify,3.2690829850000114,"identify=ok; period_s=0.8649; w0_rad_s=7.2645; amplitude_deg=20.51; decay_per_period=0.1921; model_period_s=1.0630; Ival_identified=0.001767; Kd=[[51.82562538292027, 7.272913276305129, -10.799524799520757, -12.091186060156666]]"
+balance_20261021_085026_496151.csv,mode_switch,5.089374367999994,to=LQG; theta_deg=16.768; thetaDot_rad_s=-1.597; energy_norm=0.9817
+balance_20261021_085026_496151.csv,fault,8.520195346000037,"stage=updating controller state; cycle=815; raw_angles=(65535, 14032, 65535); cart_steps=-815; motor_command=-80; angle_details=angle1 reason=wireless_timeout radio_age_ms=70; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261021_085026_496151.csv,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261021_085134_146869.csv,identify,3.259690755000065,"identify=ok; period_s=0.8644; w0_rad_s=7.2689; amplitude_deg=19.95; decay_per_period=0.1906; model_period_s=1.0630; Ival_identified=0.001764; Kd=[[51.80551735749239, 7.266003908626432, -10.798706942791819, -12.088684303449094]]"
+balance_20261021_085134_146869.csv,mode_switch,6.521055280000041,to=LQG; theta_deg=16.994; thetaDot_rad_s=-3.179; energy_norm=1.0520
+balance_20261021_085134_146869.csv,fault,10.84207997100009,"stage=updating controller state; cycle=1049; raw_angles=(65535, 14032, 65535); cart_steps=-915; motor_command=-800; angle_details=angle1 reason=wireless_timeout radio_age_ms=66; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261021_085134_146869.csv,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261021_085340_865751.csv,identify,3.2620223940000415,"identify=ok; period_s=0.8484; w0_rad_s=7.4058; amplitude_deg=21.15; decay_per_period=0.1820; model_period_s=1.0630; Ival_identified=0.001675; Kd=[[51.194820264522896, 7.057617644390836, -10.773146209105589, -12.012073547843766]]"
+balance_20261021_085340_865751.csv,fault,4.238502125000082,"stage=updating controller state; cycle=389; raw_angles=(65535, 14228, 65535); cart_steps=1623; motor_command=20; angle_details=angle1 reason=wireless_timeout radio_age_ms=66; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261021_085340_865751.csv,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261021_085503_673740.csv,identify,3.2495825920000243,"identify=ok; period_s=0.8493; w0_rad_s=7.3982; amplitude_deg=21.28; decay_per_period=0.1990; model_period_s=1.0630; Ival_identified=0.001680; Kd=[[51.22805105304103, 7.068883951576514, -10.774573970640942, -12.016274342940985]]"
+balance_20261021_085503_673740.csv,mode_switch,5.692764059000069,to=LQG; theta_deg=-17.078; thetaDot_rad_s=0.508; energy_norm=0.9583
+balance_20261021_085503_673740.csv,mode_switch,5.952578348999964,to=SWING_UP; theta_deg=-10.201; thetaDot_rad_s=-0.360
+balance_20261021_085503_673740.csv,mode_switch,6.6427207469999985,to=LQG; theta_deg=15.090; thetaDot_rad_s=-2.535; energy_norm=1.0242
+balance_20261021_085503_673740.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261021_085637_173796.csv,identify,3.2951424840000527,"identify=ok; period_s=0.8864; w0_rad_s=7.0882; amplitude_deg=20.64; decay_per_period=0.2179; model_period_s=1.0630; Ival_identified=0.001888; Kd=[[52.65166505293726, 7.559363259607559, -10.831891370487229, -12.192870122415654]]"
+balance_20261021_085637_173796.csv,mode_switch,6.700797263000027,to=LQG; theta_deg=16.761; thetaDot_rad_s=-1.324; energy_norm=0.9750
+balance_20261021_085637_173796.csv,mode_switch,6.86061165000001,to=SWING_UP; theta_deg=8.191; thetaDot_rad_s=-0.593
+balance_20261021_085637_173796.csv,mode_switch,7.670589430000064,to=LQG; theta_deg=-16.748; thetaDot_rad_s=1.055; energy_norm=0.9687
+balance_20261021_085637_173796.csv,mode_switch,8.010599924000076,to=SWING_UP; theta_deg=-19.143; thetaDot_rad_s=-1.835
+balance_20261021_085637_173796.csv,mode_switch,8.681069530000059,to=LQG; theta_deg=16.453; thetaDot_rad_s=-2.249; energy_norm=1.0094
+balance_20261021_085637_173796.csv,fault,18.291479634000098,"stage=updating controller state; cycle=1790; raw_angles=(65535, 14246, 65535); cart_steps=-825; motor_command=315; angle_details=angle1 reason=wireless_timeout radio_age_ms=63; RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261021_085637_173796.csv,stop,,RuntimeError: Two consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_133530_523999.csv,fault,,"stage=waiting for motor power on (swing-up mode); cycle=0; raw_angles=(4691, 65535, 65535); cart_steps=None; motor_command=None; angle_details=; KeyboardInterrupt: "
+balance_20261027_133530_523999.csv,stop,,KeyboardInterrupt: ; dropped_samples=0
+balance_20261027_142451_462081.csv,identify,3.3007060629997795,"identify=ok; period_s=0.8627; w0_rad_s=7.2828; amplitude_deg=18.43; decay_per_period=0.1654; model_period_s=1.0630; Ival_identified=0.001754; Kd=[[51.74260765041699, 7.244407012793408, -10.79613865009741, -12.080848954717911]]"
+balance_20261027_142451_462081.csv,fault,3.6410310709998157,"stage=updating controller state; cycle=325; raw_angles=(65535, 65535, 65535); cart_steps=-1159; motor_command=40; angle_details=angle1 reason=wireless_timeout radio_age_ms=142; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_142451_462081.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_144306_431440.csv,identify,3.2440861969998878,"identify=ok; period_s=0.8620; w0_rad_s=7.2888; amplitude_deg=23.08; decay_per_period=0.1602; model_period_s=1.0630; Ival_identified=0.001750; Kd=[[51.715390922799706, 7.235072756167245, -10.795023015772081, -12.077455181964702]]"
+balance_20261027_144306_431440.csv,mode_switch,4.9722535129999414,to=LQG; theta_deg=15.808; thetaDot_rad_s=-2.837; energy_norm=1.0379
+balance_20261027_144306_431440.csv,mode_switch,47.96126017100005,to=SWING_UP; theta_deg=-1.377; thetaDot_rad_s=-0.067
+balance_20261027_144306_431440.csv,fault,48.712059888999875,"stage=updating controller state; cycle=4838; raw_angles=(65535, 65535, 65535); cart_steps=-199; motor_command=-69; angle_details=angle1 reason=wireless_timeout radio_age_ms=142; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_144306_431440.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_144721_571934.csv,identify,3.302725806999888,"identify=ok; period_s=0.8626; w0_rad_s=7.2841; amplitude_deg=21.01; decay_per_period=0.1610; model_period_s=1.0630; Ival_identified=0.001754; Kd=[[51.73646556691141, 7.242300034055578, -10.79588712011794, -12.080083280584576]]"
+balance_20261027_144721_571934.csv,fault,3.7945905899998706,"stage=updating controller state; cycle=340; raw_angles=(65535, 65535, 65535); cart_steps=-67; motor_command=-20; angle_details=angle1 reason=wireless_timeout radio_age_ms=146; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_144721_571934.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_145631_032272.csv,identify,3.267436025000052,"identify=ok; period_s=0.8624; w0_rad_s=7.2855; amplitude_deg=18.46; decay_per_period=0.1772; model_period_s=1.0630; Ival_identified=0.001753; Kd=[[51.73022095878666, 7.2401581768999375, -10.795631249014189, -12.079304700800735]]"
+balance_20261027_145631_032272.csv,fault,3.697965123000131,"stage=updating controller state; cycle=334; raw_angles=(65535, 65535, 65535); cart_steps=-917; motor_command=-76; angle_details=angle1 reason=wireless_timeout radio_age_ms=150; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_145631_032272.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_150517_941267.csv,identify,3.272582451000005,"identify=ok; period_s=0.8621; w0_rad_s=7.2881; amplitude_deg=21.04; decay_per_period=0.1811; model_period_s=1.0630; Ival_identified=0.001751; Kd=[[51.71869504746588, 7.236205641763527, -10.795158600155052, -12.077867315432925]]"
+balance_20261027_150517_941267.csv,mode_switch,5.007459222999955,to=LQG; theta_deg=15.842; thetaDot_rad_s=-2.804; energy_norm=1.0360
+balance_20261027_150517_941267.csv,mode_switch,16.767063678,to=SWING_UP; theta_deg=-6.981; thetaDot_rad_s=-0.033
+balance_20261027_150517_941267.csv,mode_switch,18.587304528999994,to=LQG; theta_deg=16.771; thetaDot_rad_s=-2.847; energy_norm=1.0338
+balance_20261027_150517_941267.csv,mode_switch,91.88622533399996,to=SWING_UP; theta_deg=-43.759; thetaDot_rad_s=-4.556
+balance_20261027_150517_941267.csv,mode_switch,92.55643617099997,to=LQG; theta_deg=8.162; thetaDot_rad_s=-1.038; energy_norm=1.0000
+balance_20261027_150517_941267.csv,mode_switch,93.22623747199998,to=SWING_UP; theta_deg=-3.768; thetaDot_rad_s=-0.096
+balance_20261027_150517_941267.csv,mode_switch,94.09643732699999,to=LQG; theta_deg=-17.172; thetaDot_rad_s=1.834; energy_norm=0.9871
+balance_20261027_150517_941267.csv,mode_switch,95.466325525,to=SWING_UP; theta_deg=-4.367; thetaDot_rad_s=0.000
+balance_20261027_150517_941267.csv,mode_switch,96.35644660599996,to=LQG; theta_deg=-16.979; thetaDot_rad_s=2.146; energy_norm=0.9998
+balance_20261027_150517_941267.csv,mode_switch,113.02567804699999,to=SWING_UP; theta_deg=4.868; thetaDot_rad_s=0.357
+balance_20261027_150517_941267.csv,mode_switch,114.0057074,to=LQG; theta_deg=16.645; thetaDot_rad_s=-1.905; energy_norm=0.9922
+balance_20261027_150517_941267.csv,mode_switch,114.45565071199997,to=SWING_UP; theta_deg=-3.547; thetaDot_rad_s=-0.053
+balance_20261027_150517_941267.csv,mode_switch,115.35572290699997,to=LQG; theta_deg=-16.731; thetaDot_rad_s=1.961; energy_norm=0.9939
+balance_20261027_150517_941267.csv,mode_switch,162.14499844899996,to=SWING_UP; theta_deg=-6.952; thetaDot_rad_s=-0.378
+balance_20261027_150517_941267.csv,mode_switch,163.16527957700004,to=LQG; theta_deg=-17.015; thetaDot_rad_s=0.883; energy_norm=0.9636
+balance_20261027_150517_941267.csv,mode_switch,163.41509239199996,to=SWING_UP; theta_deg=5.924; thetaDot_rad_s=0.738
+balance_20261027_150517_941267.csv,mode_switch,164.305276299,to=LQG; theta_deg=15.856; thetaDot_rad_s=-2.961; energy_norm=1.0445
+balance_20261027_150517_941267.csv,mode_switch,278.59163037900004,to=SWING_UP; theta_deg=-33.656; thetaDot_rad_s=-3.340
+balance_20261027_150517_941267.csv,mode_switch,279.27178056099996,to=LQG; theta_deg=6.400; thetaDot_rad_s=-1.580; energy_norm=1.0173
+balance_20261027_150517_941267.csv,mode_switch,280.10155219099994,to=SWING_UP; theta_deg=-3.957; thetaDot_rad_s=-0.136
+balance_20261027_150517_941267.csv,mode_switch,280.96165169499994,to=LQG; theta_deg=-17.141; thetaDot_rad_s=2.400; energy_norm=1.0098
+balance_20261027_150517_941267.csv,fault,290.7219278339999,"stage=updating controller state; cycle=29036; raw_angles=(65535, 65535, 65535); cart_steps=-41; motor_command=5494; angle_details=angle1 reason=wireless_timeout radio_age_ms=144; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_150517_941267.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_151149_615770.csv,identify,3.269202803999974,"identify=ok; period_s=0.8655; w0_rad_s=7.2592; amplitude_deg=19.85; decay_per_period=0.1744; model_period_s=1.0630; Ival_identified=0.001770; Kd=[[51.84989681705883, 7.281257294751338, -10.800510033131781, -12.0942040877372]]"
+balance_20261027_151149_615770.csv,mode_switch,5.028770861999988,to=LQG; theta_deg=17.016; thetaDot_rad_s=-1.214; energy_norm=0.9702
+balance_20261027_151149_615770.csv,fault,7.049105670000017,"stage=updating controller state; cycle=669; raw_angles=(65535, 65535, 65535); cart_steps=-23; motor_command=-648; angle_details=angle1 reason=wireless_timeout radio_age_ms=146; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_151149_615770.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_151348_450239.csv,identify,3.2434779360000903,"identify=ok; period_s=0.8579; w0_rad_s=7.3235; amplitude_deg=21.26; decay_per_period=0.1618; model_period_s=1.0630; Ival_identified=0.001728; Kd=[[51.558968767656765, 7.181534628576353, -10.788557782442574, -12.057903530944907]]"
+balance_20261027_151348_450239.csv,mode_switch,4.945410323000033,to=LQG; theta_deg=15.551; thetaDot_rad_s=-3.169; energy_norm=1.0570
+balance_20261027_151348_450239.csv,mode_switch,5.1853174930000705,to=SWING_UP; theta_deg=10.871; thetaDot_rad_s=0.289
+balance_20261027_151348_450239.csv,mode_switch,6.285235470000089,to=LQG; theta_deg=17.045; thetaDot_rad_s=-0.541; energy_norm=0.9588
+balance_20261027_151348_450239.csv,mode_switch,6.575174071000106,to=SWING_UP; theta_deg=-8.553; thetaDot_rad_s=-0.752
+balance_20261027_151348_450239.csv,mode_switch,8.415703484000005,to=LQG; theta_deg=16.166; thetaDot_rad_s=-2.903; energy_norm=1.0390
+balance_20261027_151348_450239.csv,fault,34.585583900000074,"stage=updating controller state; cycle=3425; raw_angles=(65535, 65535, 65535); cart_steps=-8; motor_command=-5506; angle_details=angle1 reason=wireless_timeout radio_age_ms=147; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_151348_450239.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_151515_901065.csv,identify,3.228792862999967,"identify=ok; period_s=0.8650; w0_rad_s=7.2639; amplitude_deg=21.14; decay_per_period=0.1600; model_period_s=1.0630; Ival_identified=0.001767; Kd=[[51.82840102458688, 7.273867260273073, -10.799637577804585, -12.091531292241543]]"
+balance_20261027_151515_901065.csv,mode_switch,4.952640256999985,to=LQG; theta_deg=16.650; thetaDot_rad_s=-3.190; energy_norm=1.0545
+balance_20261027_151515_901065.csv,fault,39.362302736999936,"stage=updating controller state; cycle=3904; raw_angles=(65535, 65535, 65535); cart_steps=-21; motor_command=-9322; angle_details=angle1 reason=wireless_timeout radio_age_ms=145; RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor"
+balance_20261027_151515_901065.csv,stop,,RuntimeError: Ten consecutive ESP32 angle packets were unusable; stopping motor; dropped_samples=0
+balance_20261027_152403_498011.csv,fault,,"stage=waiting for motor power on (swing-up mode); cycle=0; raw_angles=(3753, 65535, 65535); cart_steps=None; motor_command=None; angle_details=; KeyboardInterrupt: "
+balance_20261027_152403_498011.csv,stop,,KeyboardInterrupt: ; dropped_samples=0
+balance_20261027_155422_824273.csv,identify,3.2491869310001675,"identify=ok; period_s=0.8629; w0_rad_s=7.2819; amplitude_deg=20.40; decay_per_period=0.1709; model_period_s=1.0630; Ival_identified=0.001755; Kd=[[51.746736061684196, 7.245823381746321, -10.796307638304642, -12.08136353539462]]"
+balance_20261027_155422_824273.csv,mode_switch,5.78944114900014,to=LQG; theta_deg=-16.676; thetaDot_rad_s=2.026; energy_norm=0.9967
+balance_20261027_155422_824273.csv,mode_switch,22.339463282999986,to=SWING_UP; theta_deg=-4.614; thetaDot_rad_s=-0.482
+balance_20261027_155422_824273.csv,mode_switch,23.289794796000024,to=LQG; theta_deg=-15.469; thetaDot_rad_s=3.167; energy_norm=1.0583
+balance_20261027_155422_824273.csv,mode_switch,24.199657005000063,to=SWING_UP; theta_deg=3.380; thetaDot_rad_s=0.038
+balance_20261027_155422_824273.csv,mode_switch,26.66912905900017,to=LQG; theta_deg=17.091; thetaDot_rad_s=-3.317; energy_norm=1.0596
+balance_20261027_155422_824273.csv,stop,,Ctrl+C; dropped_samples=0
+balance_20261027_163415_937264.csv,identify,3.293243591000646,"identify=ok; period_s=0.8621; w0_rad_s=7.2886; amplitude_deg=20.98; decay_per_period=0.1653; model_period_s=1.0630; Ival_identified=0.001751; Kd=[[51.71621788754174, 7.235356289931554, -10.795056953968212, -12.07755833509884]]"
+balance_20261027_163415_937264.csv,mode_switch,4.996061110000483,to=LQG; theta_deg=15.842; thetaDot_rad_s=-2.717; energy_norm=1.0315
+balance_20261027_163415_937264.csv,mode_switch,40.095675899000526,to=SWING_UP; theta_deg=-6.837; thetaDot_rad_s=-0.625
+balance_20261027_163415_937264.csv,mode_switch,41.88580642299985,to=LQG; theta_deg=16.938; thetaDot_rad_s=-2.998; energy_norm=1.0412
+balance_20261027_163415_937264.csv,mode_switch,47.04553122900052,to=SWING_UP; theta_deg=3.277; thetaDot_rad_s=-0.124
+balance_20261027_163415_937264.csv,mode_switch,47.835976406000555,to=LQG; theta_deg=-16.652; thetaDot_rad_s=1.366; energy_norm=0.9756
+balance_20261027_163415_937264.csv,mode_switch,48.235910387999866,to=SWING_UP; theta_deg=5.694; thetaDot_rad_s=0.732
+balance_20261027_163415_937264.csv,mode_switch,49.055965231999835,to=LQG; theta_deg=17.120; thetaDot_rad_s=-2.848; energy_norm=1.0320
+balance_20261027_163415_937264.csv,mode_switch,50.295520479000515,to=SWING_UP; theta_deg=3.038; thetaDot_rad_s=0.022
+balance_20261027_163415_937264.csv,mode_switch,51.19575790399995,to=LQG; theta_deg=16.770; thetaDot_rad_s=-2.305; energy_norm=1.0075
+balance_20261027_163415_937264.csv,stop,,Ctrl+C; dropped_samples=0

@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-28
-updated_by: Barney (Claude, PUC setup session)
+updated: 2026-10-29
+updated_by: Ryan (Claude, math-folder session)
 ---
 # Swing-up
 
@@ -18,4 +18,8 @@ Plans sent (branch `claude/project-thread-orcdoj` of `TheBarnyard/ChatGPT-Pendul
 | `double_swingup_trajectory_v060.json` | PLAN_SPEED 0.60. Untested on rig |
 
 ## Single swing-up
-- `Code/SinglePendulum/PythonMasterSwingUpExp.py`, `swingup_control.py` in ENGT480. [?] status on the rig.
+- ~~`Code/SinglePendulum/PythonMasterSwingUpExp.py`, `swingup_control.py` in ENGT480. [?] status on the rig.~~ Superseded 2026-10-29 by [2026-10-29 math session](../sessions/2026/10/2026-10-29_1448_Barney_math-folder.md): that is the earlier version.
+- **Best single swing-up (Barney, 2026-10-29): `PythonMasterUpExpClaudeImproved.py`**, byte-identical to `PythonMasterUpExpClaude.py`. Location: etwan007/ENGT480 branch `experiment/legacy-pi-recovery` (commit ba019f9), `LegacyPi/Code/SinglePendulum/`; on the Pi in the legacy ENGT481 checkout.
+- Method: IDENTIFY (wiggle, time free swings, measure w0, redesign LQG with matching inertia) → energy pumping with shaped centering spring and adaptive target → catch window (0.30 rad, 3.5 rad/s, e 0.95-1.15, cart < 0.12 m) → LQG Q = diag(40,5,150,60) ×2 with auto-trim; back to swing-up past 0.8 rad or 0.22 m cart.
+- 28 rig runs 2026-10-16 to 2026-10-27 [HW]: w0 7.09-7.47 rad/s (model 5.91), swing-up after identify median 1.75 s, 39 catches, longest balance 114 s; 23 of 24 hand-backs were the 0.22 m cart limit.
+- Full math, code walkthrough, simulator and figures: [Math/Single](../Math/Single/README.md).
