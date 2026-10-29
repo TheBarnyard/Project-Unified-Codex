@@ -11,6 +11,7 @@ Traps that cost someone time. Add one whenever you lose more than 15 minutes to 
 - **Flash the right board:** check the MAC before flashing a XIAO. TX1 was flashed by mistake on 2026-10-27.
 - **Powering a XIAO from 5 V:** 5 V goes to the XIAO 5V pin, never 3V3. Encoder and I2C pull-ups stay on the XIAO 3V3.
 - **Mega 3.3 V pin is too weak** for an ESP32-C3 (TX bursts). Caused the 2026-10-27 dropouts.
+- **A XIAO transmitter needs peak current, not just average:** a meter shows ~120-150 mA, but TX bursts reach ~335 mA. A bench supply limited to 150 mA reproduced the dropouts (2026-10-29). Give each XIAO a supply rated 500 mA+ and a bulk capacitor at the board.
 - **TX2 on a USB cable** showed angle gaps up to 3.7 s; on battery it is clean.
 - **Arm cable plugged in** changes the arm dynamics. Run `excite_20261027_154016` is bad for that reason; do not use it for fitting.
 - **Stepper speed rounding:** at about 0.83 m/s one timer step is bigger than the allowed acceleration step, so the cart cannot speed up further. Keep planned speeds well below that.
