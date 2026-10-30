@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-29
-updated_by: Ryan (Claude, math-folder session)
+updated: 2026-10-30
+updated_by: Ryan (Claude, rl-double-newarms session)
 ---
 # Project brief
 
@@ -23,7 +23,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 - **TX2 (angle 2):** working since 2026-10-27 after reflashing the repo `TX2.ino`; the old firmware on it was wrong.
 - **New arm 1 (PLA):** installed. The fitted model ratios still match it; the old photo-based estimate does not. 2026-10-29: arms rebuilt from the team's STLs and measured weights. Arm 1: 98.1 g, CoM 147.8 mm from its pivot (small hole), Izz pivot 2.48e-3 kg m²; predicted hanging period 0.83-0.86 s vs rig 0.84-0.89 s. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
 - **Unified launcher (`pendulum.py`):** design only, no code yet.
-- **MuJoCo / RL:** planned once the mechanical team finishes updating the arms; reward terms not defined.
+- **MuJoCo / RL:** double balance + double swing-up training folder on the new arms, 2026-10-30 (project files `RL_DoubleNewArms/`). Double balance solves in sim [SIM]; swing-up training is up to Barney's PC. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
 - **Gate Report 2:** drafted 2026-10-26.
 - **PUC:** this codex was set up 2026-10-28.
 - **Math teaching pages:** [Math/](Math/README.md) for single, double (both checked against the team's scripts) and triple (assumed rig), 2026-10-29.
