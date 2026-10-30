@@ -5,7 +5,7 @@ time: 21:33 (UTC)
 member: Barney
 ai: Claude project thread
 topics: [arms-and-model, swing-up, pi-control]
-status: wip
+status: done
 pages_applied: yes
 transcript: none
 ---
@@ -41,9 +41,15 @@ Update the browser digital twin to the new arms, keep only the 4 important contr
 - Run logs: none
 
 ## Open questions and next steps
-- The twin's double balance file is the 2026-10-26 upload (old arm values, 6 ms, 1.5 m/s²), not the 12.8-minute 2026-10-21 version. Swap in the exact Pi versions from etwan007/ENGT480 (waiting for Barney's OK to read the repo), then rebuild.
-- Confirm which single balance script is "the one" (twin uses `PythonMaster_autocalibrate.py` from main @ e8f82ea).
+- ~~The twin's double balance file is the 2026-10-26 upload, not the 12.8-minute version; swap in the exact Pi versions.~~ Done 2026-10-30, see below.
 - Try the new-arms swing-up plan on the rig [?].
 
 ## Proposed page updates
 Applied.
+
+## Continued 2026-10-30 02:20 UTC: exact Pi versions
+Barney approved reading etwan007/ENGT480 and said the double balance had not changed. Compared against `experiment/legacy-pi-recovery` @ ba019f9 (`LegacyPi/Code/`, the Pi files as of 2026-10-28):
+- Single balance: the twin's `PythonMaster_autocalibrate.py` is byte for byte the Pi's `SinglePendulum/PythonMaster_auto.py`. Single swing-up `PythonMasterUpExpClaudeImproved.py` is byte for byte the same. Single helper `angle_packet_fallback.py` swapped to the Pi's (allows 10 misses instead of 2).
+- Double balance: Barney is right that the code is the same. `PythonMasterDouble-Claude.py` (= `PythonMaster2_auto_improved.py` on the Pi) differs from the uploaded copy only in its settings: SYSID_RATIOS set (P1 5.22342, P2 2.01257, J2r 0.414023, H 0.394859), 9 ms latency, LQR cart speed 0.3 m/s and accel 1.3 m/s², limits 0.8 m/s and 15 m/s², 0.25 s ramp, 25° start, 5 misses. The twin now runs this file byte for byte. Gains match params.md exactly: K = [-192.219, -4.407, 283.906, 32.818, 20.537, 21.304, 0.418]. On the new arms (twin): 60 s upright, cart within 71 mm [SIM].
+- Double swing-up: the Pi's `PythonMaster2_swingup.py` is the newer 2026-10-27 version (PLAN_TRACK 0.25 m, ARM1_PIVOT_FRICTION 0.0009, SWING_CART_M 0.25, MAX_ATTEMPTS 30, RECOVER_GAIN 0.20, STILL_ANGLE_DEG 2.5, its own fitted SYSID_RATIOS and plan). The new-arms copy was redone from it, and the plan was re-made with its own --plan (80 s): 2.5 s, effort 32.3, peak 0.250 m / 0.751 m/s / 8.0 m/s². Catches and balances in the twin (37 s upright of 40 s) [SIM]. Not tried on the rig.
+- Twin republished (same link). Math tab double balance lesson and the code map now use the 12.8-minute settings. Build in project files `TwinV3/` (`ctl4/` = current controllers).
