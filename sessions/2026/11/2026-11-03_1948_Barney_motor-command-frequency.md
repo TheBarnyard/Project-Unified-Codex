@@ -12,3 +12,8 @@ Barney asked what frequency we send to the motor. Answered from existing PUC pag
 - Pi -> Mega commands: one 4-byte timer-top N per control cycle, 10 ms, 100.0 Hz mean measured [HW].
 - Mega -> UIM5756PM step pulses: f = 125000/(|N|+1) steps/s (Timer3 250 kHz, CTC toggle). Range: ~1.9 steps/s (N = 65535, "stopped") up to ~8.3 kHz at the effective 0.83 m/s cap (N = 14); 0.6 m/s ~ 6.0 kHz [HW/code].
 - No page changes; nothing new learned.
+
+## Follow-up: highest step rate
+- Mega Timer3 ceiling 125 kHz (N = 0) in theory; per-step INT3 counting ISR would limit it first [HYP].
+- UIM344 manual: max 3000 rpm (motor dependent) = ~320 kHz at 6400 steps/rev; not the constraint.
+- Practical: torque-speed fit 16(1 - v/1.0) m/s^2 gives ~1.0 m/s (~10 kHz) no-load [SIM/HYP]; observed cap ~0.83 m/s (~8.3 kHz) while accelerating [HW].
