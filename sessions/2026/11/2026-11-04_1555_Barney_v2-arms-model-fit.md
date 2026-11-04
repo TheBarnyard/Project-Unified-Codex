@@ -40,5 +40,5 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - Run logs: `excite_20261104_093436` (copy in `V2ArmsFit/` and Claude project files `V2ArmsFit/`).
 
 ## Open questions and next steps
-- Barney is leaving the rig until the swing-up test. He was asked to measure the cart travel from centre to each limit switch ([open question 6](../../../open-questions.md)), to report the swing-up script's sha256, to decide whether to reflash TX2 to ID 1, and to unplug the arm LiPos.
+- Barney is leaving the rig until the swing-up test. Barney was asked to measure the cart travel from centre to each limit switch ([open question 6](../../../open-questions.md)), to report the swing-up script's sha256, to decide whether to reflash TX2 to ID 1, and to unplug the arm LiPos.
 - Next: plan candidate double swing-up paths with these ratios and compare them in simulation.
