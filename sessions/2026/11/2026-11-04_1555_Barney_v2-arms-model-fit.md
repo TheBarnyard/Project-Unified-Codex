@@ -41,4 +41,12 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 
 ## Open questions and next steps
 - Barney is leaving the rig until the swing-up test. Barney was asked to measure the cart travel from centre to each limit switch ([open question 6](../../../open-questions.md)), to report the swing-up script's sha256, to decide whether to reflash TX2 to ID 1, and to unplug the arm LiPos.
-- Next: plan candidate double swing-up paths with these ratios and compare them in simulation.
+- ~~Next: plan candidate double swing-up paths with these ratios and compare them in simulation.~~ Done 17:40 UTC (style gallery, see update below).
+
+## Update 17:40 UTC: swing-up style gallery [SIM]
+- Barney asked for GENERAL double swing-up styles to choose a look before detailed planning.
+- Planned 120 swing-ups with the V2 fit (CasADi/IPOPT, `Math/shared/nlink_cart.plan_team`). Limits: |x| ≤ 0.30 m, |v| ≤ 0.75 m/s, |a| ≤ 8 m/s², motor top speed 1.0 m/s, cost ∫a²dt. They cover 4 arrival styles (same way up, folded/opposite, whip = arm 2 makes 1.5 turns, counter-whip), 2.5 to 5.0 s, and different cart pump counts. 88 were feasible and 69 are unique.
+- 2.5 s plans do not fit these limits with the V2 arms (best got 87.5 % of the way, needing about 0.9 m/s). The shortest feasible is 3.0 s in every style.
+- Each plan was checked closed-loop with the team's TV-LQR loop (`Math/shared/swing_sim`) under 11 model errors (±4 % on each ratio, B2 ×0.5/×2, B1 ×2) plus nominal. Every plan catches at nominal. The best catch all 12: same way up 3.5 s, 4.0 s and 4.5 s. The 3.0 s plans are less tolerant (5 to 10 of 12).
+- Gallery: [Double Swing-Up Styles](https://claude.ai/artifact/WJcTh1yAmw7quvpkzteU65). Files are in Claude project files `SwingUpStyles/`.
+- Next: Barney picks a style, then a rig plan is made for the measured track and in the script's trajectory format.
