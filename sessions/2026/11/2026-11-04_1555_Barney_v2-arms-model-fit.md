@@ -80,3 +80,10 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 
 ## Update 20:35 UTC: angle diagnostic in the swing-up folder
 - Barney is at the rig and wanted the angle diagnostic next to the swing-up script. Added `AngleSensorDiagnostic.py` (unchanged copy of the Pi's `LegacyPi/Code/SinglePendulum/AngleSensorDiagnostic.py`, ba019f9, sha256 8516940a…) to `TheBarnyard/ChatGPT-Pendulum-Project` `claude/project-thread-74rdr9` `DoubleSwingUp_V2/` (commit a6c3a65). It imports `angle_protocol.py`, which is identical to the copy already in that folder. Pi folder: `~/Desktop/DoubleSwingUpV2`.
+
+## Update 20:45 UTC: first rig run of the V2 swing-up [HW]
+- Run `swingup_double_20261104_153309_280984.csv` (Pi `~/Desktop/DoubleSwingUpV2/run_logs/`), `--path same_4.0s`. ARM2_CHANNEL auto found the joint encoder on slot 3. Calibration: arm 1 hanging 4703 counts (upright 12895), arm 2 aligned 14518.
+- 5 attempts, no catch. Aborts: 36 deg off the plan at 1.62 s, 40 deg at 2.89 s, 36 deg at 2.48 s, 37 deg at 3.42 s, then cart at -362 mm at 2.08 s (it coasted to -386 mm).
+- From the console lines: in every attempt the arms and cart follow the plan within about 3 deg and 5 mm for the first 1.6 s. Then the cart falls behind the plan (attempt 4: 33 mm at 2.13 s, 119 mm at 2.64 s) and arm 2 drifts off. The feedback reaches CART_ACCEL_MAX 16 m/s² at about 1.5 s. In attempt 2 the cart sat at +0.81 m/s with a = 0, which looks like the 0.83 m/s stepper speed cap seen on 2026-10-28 [HYP].
+- Stop: `RuntimeError: 6 unusable angle frames in a row`, angle3 (TX2) wireless_timeout, radio_age 102 ms, right after attempt 5's abort.
+- Next: CSV requested from Barney to check the speed cap and refit the model on the swing data.
