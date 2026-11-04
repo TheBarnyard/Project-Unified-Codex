@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-30
-updated_by: Ryan (Claude, rl-double-newarms session)
+updated: 2026-11-04
+updated_by: Ryan (Claude, V2 arms fit session)
 ---
 # Project brief
 
@@ -22,6 +22,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 - **Angle dropouts:** likely fixed by powering TX1 from the Mega 5 V instead of 3.3 V (2026-10-27). A 20+ min controller run to confirm is still pending. See [debug/2026-10-27_angle-dropouts.md](debug/2026-10-27_angle-dropouts.md).
 - **TX2 (angle 2):** working since 2026-10-27 after reflashing the repo `TX2.ino`; the old firmware on it was wrong.
 - **New arm 1 (PLA):** installed. The fitted model ratios still match it; the old photo-based estimate does not. 2026-10-29: arms rebuilt from the team's STLs and measured weights. Arm 1: 98.1 g, CoM 147.8 mm from its pivot (small hole), Izz pivot 2.48e-3 kg m²; predicted hanging period 0.83-0.86 s vs rig 0.84-0.89 s. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
+- **V2 arms model (2026-11-04):** both arms are now V2. Ratios fitted from a 35 min excitation run predict the arms within about 2 to 3 deg over 3 s [HW]. Use them for new swing-up plans. See [params.md](params.md).
 - **Unified launcher (`pendulum.py`):** design only, no code yet.
 - **MuJoCo / RL:** double balance + double swing-up training folder on the new arms, 2026-10-30 (project files `RL_DoubleNewArms/`). Double balance solves in sim [SIM]; swing-up training is up to Barney's PC. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
 - **Gate Report 2:** drafted 2026-10-26.

@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-29
-updated_by: Barney (Claude, new arms model session, correction)
+updated: 2026-11-04
+updated_by: Ryan (Claude, V2 arms fit session)
 ---
 # Arms, model, system ID and digital twin
 
@@ -15,6 +15,7 @@ updated_by: Barney (Claude, new arms model session, correction)
 
 ## Model
 - Ratios and their history: [params.md](../params.md).
+- **2026-11-04: fitted ratios for both V2 arms** from a 2139 s PendulumExcite run, within about 2 to 3 deg over 3 s (3 to 5 times better than older sets) [HW]. Numbers: [params.md](../params.md). Session: [V2 arms fit](../sessions/2026/11/2026-11-04_1555_Barney_v2-arms-model-fit.md). Data stayed within +/-0.15 m, 0.54 m/s, 5.4 m/s^2, and arm 2 mostly under 120 deg, so large-angle and high-accel accuracy is less tested [?].
 - The new arm swings almost identically to the old one; existing ratios predict it within about 7 deg at 0.9 s [HW]. The CAD estimate is off by about 32 deg; do not use it. See [decision 0003](../decisions/0003_keep-fitted-model-ratios.md).
 - ~~2026-10-29: the STL-based model predicts a hanging period of 0.691 s for arm 1 alone. Rig IDENTIFY periods are 0.84-0.89 s, but it is not recorded which arm and tip load those runs used. See [open-questions.md](../open-questions.md) #10.~~ Superseded 2026-10-29 (same session): the model had the pivot at the hub. Corrected model: 0.830 s with the joint-2 shaft out, 0.858 s with it in, vs rig 0.84-0.89 s.
 

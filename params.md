@@ -84,4 +84,8 @@ Ratios ([Math/Double 1.5](Math/Double/01_variables.md#15-the-ratios-what-the-scr
 | Model, new arm 1 + new arm 2 | 5.233 | 2.329 | 0.503 | 0.466 |
 | Model new arm 1 + team's arm 2 constants (0.210 kg, 0.106 m, 0.00197564 kg m²) | 5.192 | 2.045 | 0.398 | 0.409 |
 
+**Fitted on the rig, both V2 arms (2026-11-04, Barney, [V2 arms fit session](sessions/2026/11/2026-11-04_1555_Barney_v2-arms-model-fit.md)) [HW]:** from PendulumExcite run `excite_20261104_093436` (2139 s). Use this set for the V2 arms:
+`SYSID_RATIOS = {"P1": 5.2253, "P2": 2.0148, "J2r": 0.4506, "H": 0.4027, "B1": 0.0182, "B2": 0.0138}`.
+Held-out 3 s prediction error (median RMS arm 1 / arm 2): 1.7 / 2.7 deg, against 5.0 / 7.9 (sysid 2026-10-27), 5.8 / 8.4 (swingfit 2026-10-27) and 9.1 / 12.5 deg (STL model above). Check: H/P2 = 0.200 m = the real arm 1 joint distance. The STL model gets P1 right, but its arm-2 terms (P2, J2r, H) are 12 to 16 % too high. Fit files: `V2ArmsFit/` on branch `claude/project-thread-74rdr9` of `TheBarnyard/ChatGPT-Pendulum-Project`.
+
 Rig check: single IDENTIFY period 0.84-0.89 s [HW] vs 0.830 s (shaft out) / 0.858 s (shaft in) here. Source: `build_arms_v3.py` in the [viewer](https://claude.ai/artifact/8SnLwfoxa9DyULJxHKt21b) download and `/mnt/project-files/NewArmModel_v2/` (Claude project).
