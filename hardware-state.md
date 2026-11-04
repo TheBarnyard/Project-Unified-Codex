@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-29
-updated_by: Barney (Claude, new arms model session, correction)
+updated: 2026-11-04
+updated_by: Ryan (Claude, V2 arms fit session, track length)
 ---
 # Hardware state
 
@@ -16,7 +16,7 @@ What is physically on the rig right now. Update this whenever you flash, rewire,
 | Raspberry Pi | Raspberry Pi 4 Model B, 8 GB | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
 | Arm 1 | New PLA arm (`arm_1_3dp`, 200 mm, 34.5 g printed). Pivots on the cart shaft at its small Ø8 hole. Hub = joint 2: shaft holder + 608, sensor mount + MT6701, ESP32 mount + XIAO (TX2), battery case + LiPo | 2026-10-27 | [arms](subsystems/arms-and-model.md) |
 | Arm 2 | Old second arm. New `arm_2_3dp` (250 mm): clamps on the joint-2 shaft at its small hole; its hub electronics are for a future joint 3 (no shaft yet). Fitted on the rig? [?] | | [arms](subsystems/arms-and-model.md) |
-| Track limits | Limit switches must be more than 0.40 m from centre for current swing-up settings [?] unconfirmed | | [swing-up](subsystems/swing-up.md) |
+| Track limits | About **1080 mm limit switch to limit switch** (Barney, 2026-11-04) [HW], so about ±540 mm from the middle if the cart starts centred. [?] Whether that is between the switch trip points (then subtract half the cart width for cart-centre travel) or the cart's own travel. ~~Limit switches must be more than 0.40 m from centre for current swing-up settings [?] unconfirmed~~ Superseded 2026-11-04 by [V2 arms fit session](sessions/2026/11/2026-11-04_1555_Barney_v2-arms-model-fit.md): measured | 2026-11-04 | [swing-up](subsystems/swing-up.md) |
 
 Datasheets and pinouts for all parts: [Hardware/Datasheets](Hardware/Datasheets/README.md).
 

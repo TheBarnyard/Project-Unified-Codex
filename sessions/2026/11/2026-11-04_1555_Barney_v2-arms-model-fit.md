@@ -71,3 +71,9 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - Page: [V2 Swing-Up in 3D](https://claude.ai/artifact/FSBrxtu7MeNzcgHL4LMWrU). The Rev C GLB arms on a cart and rail, posed from the same twin runs; path picker by name, "All 7" side by side, plan as see-through orange arms, arm-model cases, twin vs plan plots.
 - Kinematics used: arm 1 rotation about the hinge = pi/2 - theta1, arm 2 at (200, 0, 25) mm in arm 1's frame with relative rotation theta1 - theta2 (script angles, from upright, positive toward +x). Arm 2's 25 mm offset is still assumed.
 - 3D GIFs per path (`<path>_3d.gif`, `all_7_paths_3d.gif`) and build scripts in Claude project files `DoubleSwingUp_V2/visuals/` (`tools3d/`).
+
+## Update 20:15 UTC: track length measured [HW]
+- Barney: about 1080 mm from limit switch to limit switch, so about ±540 mm from the middle if the cart starts centred (the scripts measure cart position from where it starts).
+- Against the V2 settings: plans reach ±300 mm, the swing aborts at 360 mm, the motor stops for good at 400 mm (TRACK_SOFT_LIMIT_M). That leaves about 140 mm minus half the cart width beyond the soft limit, so the current plans and limits fit with margin. Braking from 0.75 m/s at 8 m/s² takes about 35 mm.
+- Keep the cart within about ±50 mm of the middle when starting: an off-centre start eats the margin on one side.
+- Open: whether 1080 mm is between the switch trip points or the cart's own travel (half the cart width matters only in the first case). The extra track would allow plans with PLAN_TRACK_M up to about 0.40 m if wanted (not done).

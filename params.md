@@ -61,6 +61,7 @@ Implied joint-2 distance H/P2 (must equal L1 = 0.200 m): previous ratios 0.196 m
 | PLAN_TRACK_M | 0.30 (0.25 in the swingfit plan) |
 | SWING_CART_ABORT_M | 0.36 |
 | TRACK_SOFT_LIMIT_M | 0.40 |
+| Track, limit switch to limit switch | about 1080 mm (±540 mm from the middle), Barney 2026-11-04 [HW] |
 | PLAN_SPEED (latest plan) | 0.60 m/s |
 
 ## New arm 1 estimate (CAD, not measured)
