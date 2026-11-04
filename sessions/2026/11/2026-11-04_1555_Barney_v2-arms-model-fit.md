@@ -77,3 +77,6 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - Against the V2 settings: plans reach ±300 mm, the swing aborts at 360 mm, the motor stops for good at 400 mm (TRACK_SOFT_LIMIT_M). That leaves about 140 mm minus half the cart width beyond the soft limit, so the current plans and limits fit with margin. Braking from 0.75 m/s at 8 m/s² takes about 35 mm.
 - Keep the cart within about ±50 mm of the middle when starting: an off-centre start eats the margin on one side.
 - Open: whether 1080 mm is between the switch trip points or the cart's own travel (half the cart width matters only in the first case). The extra track would allow plans with PLAN_TRACK_M up to about 0.40 m if wanted (not done).
+
+## Update 20:35 UTC: angle diagnostic in the swing-up folder
+- Barney is at the rig and wanted the angle diagnostic next to the swing-up script. Added `AngleSensorDiagnostic.py` (unchanged copy of the Pi's `LegacyPi/Code/SinglePendulum/AngleSensorDiagnostic.py`, ba019f9, sha256 8516940a…) to `TheBarnyard/ChatGPT-Pendulum-Project` `claude/project-thread-74rdr9` `DoubleSwingUp_V2/` (commit a6c3a65). It imports `angle_protocol.py`, which is identical to the copy already in that folder. Pi folder: `~/Desktop/DoubleSwingUpV2`.
