@@ -65,3 +65,9 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - Arm 2 mass -4 %: all same-way-up plans and whip_3.5s catch; whip_3.0s and folded abort; whip_4.5s catches but loses it after 0.09 s.
 - Gotcha for the twin harness: the twin keeps running after the script's run time ends, so the arms fall at about 13.9 s (13 s run) and 26.9 s (26 s run). The visuals are cut there; it is not a balance failure.
 - Page: [V2 Swing-Up Simulations](https://claude.ai/artifact/ALjwSAhuB8Vr3RKMJCCFU5) (bench with twin vs plan plots, 7 synced cards, case selector). GIFs per path and `all_7_paths.gif` in Claude project files `DoubleSwingUp_V2/visuals/` (scripts in `tools/`).
+
+## Update 19:10 UTC: 3D version of the visuals [SIM]
+- Barney asked for the simulations in the look of the 3D arm model (Rev C viewer, [new arms model](https://claude.ai/artifact/8SnLwfoxa9DyULJxHKt21b)).
+- Page: [V2 Swing-Up in 3D](https://claude.ai/artifact/FSBrxtu7MeNzcgHL4LMWrU). The Rev C GLB arms on a cart and rail, posed from the same twin runs; path picker by name, "All 7" side by side, plan as see-through orange arms, arm-model cases, twin vs plan plots.
+- Kinematics used: arm 1 rotation about the hinge = pi/2 - theta1, arm 2 at (200, 0, 25) mm in arm 1's frame with relative rotation theta1 - theta2 (script angles, from upright, positive toward +x). Arm 2's 25 mm offset is still assumed.
+- 3D GIFs per path (`<path>_3d.gif`, `all_7_paths_3d.gif`) and build scripts in Claude project files `DoubleSwingUp_V2/visuals/` (`tools3d/`).
