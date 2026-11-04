@@ -38,3 +38,8 @@ Interpret Barney's bench supply test on a XIAO transmitter.
 
 ## Update 20:30 UTC
 - After the bench-supply tests, angle 2 reports `encoder_read_failed` continuously while radio age stays 1-6 ms [HW]: TX2's radio link works but its MT6701 I2C read fails. Reflashing repo `TX2.ino` (MAC e8:f6:0a:15:1b:48) did not change it [HW]. ~~Suspect wiring/power to the encoder after the bench test, or damage if 5 V reached the 3V3 rail [HYP].~~ Superseded 20:32 UTC (Barney): the bench test was on TX1, not TX2. Now suspect a loose/broken encoder wire on the moving arm (I2C NACK, not a magnet issue) [HYP]. Checks sent: encoder VDD ~3.3 V, SDA D4 / SCL D5, shared GND.
+
+## Update 2026-11-04 14:28 UTC
+- The TX2 encoder failure was a broken solder joint; fixed (Barney) [HW].
+- After the fix, angle 2 is `never_received` but angle 3 is now valid (raw ~14500, radio age 1-6 ms) [HW]. Barney reflashed TX1 and the receiver (Receivermaster, MAC fc:b4:67:f6:50:f4) and pressed reset; no change. TX2 not reflashed yet.
+- Likely TX2 is transmitting with SENDER_ID 2 (wrong firmware after the repair) [HYP]. Check: move arm 2 and watch angle 3, then reflash repo `TX2.ino` (SENDER_ID 1).
