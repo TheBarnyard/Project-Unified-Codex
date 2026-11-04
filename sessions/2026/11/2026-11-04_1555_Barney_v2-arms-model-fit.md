@@ -56,3 +56,12 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - Built `PythonMaster2_swingup_V2.py` (copy; original unchanged) plus 7 plan files, checked with the script's own `plan_problem`/`load_trajectory` (mismatch below 1e-9) and on the digital twin with the exact script (results in [subsystems/swing-up.md](../../../subsystems/swing-up.md)).
 - Delivered: `TheBarnyard/ChatGPT-Pendulum-Project` `claude/project-thread-74rdr9` `DoubleSwingUp_V2/` (commit 9949265), with Pi install commands that use a commit-pinned raw URL (the branch raw URL served stale files for a few minutes after a push). Also in Claude project files `DoubleSwingUp_V2/` (zip).
 - Next: first rig run with `--path same_4.0s`. Track check still needed: plans reach ±300 mm, abort at 360 mm.
+
+## Update 18:40 UTC: simulation visuals for the 7 paths [SIM]
+- Barney asked for visuals of the simulations with the updated model, one per path with its name.
+- Recorded one closed-loop digital-twin run per path (exact `PythonMaster2_swingup_V2.py`, emulated Arduino/receiver/TX1/TX2/stepper, fitted V2 arms) at nominal and with two arm-2 errors the script does not know about (inertia +10 %, mass -4 %).
+- Nominal: all 7 catch on the first try, catch at swing start + T. Max tracking error in the first swing: same 3.0/3.5/4.0 s 1.0/0.8/1.0 deg, whip 3.0/3.5/4.5 s 2.4/1.4/1.7 deg, folded 2.6 deg.
+- Arm 2 inertia +10 %: same_3.5s and same_4.0s still catch; same_3.0s, all whips and folded abort and retry without catching.
+- Arm 2 mass -4 %: all same-way-up plans and whip_3.5s catch; whip_3.0s and folded abort; whip_4.5s catches but loses it after 0.09 s.
+- Gotcha for the twin harness: the twin keeps running after the script's run time ends, so the arms fall at about 13.9 s (13 s run) and 26.9 s (26 s run). The visuals are cut there; it is not a balance failure.
+- Page: [V2 Swing-Up Simulations](https://claude.ai/artifact/ALjwSAhuB8Vr3RKMJCCFU5) (bench with twin vs plan plots, 7 synced cards, case selector). GIFs per path and `all_7_paths.gif` in Claude project files `DoubleSwingUp_V2/visuals/` (scripts in `tools/`).
