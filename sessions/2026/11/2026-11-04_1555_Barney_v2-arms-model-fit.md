@@ -50,3 +50,9 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - Each plan was checked closed-loop with the team's TV-LQR loop (`Math/shared/swing_sim`) under 11 model errors (±4 % on each ratio, B2 ×0.5/×2, B1 ×2) plus nominal. Every plan catches at nominal. The best catch all 12: same way up 3.5 s, 4.0 s and 4.5 s. The 3.0 s plans are less tolerant (5 to 10 of 12).
 - Gallery: [Double Swing-Up Styles](https://claude.ai/artifact/WJcTh1yAmw7quvpkzteU65). Files are in Claude project files `SwingUpStyles/`.
 - Next: Barney picks a style, then a rig plan is made for the measured track and in the script's trajectory format.
+
+## Update 18:05 UTC: code for 7 chosen swing-ups [SIM]
+- Barney picked same way up 3.0 s (5 rev), 3.5 s, 4.0 s (6 rev); whip 4.5 s (6 rev), 3.5 s (4 rev), 3.0 s (5 rev); folded 4.5 s (7 rev). The only 3.5 s same-way-up plan has 6 reversals, not 5.
+- Built `PythonMaster2_swingup_V2.py` (copy; original unchanged) plus 7 plan files, checked with the script's own `plan_problem`/`load_trajectory` (mismatch below 1e-9) and on the digital twin with the exact script (results in [subsystems/swing-up.md](../../../subsystems/swing-up.md)).
+- Delivered: `TheBarnyard/ChatGPT-Pendulum-Project` `claude/project-thread-74rdr9` `DoubleSwingUp_V2/` (commit 9949265), with Pi install commands that use a commit-pinned raw URL (the branch raw URL served stale files for a few minutes after a push). Also in Claude project files `DoubleSwingUp_V2/` (zip).
+- Next: first rig run with `--path same_4.0s`. Track check still needed: plans reach ±300 mm, abort at 360 mm.
