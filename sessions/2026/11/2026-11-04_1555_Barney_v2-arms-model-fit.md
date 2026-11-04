@@ -87,3 +87,10 @@ Make the double simulation match the two V2 arms, so swing-up paths can be plann
 - From the console lines: in every attempt the arms and cart follow the plan within about 3 deg and 5 mm for the first 1.6 s. Then the cart falls behind the plan (attempt 4: 33 mm at 2.13 s, 119 mm at 2.64 s) and arm 2 drifts off. The feedback reaches CART_ACCEL_MAX 16 m/s² at about 1.5 s. In attempt 2 the cart sat at +0.81 m/s with a = 0, which looks like the 0.83 m/s stepper speed cap seen on 2026-10-28 [HYP].
 - Stop: `RuntimeError: 6 unusable angle frames in a row`, angle3 (TX2) wireless_timeout, radio_age 102 ms, right after attempt 5's abort.
 - Next: CSV requested from Barney to check the speed cap and refit the model on the swing data.
+
+## Update 21:40 UTC: why the first rig run failed, and V2b [HW log + SIM]
+- Barney uploaded the run CSV. Barney noted the 10/16 SYSID_RATIOS would not match; the run used the V2 fit in SYSID_RATIOS (the script uses it whenever it is set), so the ratios were right.
+- Finding: the V2 model fits the swing data (refit moves ratios < 4 %, no better error). The radio is the cause. TX1 has 11 % and TX2 5 % of frames 10-70 ms old, the same as in the excite run, plus about 2-3 ms of hidden spread in a reading's age (1-3 deg on fast arms). The swing observer assumed 0.07 deg noise, chased it, and the cart saturated (16 m/s², 0.83 m/s). The twin with a radio fitted to the log reproduces it: V2 4/54 attempts caught. Details: [debug/2026-11-04_v2-swingup-radio-timing.md](../../../debug/2026-11-04_v2-swingup-radio-timing.md).
+- Fix: `PythonMaster2_swingup_V2b.py` (V2 unchanged), commit fd49fd7 on `TheBarnyard/ChatGPT-Pendulum-Project` `claude/project-thread-74rdr9` `DoubleSwingUp_V2/`. Radio-aware swing observer, SWING_DISTURBANCE 10, SWING_ACCEL 4, radio gap mid-swing → retry instead of stop. Twin: 14/40 attempts caught with the rig-like radio (V2 4/54), 12/12 with a clean radio and arm errors [SIM].
+- Next: rig run of V2b `same_4.0s`; radio checks (antennas, LiPo, TX1 supply, receiver placement).
+

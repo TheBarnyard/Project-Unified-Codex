@@ -52,6 +52,9 @@ Implied joint-2 distance H/P2 (must equal L1 = 0.200 m): previous ratios 0.196 m
 | `PythonMaster2_swingup.py` balance after the swing (swing-fit ratios, B2 0.03, staircase model) | K = [-138.669, 0.414, 232.784, 28.190, 20.548, 21.318, 0] | [Math/Double 4.11](Math/Double/04_balance.md#411-generation-3-the-balance-after-a-swing-up) |
 | `PythonMasterMath2.py` / `PythonMaster2_auto.py` (gen 1, force model) | Kd = [-165.773, -2.682, 240.538, 27.067, 10.742, 15.810], applied x1.5 | `control_matrices2.txt` |
 | Swing observer, per arm | [0.512, 18.21] per rad of angle innovation | [Math/Double 5.7](Math/Double/05_swing_up.md#57-estimating-the-state-during-the-swing) |
+| V2 swing observer (`PythonMaster2_swingup_V2.py`, SWING_DISTURBANCE 3) | [0.726, 45.47] | computed 2026-11-04 |
+| V2b swing observer (`PythonMaster2_swingup_V2b.py`) | time-varying: noise = 3 counts + SWING_TIMING_NOISE_MS 3.0 × arm speed; SWING_DISTURBANCE 10; gain about [0.74, 35] for a slow arm, [0.011, 0.53] at 10 rad/s; repeated readings skipped. SWING_ACCEL_M_S2 4 (V2: 5) | [debug](debug/2026-11-04_v2-swingup-radio-timing.md) |
+| Radio frame age, 2026-11-04 (excite and swing runs) | TX1: 11 % of frames ≥ 10 ms old, 0.25 % ≥ 50 ms; TX2: 5 %, 0.2 %; hidden spread in true age about 2-3 ms [HW] | [debug](debug/2026-11-04_v2-swingup-radio-timing.md) |
 
 ## Swing-up limits (double, as of 2026-10-28)
 | Parameter | Value |
