@@ -38,6 +38,7 @@ Every page in PUC, one line each. Add new pages here.
 - [debug/2026-10-27_angle-dropouts.md](debug/2026-10-27_angle-dropouts.md): ANGLE1_MISSING dropouts (TX1 power) and TX2 never received
 - [debug/2026-10-27_double-swingup-aborts.md](debug/2026-10-27_double-swingup-aborts.md): double swing-up aborts on the rig (cart speed cap)
 - [debug/2026-11-04_v2-swingup-radio-timing.md](debug/2026-11-04_v2-swingup-radio-timing.md): V2 swing-up drifts off the plan after ~1.5 s: radio timing noise, fix V2b
+- [debug/2026-11-05_cart-jolt-red-led.md](debug/2026-11-05_cart-jolt-red-led.md): cart jolts with UIM344 red LED during swing-up (likely position-error lockout); test plan and tools
 
 ## Decisions
 - [decisions/0001_revert-framed-receiver.md](decisions/0001_revert-framed-receiver.md): framed receiver firmware reverted to original (2026-10-07)
