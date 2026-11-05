@@ -31,4 +31,4 @@ Plan doc: https://claude.ai/artifact/7YmvrJBDnQpgkRZXUc57fp. Tools: ChatGPT-Pend
 | Never in replay, only live | controller/radio |
 
 ## Results
-(none yet)
+- 2026-11-05, log-analysis thread ("Analyze yesterday's double swing-up runs"), run `swingup_double_20261104_153309_280984` [HW log, HYP]: 200 ms windows fitting an extra constant cart accel dA on top of the commanded speed (V2 ratios). Below 3 m/s² commanded the cart follows (dA about 0). At 3 m/s² or more, 78 % of 54 windows come up short, mean 1.1 m/s²; the clear cases are short by about 3 m/s² (attempt 4, t 33.6-33.7 s: a_cmd +8, cart gave about half; attempt 5, t 43.7-43.9 s at the 0.83 m/s cap). No frozen cart: attempts 2-5 track fine at first, so any lockout cleared between attempts. Supports "motor cannot deliver the accel at speed", not belt skip specifically. 200 ms windows smear short jolts.
