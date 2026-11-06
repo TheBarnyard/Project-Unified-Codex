@@ -37,3 +37,10 @@ Barney: on the 2026-11-04 swing-up runs the cart jolts (unlike the sim) and the 
 ## Open questions and next steps
 - Barney: read the UIM344 config (I_work, microstep, Max Pos Error), supply voltage, whether the red LED stays on until restart.
 - Then stress test arms off, replay a jolting attempt arms off/on, change one thing at a time. Plan order: config, supply, mechanics, tests, code (lower CART_ACCEL_MAX, ramp sketch).
+
+## 2026-11-06: torque math explainer
+- Barney: the motor datasheet says 1.26 N m holding torque (the UIM5756PM drawing in PUC says 1.2). Explainer doc "Cart motor torque math": https://claude.ai/artifact/3zyNMAfTcsA97iVPe8zss6.
+- Required torque from the 2026-11-04 V2 log (all SWING cycles, r 25.4 mm, 1.0 kg cart assumed, no friction): 95th pct 0.57 N m near standstill falling to 0.17 at 0.8 m/s when speeding up; braking up to 0.99 max. Arm force beyond (m1+m2)a: median 0.8 N, p90 2.8 N, max 17 N [HW log + HYP].
+- Demand at the 3-8 m/s² where the cart fell short is only 0.15-0.35 N m (12-28 % of holding): points to low I_work, voltage limit, friction or a different r [HYP].
+- Low-speed a_max estimate (70 % of T_h(I), M_eff 1.38 kg, 3 N friction, 3 N arm reserve): I_work 2.8 A 21, 2.0 A 14, 1.5 A 9, 1.0 A 5, 0.6 A 1 m/s² [HYP].
+- Lag on an unmet acceleration: e = 0.5 (a_cmd - a_m) t^2; a 3 m/s² shortfall reaches 40 mm in 0.16 s. Max Pos Error 1000 pulses = about 40 mm (encoder edges) or 100 mm (step pulses) [?].
