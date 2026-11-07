@@ -44,3 +44,8 @@ Barney: on the 2026-11-04 swing-up runs the cart jolts (unlike the sim) and the 
 - Demand at the 3-8 m/s² where the cart fell short is only 0.15-0.35 N m (12-28 % of holding): points to low I_work, voltage limit, friction or a different r [HYP].
 - Low-speed a_max estimate (70 % of T_h(I), M_eff 1.38 kg, 3 N friction, 3 N arm reserve): I_work 2.8 A 21, 2.0 A 14, 1.5 A 9, 1.0 A 5, 0.6 A 1 m/s² [HYP].
 - Lag on an unmet acceleration: e = 0.5 (a_cmd - a_m) t^2; a 3 m/s² shortfall reaches 40 mm in 0.16 s. Max Pos Error 1000 pulses = about 40 mm (encoder edges) or 100 mm (step pulses) [?].
+
+## 2026-11-07: Mega not replying at the rig
+- Barney ran `PythonMaster2_swingup_V2.py` (V2b was not in ~/Desktop/DoubleSwingUpV2) three times: each failed at the first motor command with "/dev/ttyACM0: received 0/2 bytes"; Mega RESET did not help [HW]. Runs swingup_double_20261107_125303/125337/125446 (no motion).
+- AngleSensorDiagnostic: angle2 never_received is expected (TX2 on slot 3; script found it). angle1 missing for 8 s at start, then valid.
+- Likely cause [HYP]: ArduinoSlave freezes silently when D22/D27/D23 read LOW (limit switch or stop button), or another process holds the port. Sent fuser/dmesg checks, ~/megacheck.py (3 test commands), V2b install from commit fd49fd7. Waiting on result.
