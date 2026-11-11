@@ -67,5 +67,5 @@ Barney: on the 2026-11-04 swing-up runs the cart jolts (unlike the sim) and the 
 ## 2026-11-11 (later): cart mass from a two-load stall test
 - Barney asked whether code can estimate cart mass. Not from run logs: the stepper sets the cart's motion, so the arms never feel a force and cart mass drops out of the equations.
 - Built `CartJolt/two_load_stall_test.py` (ChatGPT-Pendulum-Project `claude/project-thread-wk3tn6`, commit b6651ec, copy in project files `CartJolt/`): arms off; each trial is a 60 ms hard speed-up ending at 0.8 m/s (reversal from up to -1.2 m/s at high accel); climbs a ladder 6-40 m/s², then bisects to 1 m/s² and re-checks both ends; operator answers clean / red LED / buzz / off the mark. Run once bare, once with a weighed item; `--compute` gives effective moving mass m = dm*a2/(a1-a2) and motor force beyond friction m*a1 (and torque at r 25.4 mm [assumed]). Tested against `tools/fake_mega.py` only [SIM].
-- Waiting on Barney's two runs.
-
+- Barney asked for a second version that reverses instead of braking: `CartJolt/two_load_reversal_test.py` (commit d9c422b): 3 back-to-back hard reversals between -0.8 and +0.8 m/s, same search and math (shared `run_search`, results prefixed `rev_`). A lower stall acceleration than the single speed-up would mean back-to-back reversals cost extra [SIM-tested only].
+- Waiting on Barney's runs of both tests.
