@@ -53,3 +53,9 @@ Barney ran `reversal_method_test.py` (3 reversals +/-0.78 m/s, arms off, bare ca
 - Mega round trip median 4.1 ms (fake Mega 0.3 ms): USB-serial latency [HYP]; harmless at 10 ms.
 - Near top speed the Mega timer (/64, 125000/(N+1)) only gives 0.779, 0.733, 0.692 m/s (5-6 % steps), so even 2 ms commands still jump 0.046 m/s at a time [SIM].
 - Next: `--summary` (A and the first G run), then `--method A,G --accel 15 --repeats 4` after a cool-down.
+
+## 2026-11-11: plan vs commanded vs stall accelerations (double swing-up)
+- Plans (7 V2 JSONs, DoubleSwingUp_V2): limit 8 m/s² (x(1-v/1.0) when speeding up), 0.75 m/s; peak 4.7 (same_4.0s) to 7.7 m/s² (whip_3.0s); median |a| 0.9-1.8, 90th percentile 3.3-4.9 [SIM].
+- Commanded during SWING (plan + feedback, `force_command_n`, 33 runs 2026-11-04): median 2.7, p90 11.3, p99 16.2 m/s²; 9 % of swing time >= 12, 4 % at the 16 cap (CART_ACCEL_MAX_M_S2 16; logged peaks 16-18 after timer rounding); speed commands up to 0.86 m/s (1.0 in whip runs) [HW log].
+- Stall onsets in SWING (excluding the frozen-sensor runs 151934, 152746, 161145): 12 in 11 runs, all after commands of 16.2-18.0 m/s² at 0.83-0.96 m/s [HW log].
+- So the feedback, not the plan, drives the motor past its limit. Candidate fix: CART_ACCEL_MAX_M_S2 about 12 in a copy [HYP, untested].
