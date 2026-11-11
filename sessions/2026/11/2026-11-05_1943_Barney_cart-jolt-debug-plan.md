@@ -63,3 +63,9 @@ Barney: on the 2026-11-04 swing-up runs the cart jolts (unlike the sim) and the 
 - Not usable: 151934 and 152746 (arm 1 reading frozen; their k=71 err 35° aborts are sensor faults), 161145 (both readings constant 6 s while 0.27 m commanded: cart likely never moved; motor off, locked or disabled [?]).
 - Revises the 2026-11-05 log result and the 2026-11-06 "shortfall at 3-8 m/s²" finding (one run, noise model without radio timing): over 30 runs the cart follows at moderate demand.
 - Next: Barney answers (stop button, 162911 red LED, 161145 supply, supply voltage), CFG344 read, supply MIN/MAX, stress test arms off, replay 162911 attempt 1, slow-motion video. Without the rig: cap plans at about 12 m/s² and 0.8 m/s; do not rerun whip/folded.
+
+## 2026-11-11 (later): cart mass from a two-load stall test
+- Barney asked whether code can estimate cart mass. Not from run logs: the stepper sets the cart's motion, so the arms never feel a force and cart mass drops out of the equations.
+- Built `CartJolt/two_load_stall_test.py` (ChatGPT-Pendulum-Project `claude/project-thread-wk3tn6`, commit b6651ec, copy in project files `CartJolt/`): arms off; each trial is a 60 ms hard speed-up ending at 0.8 m/s (reversal from up to -1.2 m/s at high accel); climbs a ladder 6-40 m/s², then bisects to 1 m/s² and re-checks both ends; operator answers clean / red LED / buzz / off the mark. Run once bare, once with a weighed item; `--compute` gives effective moving mass m = dm*a2/(a1-a2) and motor force beyond friction m*a1 (and torque at r 25.4 mm [assumed]). Tested against `tools/fake_mega.py` only [SIM].
+- Waiting on Barney's two runs.
+
