@@ -44,3 +44,12 @@ Plan doc: https://claude.ai/artifact/7YmvrJBDnQpgkRZXUc57fp. Tools: ChatGPT-Pend
   - Lag on the 10 ms staircase: 5 mm if the motor can do 18 m/s², 34 mm at 16, 84-100 mm at 12-14 [SIM]. A cliff, not a gradual shortfall.
   - Mega no-reply stops: all 11 in RECOVER, 7 within 0.9-3.6 s after a stall. Stop button pressed, or the jolt getting into the switch wiring [?].
   - Not usable: 151934, 152746 (arm 1 reading frozen), 161145 (cart never moved [?]).
+
+## 2026-11-11 (evening): reversal method test on the rig
+Barney ran `reversal_method_test.py` (3 reversals +/-0.78 m/s, arms off, bare cart). He answered "b" at the first slight stutter, so these are stutter-onset accelerations, not hard stalls [HW]:
+- E (2 ms stream): clean to about 19-20, stutters 20-21 m/s² (answers flipped at 20 and 21). D (5 ms stream): about 19 (19 clean once, stuttered once). F (10 ms + hysteresis): about 18.5 (one early stutter at 16, then 16-18 clean, 19 stuttered; search not finished). G (10 ms + 30 ms S-curve): 13.37 +/- 0.38 (finished; 6 stutters at 14-16).
+- D/E/F within about 2 m/s², the same as the answer scatter: the command rate is not the main limit; the motor runs out around 19-20 m/s² at 0.78 m/s [HW].
+- G clearly worse. Its commands were checked: same top speed (0.779 m/s), no overshoot; it stays at top speed about 20 ms longer per corner. It ran last, so motor warming is possible [HYP]. A (current method) was not in the paste.
+- Mega round trip median 4.1 ms (fake Mega 0.3 ms): USB-serial latency [HYP]; harmless at 10 ms.
+- Near top speed the Mega timer (/64, 125000/(N+1)) only gives 0.779, 0.733, 0.692 m/s (5-6 % steps), so even 2 ms commands still jump 0.046 m/s at a time [SIM].
+- Next: `--summary` (A and the first G run), then `--method A,G --accel 15 --repeats 4` after a cool-down.
