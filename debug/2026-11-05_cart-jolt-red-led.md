@@ -25,6 +25,7 @@ Plan doc: https://claude.ai/artifact/7YmvrJBDnQpgkRZXUc57fp. Tools: ChatGPT-Pend
 6. One change at a time, rerun 4-5.
 7. Code: lower CART_ACCEL_MAX_M_S2 in a copy; `ArduinoSlaveRamp` (ramped step rate).
 8. 2026-11-11: `two_load_stall_test.py` (arms off, bare cart then a weighed item): measures the cart's effective mass and the motor's force at 0.8 m/s.
+9. 2026-11-11: `two_load_reversal_test.py` (same, 3 back-to-back reversals), `command_style_test.py` (same move sent 7 ways, blind scoring), `reversal_method_test.py` (the reversal stall search with the command method chosen on the command line: `--method A..G` or `--period/--smooth/--hyst/--send`; one stall acceleration per method).
 
 | Result | Points to |
 | --- | --- |
