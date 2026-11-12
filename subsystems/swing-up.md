@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-04
+updated: 2026-11-12
 updated_by: Ryan (Claude, V2 arms fit session)
 ---
 # Swing-up
@@ -19,6 +19,7 @@ updated_by: Ryan (Claude, V2 arms fit session)
   - Exact script on the digital twin (11 cases × 3 seeds: nominal, arm-2 mass ±4 %, arm-2 I ±10 %, arm-1 I +10 %, arm-2 CoM +3 %, friction ×3, TX2 on slot 3, radio loss), first-try catches [SIM]: same_4.0s 33/33, same_3.5s 33/33, same_3.0s 30/33, whip_4.5s 28/33, whip_3.5s 27/33, folded_4.5s 24/33, whip_3.0s 23/33. All catch in the nominal case. Whip and folded are sensitive to arm 2's mass and inertia. Untested on the rig.
   - Visuals (2026-11-04 18:40): [V2 Swing-Up Simulations](https://claude.ai/artifact/ALjwSAhuB8Vr3RKMJCCFU5), twin vs plan per path at nominal, arm-2 I +10 % and mass -4 %; GIFs in Claude project files `DoubleSwingUp_V2/visuals/`. Only same_3.5s and same_4.0s catch in all three [SIM]. 3D version on the Rev C arm models: [V2 Swing-Up in 3D](https://claude.ai/artifact/FSBrxtu7MeNzcgHL4LMWrU).
 - **2026-11-04 first rig run of V2 (`same_4.0s`): 0 of 5 caught; cause is radio timing noise, not the model.** Fix `PythonMaster2_swingup_V2b.py` (radio-aware swing observer), commit fd49fd7: twin with the rig's radio 14/40 attempts caught vs 4/54 for V2 [SIM]. Untested on the rig. [debug/2026-11-04_v2-swingup-radio-timing.md](../debug/2026-11-04_v2-swingup-radio-timing.md)
+- **2026-11-12: `PythonMaster2_swingup_V2b_D.py`** = V2b with the cart commands sent every 5 ms without waiting for the Mega reply (method D, smoothest on the cart-jolt bench). ChatGPT-Pendulum-Project `claude/project-thread-wk3tn6` `DoubleSwingUp_V2D/` (4ae6037), Pi folder `~/Desktop/DoubleSwingUpV2D`. Same catch rate as V2b on the twin with paired radio noise [SIM]; untested on the rig. [debug/2026-11-05_cart-jolt-red-led.md](../debug/2026-11-05_cart-jolt-red-led.md)
 - Triple (no rig): the same method with n = 3 needs a 4.0 s plan to stay inside the rig's limits [SIM][HYP]. [Math/Triple](../Math/Triple/README.md)
 
 Plans sent (branch `claude/project-thread-orcdoj` of `TheBarnyard/ChatGPT-Pendulum-Project`, folder `DoubleSwingUp_NewArm/`):

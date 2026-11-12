@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-11
+updated: 2026-11-12
 updated_by: Ryan (Claude, cart jolt session)
 ---
 # Project brief
@@ -23,7 +23,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 - **TX2 (angle 2):** working since 2026-10-27 after reflashing the repo `TX2.ino`; the old firmware on it was wrong.
 - **New arm 1 (PLA):** installed. The fitted model ratios still match it; the old photo-based estimate does not. 2026-10-29: arms rebuilt from the team's STLs and measured weights. Arm 1: 98.1 g, CoM 147.8 mm from its pivot (small hole), Izz pivot 2.48e-3 kg m²; predicted hanging period 0.83-0.86 s vs rig 0.84-0.89 s. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
 - **V2 arms swing-up (2026-11-04):** 7 new plans (same way up 3.0/3.5/4.0 s, whip 3.0/3.5/4.5 s, folded 4.5 s) and script copy `PythonMaster2_swingup_V2.py` for the V2 fit; same_4.0s and same_3.5s caught 33/33 on the digital twin [SIM]. First rig run (same_4.0s): 0/5, cause is radio timing noise in the swing observer, not the model; use `PythonMaster2_swingup_V2b.py` next [HW log + SIM]. See [debug/2026-11-04_v2-swingup-radio-timing.md](debug/2026-11-04_v2-swingup-radio-timing.md).
-- **Cart jolts with red motor LED (2026-11-05, logs analysed 2026-11-11):** the 2026-11-04 logs show the motor stalling at the swing's 16-18 m/s² reversals (0.8-0.96 m/s) in 15 runs, and one latched lockout (162911); below about 12 m/s² it follows [HW log]. The motor is at its torque limit there (about 0.65-0.8 N m) [HYP]. Next: CFG344 read (I_work), supply check, stress/replay tests; plans capped near 12 m/s². See [debug/2026-11-05_cart-jolt-red-led.md](debug/2026-11-05_cart-jolt-red-led.md).
+- **Cart jolts with red motor LED (2026-11-05, logs analysed 2026-11-11):** the 2026-11-04 logs show the motor stalling at the swing's 16-18 m/s² reversals (0.8-0.96 m/s) in 15 runs, and one latched lockout (162911); below about 12 m/s² it follows [HW log]. The motor is at its torque limit there (about 0.65-0.8 N m) [HYP]. ~~Next: CFG344 read (I_work), supply check, stress/replay tests; plans capped near 12 m/s².~~ 2026-11-12: CFG344 settings are fine, the pulley is 1 in, supply 18-30 V makes no difference (stay at 24 V); 5 ms streamed commands (method D) felt smoothest, so `PythonMaster2_swingup_V2b_D.py` (DoubleSwingUp_V2D) is ready for a rig try [SIM]. See [debug/2026-11-05_cart-jolt-red-led.md](debug/2026-11-05_cart-jolt-red-led.md).
 - **V2 arms model (2026-11-04):** both arms are now V2. Ratios fitted from a 35 min excitation run predict the arms within about 2 to 3 deg over 3 s [HW]. Use them for new swing-up plans. See [params.md](params.md).
 - **Unified launcher (`pendulum.py`):** design only, no code yet.
 - **MuJoCo / RL:** double balance + double swing-up training folder on the new arms, 2026-10-30 (project files `RL_DoubleNewArms/`). Double balance solves in sim [SIM]; swing-up training is up to Barney's PC. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
