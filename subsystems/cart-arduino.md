@@ -9,7 +9,7 @@ An Arduino Mega 2560 runs `Code/ArduinoSlave/ArduinoSlave.ino`. It drives the ca
 - Input: a 4-byte step-rate command from the Pi.
 - Output: cart position back to the Pi.
 - ~~Stepper driver manual: `Manual_UIM5756PM.pdf` [?] confirm this is the driver in use.~~ Superseded 2026-10-29 by [session](../sessions/2026/10/2026-10-29_1513_Barney_hardware-datasheets.md): Barney confirmed the motor.
-- Motor: UIM5756PM closed-loop integrated stepper, UIM344 pulse-direction controller built in (Barney, 2026-10-29). Datasheets, manual and wiring: [Hardware/Datasheets/UIM5756PM_Motor](../Hardware/Datasheets/README.md). Microstep setting on the rig [?] (default 32). 2026-11-05: DISTANCE_PER_6400_STEPS_M 0.638175 implies 8 microsteps with a 2.00 in pitch-diameter pulley [HYP]; confirm with CFG344.
+- Motor: UIM5756PM closed-loop integrated stepper, UIM344 pulse-direction controller built in (Barney, 2026-10-29). Datasheets, manual and wiring: [Hardware/Datasheets/UIM5756PM_Motor](../Hardware/Datasheets/README.md). ~~Microstep setting on the rig [?] (default 32).~~ 2026-11-12 CFG344 read: Micro-Stepping 4, so 6400 pulses = 8 turns and the pulley is 1 in pitch diameter (r 12.7 mm). 2026-11-05: DISTANCE_PER_6400_STEPS_M 0.638175 implies 8 microsteps with a 2.00 in pitch-diameter pulley [HYP]; confirm with CFG344.
 
 ## Known limits
 - Speed is quantized by the stepper timer. Near 0.83 m/s one timer step (0.831 to 0.890 m/s) needs 5.9 m/s^2 in 10 ms, more than the controller's torque-limited acceleration, so the speed rounds back: an effective cap of about 0.83 m/s [HW]. See [debug](../debug/2026-10-27_double-swingup-aborts.md).

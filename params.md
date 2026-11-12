@@ -1,10 +1,24 @@
 ---
-updated: 2026-10-29
-updated_by: Ryan (Claude, math-folder session)
+updated: 2026-11-12
+updated_by: Ryan (Claude, cart-jolt session)
 ---
 # Key parameters
 
 Constants and settings people keep needing. Each value has a source. Conflicting values are listed side by side, never overwritten.
+
+## Cart motor (UIM5756PM / UIM344), read with CFG344 2026-11-12 [HW]
+| Parameter | Value | Source |
+| --- | --- | --- |
+| Micro-Stepping | 4 (800 pulses per motor turn) | CFG344 read, [debug](debug/2026-11-05_cart-jolt-red-led.md) |
+| Cart travel per pulse | 0.638175 m / 6400 = 0.0997 mm; 79.8 mm per motor turn | scripts' DISTANCE_PER_6400_STEPS_M |
+| Pulley pitch diameter | 25.4 mm (1 in), r 12.7 mm (from the two rows above). Earlier pages assumed 2 in: superseded | derived |
+| Motor speed at the cart's top speeds | about 590 rpm at 0.78 m/s, 720 rpm at 0.96 m/s | derived |
+| Rotor inertia seen at the belt | 300 g cm² / r² = 0.19 kg | UIM5756PM drawing |
+| Rated current / holding torque | 2.8 A / 1.2 N m | UIM5756PM drawing |
+| I_work, I_idle | 3.0 A, 100 % | CFG344 read |
+| Max. Pos. Error | 1000 pulse (lockout + red LED above it) | CFG344 read |
+| Ultra-quiet Speed | 4 rpm | CFG344 read |
+| LPR (encoder) | 1000 | CFG344 read |
 
 ## Communication
 | Parameter | Value | Source |

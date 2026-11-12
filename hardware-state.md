@@ -12,7 +12,7 @@ What is physically on the rig right now. Update this whenever you flash, rewire,
 | TX2 (XIAO ESP32-C3, arm 2 encoder) | Repo `TX2.ino`, reflashed. MAC e8:f6:0a:15:1b:48. LiPo battery, charged through the XIAO USB | 2026-10-27 | [angle dropouts](debug/2026-10-27_angle-dropouts.md) |
 | Receiver (ESP32-WROOM, CP2102) | Original `Receivermaster` re-flashed after the framed test. [?] Which protocol version (6-byte unframed or v1 framed) is on it now | 2026-10-07 | [receiver](subsystems/receiver.md) |
 | Mega 2560 | `ArduinoSlave` | [?] | [cart](subsystems/cart-arduino.md) |
-| Cart motor | UIM5756PM closed-loop stepper, UIM344 controller built in. Microstep setting [?] | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
+| Cart motor | UIM5756PM closed-loop stepper, UIM344 controller built in. CFG344 read 2026-11-12: Micro-Stepping 4 (800 pulses/turn), LPR 1000, I_work 3.0 A, I_idle 100 %, Max. Pos. Error 1000 pulse, Ultra-quiet 4 rpm. Pulley 1 in pitch diameter (79.8 mm/turn) | 2026-11-12 (CFG344 read) | [datasheets](Hardware/Datasheets/README.md) |
 | Raspberry Pi | Raspberry Pi 4 Model B, 8 GB | 2026-10-29 (confirmed) | [datasheets](Hardware/Datasheets/README.md) |
 | Arm 1 | New PLA arm (`arm_1_3dp`, 200 mm, 34.5 g printed). Pivots on the cart shaft at its small Ø8 hole. Hub = joint 2: shaft holder + 608, sensor mount + MT6701, ESP32 mount + XIAO (TX2), battery case + LiPo | 2026-10-27 | [arms](subsystems/arms-and-model.md) |
 | Arm 2 | Old second arm. New `arm_2_3dp` (250 mm): clamps on the joint-2 shaft at its small hole; its hub electronics are for a future joint 3 (no shaft yet). Fitted on the rig? [?] | | [arms](subsystems/arms-and-model.md) |
