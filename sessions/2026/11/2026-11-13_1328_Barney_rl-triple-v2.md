@@ -33,7 +33,12 @@ Barney asked for code to train triple-arm balance and triple-arm swing-up on the
 - Triple swing-up v1 sat still [SIM]: Barney's run (12-core PC, CPU, about 100 st/s) and Claude's run both did this. Evals at 150k-700k scored return 0, arm max 0.7 rad/s, tip height 0.00. At 300k it fan-bladed once (11.6 turns, tip factor 0.99), then went back to still. Causes: the plain reward `0.2*mean + 0.8*prod` of (1+cos)/2 is about 0 short of all three arms up, so with the rail penalty, standing still is the safe local optimum. The warm start from the balance policy also left the SAC entropy coef at about 0.004 (balance began at 1.0).
 - v2b (14:45 UTC, commit 1cb7d28, zip sha256 c149b8db...) changes only `triple_swingup`: height reward `0.5*h^2 + 0.5*prod(up_i)` (h = summed link-end heights, 0 hanging to 1 upright); 30 % random-pose training starts (eval always hanging); entropy coef reset to 0.1 on warm start (`--ent-coef-init`). Upright-start probability now applies to training envs only.
 
+- v2b test (Claude, 4 cores): evals from hanging still motionless at 100-150k (arm max 0.6-0.7 rad/s); SAC entropy coef fell back to 0.006 within 100k even after the 0.1 reset. Cause [HYP]: `h^2` has zero slope at hanging (quartic in the swing angle).
+- v2c (commit 97a6696): `turbo.py`. It benchmarks learner layouts (CPU 8/8/512, 16/8/1024; CUDA 16/8/1024, 32/8/2048, 64/8/4096 as envs/gradient steps/batch, all 512 samples per collected step), runs 2 seeds in parallel at below-normal priority with 2 cores kept free and evals every 200k, and the first to solve stops the others (STOP file). Barney's PC: RTX 4060 8 GB; the standard layout benchmarked CPU 122 vs CUDA 111 st/s.
+- v2d (commit 4d5e87d, zip sha256 e47032b5...): `triple_swingup` reward = `0.3*h + 0.2*max(0, 1-|E/E_up - 1|) + 0.5*prod(up_i)`, with arm energy E in the cart frame (potential + kinetic via `mj_mulM`). Optional `--spin-penalty` (per rad/s above 25). Turbo runs one seed with energy and one with energy-spin. Test: evals swing from the start (return 70 to 293 by 125k) but fan-blade (arms up to 50 rad/s), 0 % upright so far [SIM].
+
 ## Dead ends
+- v2b `h^2` height reward: evals from hanging still sit still (flat reward at hanging).
 - Triple swing-up with the double folder's plain reward and a balance warm start: collapses to "do nothing" within 350k steps (see above).
 
 ## Changed
