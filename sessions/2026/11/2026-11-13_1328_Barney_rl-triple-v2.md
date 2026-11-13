@@ -37,6 +37,10 @@ Barney asked for code to train triple-arm balance and triple-arm swing-up on the
 - v2c (commit 97a6696): `turbo.py`. It benchmarks learner layouts (CPU 8/8/512, 16/8/1024; CUDA 16/8/1024, 32/8/2048, 64/8/4096 as envs/gradient steps/batch, all 512 samples per collected step), runs 2 seeds in parallel at below-normal priority with 2 cores kept free and evals every 200k, and the first to solve stops the others (STOP file). Barney's PC: RTX 4060 8 GB; the standard layout benchmarked CPU 122 vs CUDA 111 st/s.
 - v2d (commit 4d5e87d, zip sha256 e47032b5...): `triple_swingup` reward = `0.3*h + 0.2*max(0, 1-|E/E_up - 1|) + 0.5*prod(up_i)`, with arm energy E in the cart frame (potential + kinetic via `mj_mulM`). Optional `--spin-penalty` (per rad/s above 25). Turbo runs one seed with energy and one with energy-spin. Test: evals swing from the start (return 70 to 293 by 125k) but fan-blade (arms up to 50 rad/s), 0 % upright so far [SIM].
 
+- v2d test, longer run: return 338 at 250k, still fan-blading (arms 41-48 rad/s), 0 % upright [SIM]. Barney's v2c turbo runs (v2b reward, `cuda,64,8,4096`, about 470 st/s per seed) also sat still at 700k [SIM].
+- Barney's turbo benchmark (RTX 4060, single run, st/s): cpu 8/8/512 126, cpu 16/8/1024 160, cuda 16/8/1024 219, cuda 32/8/2048 412, cuda 64/8/4096 750.
+- v2e (commit b00f4c6, zip sha256 73f61984...), asked for by Barney: turbo seed 1 = cart acceleration cap of 18 m/s² (commanded speed slew-limited per 1 ms step, measured 19 m/s²); seed 2 = no cap, with the reward multiplied by a smooth-acceleration factor 1/((1+ea²)(1+ej²)), where ea = (|a|-5)/15 and ej = (|Δa per 10 ms|-5)/20 are clipped at 0. Multiplicative, so standing still can never pay. Max cart acceleration (10 ms average) is now shown wherever max speed was, plus a cart v/a HUD line.
+
 ## Dead ends
 - v2b `h^2` height reward: evals from hanging still sit still (flat reward at hanging).
 - Triple swing-up with the double folder's plain reward and a balance warm start: collapses to "do nothing" within 350k steps (see above).
