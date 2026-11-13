@@ -1,6 +1,6 @@
 ---
-updated: 2026-11-12
-updated_by: Ryan (Claude, cart jolt session)
+updated: 2026-11-13
+updated_by: Ryan (Claude, triple RL session)
 ---
 # Project brief
 
@@ -26,7 +26,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 - **Cart jolts with red motor LED (2026-11-05, logs analysed 2026-11-11):** the 2026-11-04 logs show the motor stalling at the swing's 16-18 m/s² reversals (0.8-0.96 m/s) in 15 runs, and one latched lockout (162911); below about 12 m/s² it follows [HW log]. The motor is at its torque limit there (about 0.65-0.8 N m) [HYP]. ~~Next: CFG344 read (I_work), supply check, stress/replay tests; plans capped near 12 m/s².~~ 2026-11-12: CFG344 settings are fine, the pulley is 1 in, supply 18-30 V makes no difference (stay at 24 V); 5 ms streamed commands (method D) felt smoothest, so `PythonMaster2_swingup_V2b_D.py` (DoubleSwingUp_V2D) is ready for a rig try [SIM]. See [debug/2026-11-05_cart-jolt-red-led.md](debug/2026-11-05_cart-jolt-red-led.md).
 - **V2 arms model (2026-11-04):** both arms are now V2. Ratios fitted from a 35 min excitation run predict the arms within about 2 to 3 deg over 3 s [HW]. Use them for new swing-up plans. See [params.md](params.md).
 - **Unified launcher (`pendulum.py`):** design only, no code yet.
-- **MuJoCo / RL:** double balance + double swing-up training folder on the new arms, 2026-10-30 (project files `RL_DoubleNewArms/`). Double balance solves in sim [SIM]; swing-up training is up to Barney's PC. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
+- **MuJoCo / RL:** double balance + double swing-up training folder on the new arms, 2026-10-30 (project files `RL_DoubleNewArms/`). Double balance solves in sim [SIM]; swing-up training is up to Barney's PC. 2026-11-13: triple balance + triple swing-up folder (V2 arms + 300 mm arm 3, project files `RL_Triple_V2/`); triple balance solves at 190k steps [SIM]. See [subsystems/arms-and-model.md](subsystems/arms-and-model.md).
 - **Gate Report 2:** drafted 2026-10-26.
 - **PUC:** this codex was set up 2026-10-28.
 - **Math teaching pages:** [Math/](Math/README.md) for single, double (both checked against the team's scripts) and triple (assumed rig), 2026-10-29.

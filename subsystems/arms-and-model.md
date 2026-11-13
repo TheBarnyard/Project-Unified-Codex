@@ -1,6 +1,6 @@
 ---
-updated: 2026-11-04
-updated_by: Ryan (Claude, V2 arms fit session)
+updated: 2026-11-13
+updated_by: Ryan (Claude, triple RL session)
 ---
 # Arms, model, system ID and digital twin
 
@@ -29,4 +29,5 @@ updated_by: Ryan (Claude, V2 arms fit session)
 - 2026-10-29 v3 ([session](../sessions/2026/10/2026-10-29_2133_Barney_twin-new-arms-math.md)): [Pendulum Digital Twin](https://claude.ai/artifact/27Ekbq9KoELfP2hwoJJZir) now uses the new arms (STL model, 25 mm gap a guess [?]) and only the 4 main controllers, plus a Math tab (16 interactive lessons) and a Math-in-our-code tab. Build files: project files `TwinV3/`.
 - ~~MuJoCo RL is planned after the arms are final; reward terms not yet defined.~~ Superseded 2026-10-30 by [session](../sessions/2026/10/2026-10-30_1801_Barney_rl-double-newarms.md): RL training exists (SAC, MuJoCo, Stable-Baselines3).
 - 2026-10-30 [session](../sessions/2026/10/2026-10-30_1801_Barney_rl-double-newarms.md): `engt481_rl_double_newarms.zip` (project files `RL_DoubleNewArms/`) trains only double balance and double swing-up on the corrected new-arm MJCF. Training numbers from Barney's "BETTER TRAINING NUMBERS AND RESULT" version (SAC lr 3e-4, batch 512, tau 0.005, 256x256, cart velocity action, reward up*centered*calm - effort, rail penalty 10, swing-up upright-start 0.1); tooling from v4.1 (ETAs, traces, behaviour flags, report zip, lanes). Auto-stop: balance 3 passes in a row, swing-up 5. Double balance solved on the new arms by 70k-120k steps [SIM], with cart chatter (jolts 50-100/s, the velocity-action jiggle v4.1 diagnosed). Swing-up not trained in the session (hours).
+- 2026-11-13 [session](../sessions/2026/11/2026-11-13_1328_Barney_rl-triple-v2.md): triple RL folder `engt481_rl_triple_v2arms.zip` (project files `RL_Triple_V2/`, branch `claude/project-thread-8o7nnj` of `TheBarnyard/ChatGPT-Pendulum-Project`). It uses the double folder's training numbers plus `model/triple_pendulum.xml` from `model/build_triple_v2.py`: link 1 from the STL model, link 2 from the V2 fit, link 3 = arm 2 stretched to 300 mm with arm 2's fit correction (169.9 g, CoM 135.4 mm) [HYP]. Triple balance solved at 190k steps with 50 Hz chatter [SIM].
 - 2026-11-09 [session](../sessions/2026/11/2026-11-09_1604_Barney_rl-network-diagram.md): RL policy network = SAC actor 9 -> 256 -> 256 (ReLU) -> 1. Inputs x/0.50, xdot/1.4, sin/cos of both absolute arm angles, w/10 each, previous action; output tanh -> cart velocity x 1.4 m/s at 100 Hz. Diagram in project files `NeuralNetDiagram/`.
