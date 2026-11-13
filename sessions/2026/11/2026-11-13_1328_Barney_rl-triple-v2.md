@@ -30,10 +30,15 @@ Barney asked for code to train triple-arm balance and triple-arm swing-up on the
 - LQR (`watch.py --lqr`) balances the triple model in 4 of 5 random starts [SIM].
 - `triple_balance` was solved at 190k steps (3 passing evals in a row) in 60 min on 4 cores [SIM]. It chatters like the double: the command flips up to 100 times/s, dominant 49.9 Hz, cart up to 0.97 m/s. Files: project files `RL_Triple_V2/test_2026-11-13/` (best.zip, video, report).
 
+- Triple swing-up v1 sat still [SIM]: Barney's run (12-core PC, CPU, about 100 st/s) and Claude's run both did this. Evals at 150k-700k scored return 0, arm max 0.7 rad/s, tip height 0.00. At 300k it fan-bladed once (11.6 turns, tip factor 0.99), then went back to still. Causes: the plain reward `0.2*mean + 0.8*prod` of (1+cos)/2 is about 0 short of all three arms up, so with the rail penalty, standing still is the safe local optimum. The warm start from the balance policy also left the SAC entropy coef at about 0.004 (balance began at 1.0).
+- v2b (14:45 UTC, commit 1cb7d28, zip sha256 c149b8db...) changes only `triple_swingup`: height reward `0.5*h^2 + 0.5*prod(up_i)` (h = summed link-end heights, 0 hanging to 1 upright); 30 % random-pose training starts (eval always hanging); entropy coef reset to 0.1 on warm start (`--ent-coef-init`). Upright-start probability now applies to training envs only.
+
+## Dead ends
+- Triple swing-up with the double folder's plain reward and a balance warm start: collapses to "do nothing" within 350k steps (see above).
+
 ## Changed
 - Code: new folder only, as above. No team code was edited.
 
 ## Open questions and next steps
 - Weigh arm 3 and time its hanging period once it exists, then rebuild the model. Also confirm whether arm 3 carries electronics.
 - The velocity action chatters at 50 Hz. The real motor stalls at 16-18 m/s² reversals ([cart jolt debug](../../../debug/2026-11-05_cart-jolt-red-led.md)), so the policy is not rig-ready as it stands.
-- Triple swing-up training: test still running (see below).
