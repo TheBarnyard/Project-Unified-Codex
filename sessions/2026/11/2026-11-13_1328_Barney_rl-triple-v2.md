@@ -43,6 +43,8 @@ Barney asked for code to train triple-arm balance and triple-arm swing-up on the
 
 - v2f (commit e22a889, zip sha256 f29fc5b9...): exact pause/resume. Ctrl+C or a STOP file saves `latest.zip` (policy, optimisers, entropy coef), `replay_buffer.pkl` (about 112 MB per run at 1M capacity) and `resume.json` (step, best, streak, next eval, elapsed). `train.py --resume <run>` or `turbo.py --prefix <p> --resume` continues with `reset_num_timesteps=False`. Runs paused by older versions rebuild their counters from status.json and refill 20k steps first. Tested: paused at 12,952, resumed at 12,952 with buffer and eval history.
 
+- v2g (2026-11-15, commit ed8cf13, zip sha256 d5dd99d3...): `turbo.py --resume` takes a comma list of prefixes, so `python turbo.py --prefix turbo2,turbo3 --resume` resumes Barney's 4 runs (energy, energy-spin, accel18, smooth) in one window, with CPU threads split (10 usable / 4 = 2 each) and a shared GPU. turbo.py now resets the SIGINT handler so Ctrl+C always pauses. Tested on 4 small CPU runs: pause, resume of all 4 (3 old-style without buffer refilled 20k steps, 1 with buffer), pause again; each kept its own step and variant [SIM].
+
 ## Dead ends
 - v2b `h^2` height reward: evals from hanging still sit still (flat reward at hanging).
 - Triple swing-up with the double folder's plain reward and a balance warm start: collapses to "do nothing" within 350k steps (see above).
