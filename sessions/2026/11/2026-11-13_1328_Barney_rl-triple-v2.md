@@ -45,7 +45,28 @@ Barney asked for code to train triple-arm balance and triple-arm swing-up on the
 
 - v2g (2026-11-15, commit ed8cf13, zip sha256 d5dd99d3...): `turbo.py --resume` takes a comma list of prefixes, so `python turbo.py --prefix turbo2,turbo3 --resume` resumes Barney's 4 runs (energy, energy-spin, accel18, smooth) in one window, with CPU threads split (10 usable / 4 = 2 each) and a shared GPU. turbo.py now resets the SIGINT handler so Ctrl+C always pauses. Tested on 4 small CPU runs: pause, resume of all 4 (3 old-style without buffer refilled 20k steps, 1 with buffer), pause again; each kept its own step and variant [SIM].
 
+- **Overnight result 2026-11-14/15 (Barney's PC, report `turbo2turbo3_report_20261115-0803.zip`, project files `RL_Triple_V2/v2h_2026-11-15/`) [SIM]:** four SAC runs, about 11M steps each in 8.3 to 8.6 h (about 350 st/s each with four sharing the RTX 4060). None solved the triple swing-up.
+  | Run | Variant | Steps | Best eval return (max 1200) | Behaviour at the end |
+  | --- | --- | --- | --- | --- |
+  | turbo2_s1 | energy | 11.79M | 583 | "rolling stick": all three arms rotate together about 0.8 to 0.9 turns/s, all within 30° of upright 21 to 24 % of the time; 9 % and 16 % upright with 0.5 s holds at 4.8M and 6.4M only |
+  | turbo2_s2 | energy + spin penalty 0.01 | 11.75M | 588 | same rolling, 0 % upright, arms at most 24 rad/s |
+  | turbo3_s1 | cart accel cap 18 m/s² | 10.77M | 467 | same rolling; holds upright-start training episodes 0.1 to 0.6 % of the time (balance skill lost) |
+  | turbo3_s2 | smooth-accel reward | 10.99M | 216 | deterministic eval sits still from hanging (return 0); training episodes with exploration noise return 110 to 240 |
+  Returns were flat from about 6M steps; training loops per 3 s fell slowly (5.2 to 2.9 for turbo2_s1).
+- **v2h (2026-11-15, commit b244cb7, zip sha256 1ca72d63...): planned controller + imitation [SIM].**
+  - `model/make_plan.py` runs the PUC planner (`Math/shared/nlink_cart.py`, copied to `model/nlink_cart.py`; CasADi + IPOPT, continuation from loose limits) on `params.json` `triple`. 4.0 s plan at track 0.40 m, 1.2 m/s, 15 m/s² allowed: uses 6.3 m/s² peak, effort 25.2 (`model/triple_swingup_plan.json`). A 3.0 s plan also exists at the same limits (uses the full 15 m/s², effort 65.7).
+  - The planner's n-link model matches the MuJoCo model: a 1 s free swing from the same state differs by under 0.03 rad.
+  - `plan_expert.py`: plan + time-varying LQR (weights 5°, 120°/s, 0.25 m, 0.3 m/s, R = 1/5²) + balance LQR, output as the env's speed command. It passes the `triple_swingup` test in 20 of 20 episodes from the env's random hanging starts: return 946, upright at 3.24 s, hold 8.76 s, cart at most 1.2 m/s, 0.40 m, 6 to 13 m/s². `watch.py --plan`, `record.py --plan`.
+  - `imitate.py` (DAgger): the 256x256 SAC actor copies the controller. Two runs (seeds 0, 1; 3 CPU threads): 20 of 20 pass after 4 and 5 rounds (4 to 6 min), return 947 and 946, cart at most 8 to 11 m/s². With the 18 m/s² cap switched on it still passes (3 of 3, return 947).
+  - Noise tolerance of the imitation policy: passes 6 of 6 with command noise 0.03 (of the ±1 action), 3 of 6 at 0.05, 0 of 6 at 0.10. SAC's default entropy target (-1) corresponds to about 0.09, a likely reason plain SAC never held a catch [HYP].
+  - New options: env `plan_start_prob` (training starts at a random plan point, slightly perturbed), `train.py --plan-start-prob`, `--actor-freeze-steps`, `turbo.py --variants plan` (experimental, start-up check only).
+
 ## Dead ends
+- Pure SAC with reward shaping for the triple swing-up (v2d energy, energy-spin, v2e accel18, smooth): about 11M steps each, none solved (table above). The energy rewards pay about 0.48 per step for rolling through the top, which the policies settle into.
+- v2e smooth reward: the multiplicative factor was meant to rule out "sit still", but the deterministic policy still sits still from hanging (Claude's design claim was wrong).
+- RL fine-tune of the imitation policy with plain SAC (`--actor-freeze-steps`): return stayed 940 during the critic warm-up (3k and 30k steps tried) and fell to 8 to 27 within 5,000 steps after the actor was released. Left out of the commands.
+- `plan_expert.py` with the plan point chosen from the state (nearest of the next 0..3 points) instead of the clock: 13 of 20 passes instead of 20 of 20.
+- DAgger with the policy driving alone (80 to 100 % of steps): passes fell from 10/10 to 3/10 and the fit error rose, because the controller's labels follow the clock and the policy has none. Fixed by never going above 70 %.
 - v2b `h^2` height reward: evals from hanging still sit still (flat reward at hanging).
 - Triple swing-up with the double folder's plain reward and a balance warm start: collapses to "do nothing" within 350k steps (see above).
 
@@ -53,5 +74,6 @@ Barney asked for code to train triple-arm balance and triple-arm swing-up on the
 - Code: new folder only, as above. No team code was edited.
 
 ## Open questions and next steps
+- 2026-11-15: Barney was asked what to do next (check the plan against the rig's limits and the arm 3 guess; make RL fine-tuning safe; pure RL with plan starts; stop). No answer yet. The 4.0 s plan uses 1.2 m/s and 0.40 m, above the team swing-up script's 0.75 m/s and 0.25 m.
 - Weigh arm 3 and time its hanging period once it exists, then rebuild the model. Also confirm whether arm 3 carries electronics.
 - The velocity action chatters at 50 Hz. The real motor stalls at 16-18 m/s² reversals ([cart jolt debug](../../../debug/2026-11-05_cart-jolt-red-led.md)), so the policy is not rig-ready as it stands.
