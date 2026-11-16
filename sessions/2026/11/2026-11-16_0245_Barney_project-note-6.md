@@ -29,3 +29,4 @@ This week's Project Notes as a Word .docx and a PDF.
 
 ## Update 02:50 UTC
 - Barney asked to include week 11 but keep it short. PN06 now covers weeks 11-12 (2026-11-03 to 11-15): adds V2 arms fit, 7 V2 plans, V2/V2b radio-timing failure; cart jolt and triple sections condensed. 2 pages plus sources.
+- 02:55 UTC: Barney preferred the first (longer) length. Restored the full week 12 detail and kept an expanded week 11 section: 3 pages plus sources.
