@@ -9,7 +9,7 @@ status: done
 pages_applied: yes
 transcript: none
 ---
-# Project Note 6 (week 12, 2026-11-10 to 2026-11-15)
+# Project Note 6 (weeks 11-12, 2026-11-03 to 2026-11-15)
 
 ## Goal
 This week's Project Notes as a Word .docx and a PDF.
@@ -19,10 +19,13 @@ This week's Project Notes as a Word .docx and a PDF.
 - Two tables (bench tests, triple swing-up approaches). Format and styles copied from PN05 docx (same as PN04/PN05 build). Files in Barney's Claude project files `PN06/` (docx, PDF, `build/build.py`); not in a repo.
 
 ## Findings
-- None new. Week 11 (2026-11-03 to 11-09: motor command frequency, V2 arms fit, cart jolt plan, RL network diagram) has no Project Note; PN06 covers week 12 only.
+- None new.
 
 ## Changed
 - PUC: this file only.
 
 ## Open questions and next steps
 - None from this session.
+
+## Update 02:50 UTC
+- Barney asked to include week 11 but keep it short. PN06 now covers weeks 11-12 (2026-11-03 to 11-15): adds V2 arms fit, 7 V2 plans, V2/V2b radio-timing failure; cart jolt and triple sections condensed. 2 pages plus sources.
