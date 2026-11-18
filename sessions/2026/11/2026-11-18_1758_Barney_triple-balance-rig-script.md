@@ -45,5 +45,6 @@ Barney will be at the rig about 2-3 h after 17:58 UTC to test the triple standin
 
 ## Open questions and next steps
 - Barney's rig results: which slots joints 2 and 3 are on, joint 3's sign, whether it balances, the printed trims, and the free-swing CSV (`run_logs/freeswing_triple_*.csv`) to fit arm 3.
-- Still unanswered: arm 3 length/weight/payload, how joint 3 reaches the Pi (TX3 slot), whether arm 2 is the 250 mm arm with the joint-3 shaft, which double script runs on the Pi now.
+- Barney 2026-11-18 19:29 UTC: arm lengths 200, 250, 300 mm, and all parts on arm 3 sit at the same distance from the FAR end as on arm 2 (not the pivot end) [HW, Barney]. This matches the model's arm 3 (arm 2 design stretched 50 mm, hub parts moved 50 mm out, `--arm3 full`), so no change to the script. Arm 3's weight is still a guess (169.9 g).
+- Still unanswered: arm 3 weight, how joint 3 reaches the Pi (TX3 slot), whether arm 2 is the 250 mm arm with the joint-3 shaft, which double script runs on the Pi now.
 - The radio model is from 2026-11-04; radio changes since then are unknown.
