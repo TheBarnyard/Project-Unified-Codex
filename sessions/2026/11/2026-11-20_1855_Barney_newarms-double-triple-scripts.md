@@ -41,3 +41,7 @@ Barney asked for copies of the current double swing-up (V2b_D) and triple balanc
 
 ## Open questions and next steps
 - Weigh arm 2 and find its balance point, or time the locked-straight swing (11.2 s vs 11.9 s for 10 swings), to decide `--model new` vs `fit`. Does arm 2 now carry the joint-3 shaft and collars when running the double?
+
+## Follow-up 2026-11-20 20:15 UTC
+- Barney at the rig thinks the arms are heavier than the code assumes. Asked for logs to calibrate: pointed to PendulumExcite.py (same as the 11-04 fit run), 20-30 min, tar without esp32_raw.bin; plus weigh arm 2 and find its balance point.
+- Added `--model b10 ... b50` to the double copy (the fit's ratios moved 10-50 % toward the new values, Barney asked for every 10 % up to 50). Plans same_3.5s + whip_3.5s for all, same_4.0s for b10/b20 (b30 found none). Twin, true arms = same step: b10/b30/b50 2/2 first try each [SIM]. Commit f704065 (plans), README later.
