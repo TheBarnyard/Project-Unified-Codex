@@ -9,7 +9,7 @@ What is physically on the rig right now. Update this whenever you flash, rewire,
 | Part | Current state | Since | Source |
 | --- | --- | --- | --- |
 | TX1 (XIAO ESP32-C3, arm 1 encoder) | Repo `TX1.ino`, restored from backup. MAC 80:F1:B2:52:DE:90. On a custom PCB wired to the Mega; powered from Mega **5 V** into the XIAO 5V pin | 2026-10-27 | [angle dropouts](debug/2026-10-27_angle-dropouts.md) |
-| TX2 (XIAO ESP32-C3, arm 2 encoder) | Repo `TX2.ino`, reflashed. MAC e8:f6:0a:15:1b:48. LiPo battery, charged through the XIAO USB | 2026-10-27 | [angle dropouts](debug/2026-10-27_angle-dropouts.md) |
+| TX2 (XIAO ESP32-C3, arm 2 encoder) | Repo `TX2.ino`, reflashed. ~~e8:f6:0a:15:1b:48~~ Superseded 2026-11-20 by [TX3 check](sessions/2026/11/2026-11-20_1924_Barney_tx3-transmitter-check.md): TX2 was swapped to a new XIAO (Barney); new MAC AC:27:6E:7D:42:9C (USB serial id) [HW]. Being reflashed with repo `TX2.ino` (ID 1) 2026-11-20 [?]. LiPo battery, charged through the XIAO USB | 2026-10-27 | [angle dropouts](debug/2026-10-27_angle-dropouts.md) |
 | TX3 (XIAO ESP32-C3, joint 3 encoder) | `TX3.ino` (TX2.ino with SENDER_ID 2), legacy ENGT481 checkout on the Pi. Probably flashed 2026-11-20 13:53 local (backup `~/PendulumFirmwareBackups/TX3_20261120_135326_yGNICi/`) [?]. Board MAC, power [?]. Collides with TX2 in slot 3 unless TX2 is on ID 1 | 2026-11-20 | [session](sessions/2026/11/2026-11-20_1924_Barney_tx3-transmitter-check.md) |
 | Receiver (ESP32-WROOM, CP2102) | Original `Receivermaster` re-flashed after the framed test. [?] Which protocol version (6-byte unframed or v1 framed) is on it now | 2026-10-07 | [receiver](subsystems/receiver.md) |
 | Mega 2560 | `ArduinoSlave` | [?] | [cart](subsystems/cart-arduino.md) |

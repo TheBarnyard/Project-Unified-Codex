@@ -20,6 +20,7 @@ Barney is bringing up a 3rd arm. Find the new TX3 sketch made on the Pi and chec
 - `diff TX2/TX2.ino TX3/TX3.ino`: only line 17 differs, `SENDER_ID 1` -> `SENDER_ID 2`. The backup source is identical to the checkout copy [HW, file read].
 
 - 19:33 UTC: Barney sent `Pendulum_Firmware_20261120_143233.zip` (Pi sources: TX1, TX2, TX3, Receivermaster). TX1/TX2/TX3 are identical except SENDER_ID 0/1/2 (channel 6, master MAC FC:B4:67:F6:50:F4, 200 Hz). `Receivermaster.ino` + `angle_protocol.h` are byte-identical to ENGT480 main 5c79dca (framed v1, 37-byte frames, `NUM_SENDERS 3`), which is what `PythonMaster3_triple.py` reads (AnglePacketReader). `Receivermaster.ino.backup` is the old 6-byte unframed receiver; the triple script cannot read it [code read].
+- 19:41 UTC: the XIAO plugged in for the TX2 reflash has MAC AC:27:6E:7D:42:9C, not the recorded e8:f6:0a:15:1b:48. Barney: TX2 was swapped with a new board. Gave flash commands (`arduino-cli` compile + upload, FQBN `esp32:esp32:XIAO_ESP32C3:CDCOnBoot=cdc`, port `/dev/serial/by-id/usb-Espressif_USB_JTAG_serial_debug_unit_AC:27:6E:7D:42:9C-if00`). Pi `TX2.ino` has SENDER_ID 1.
 
 ## Findings
 - TX3.ino is correct on its own: same channel, master MAC and encoder code as the working TX2; SENDER_ID 2 = receiver slot 3. Receivermaster (`NUM_SENDERS 3`) accepts IDs 0-2 [code read: ENGT480 main 5c79dca and legacy].
