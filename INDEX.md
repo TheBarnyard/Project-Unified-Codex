@@ -31,6 +31,7 @@ Every page in PUC, one line each. Add new pages here.
   - [01 variables](Math/Double/01_variables.md), [02 equations of motion](Math/Double/02_equations_of_motion.md), [03 linear model](Math/Double/03_linear_model.md), [04 balance](Math/Double/04_balance.md), [05 swing-up](Math/Double/05_swing_up.md), [06 balance vs swing-up](Math/Double/06_balance_vs_swingup.md), [07 simulations and rig results](Math/Double/07_results.md), [sims](Math/Double/sims/README.md)
 - [Math/Triple/README.md](Math/Triple/README.md): triple pendulum math on an assumed rig (double + a third arm) [HYP][SIM]
   - [01 model](Math/Triple/01_model.md), [02 linear model](Math/Triple/02_linear_model.md), [03 balance](Math/Triple/03_balance.md), [04 swing-up](Math/Triple/04_swing_up.md), [05 comparison](Math/Triple/05_comparison.md), [sims](Math/Triple/sims/README.md)
+- [Math/FallingArm/README.md](Math/FallingArm/README.md): single arm on a fixed pivot falling from rest: EOM with inertia + viscous/Coulomb friction, IK, elliptic and small-angle solutions, PDF, Python and interactive solver (2026-11-20)
 - [Math/shared/README.md](Math/shared/README.md): n-link model, LQR, Kalman, swing-up planner, TV-LQR and the scripts' control loops in Python (used by Double and Triple)
 
 ## Debug records

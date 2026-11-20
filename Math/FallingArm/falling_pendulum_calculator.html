@@ -1,0 +1,524 @@
+<title>Falling Pendulum Solver</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-notebook tool. Inputs rail on the left, live readouts + scope plots on the right, solved table below. */
+:root{
+  --bg:#f3f5f8; --panel:#ffffff; --ink:#17202b; --muted:#5b6878; --line:#d8dee7;
+  --accent:#1f5fa8; --accent-soft:#e3ecf8; --grav:#c2410c; --ok:#15803d; --warn:#b45309; --bad:#b91c1c;
+  --plot2:#7c3aed; --grid:#e6eaf0;
+  --f-display:"Archivo","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --panel:#161d27; --ink:#e4e9f0; --muted:#93a0b2; --line:#2a3443;
+  --accent:#6ea8f0; --accent-soft:#1c2b40; --grav:#f08a4b; --ok:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  --plot2:#b39af7; --grid:#222b38; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --panel:#161d27; --ink:#e4e9f0; --muted:#93a0b2; --line:#2a3443;
+  --accent:#6ea8f0; --accent-soft:#1c2b40; --grav:#f08a4b; --ok:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  --plot2:#b39af7; --grid:#222b38; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:18px}
+header h1{font-family:var(--f-display);font-weight:700;font-size:1.65rem;margin:0;letter-spacing:-.01em;text-wrap:balance}
+header p{margin:.3rem 0 0;color:var(--muted);max-width:75ch}
+.eq{font-family:var(--f-mono);font-size:.92rem;background:var(--accent-soft);color:var(--ink);padding:.45rem .7rem;border-radius:6px;display:inline-block;margin-top:.55rem;overflow-x:auto;max-width:100%}
+.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+h2{font-family:var(--f-display);font-weight:500;font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:0 0 10px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px}
+.field{display:grid;gap:3px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.8rem;color:var(--muted)}
+label b{font-family:var(--f-mono);color:var(--ink);font-weight:500}
+input,select{font:inherit;font-family:var(--f-mono);font-size:.9rem;width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+input:disabled{opacity:.6}
+.note{font-size:.76rem;color:var(--muted);margin-top:8px}
+.sep{height:1px;background:var(--line);margin:14px 0}
+.readouts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ro{border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
+.ro .k{font-size:.74rem;color:var(--muted)}
+.ro .v{font-family:var(--f-mono);font-size:1.12rem;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ro .u{font-size:.75rem;color:var(--muted);margin-left:3px}
+.ro.hl{border-color:var(--accent);background:var(--accent-soft)}
+.pill{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid currentColor}
+.pill.ok{color:var(--ok)} .pill.warn{color:var(--warn)} .pill.bad{color:var(--bad)}
+.viz{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:14px;margin-top:14px}
+@media (max-width:640px){.viz{grid-template-columns:minmax(0,1fr)}}
+canvas{width:100%;display:block;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+#cvArm{aspect-ratio:1/1;max-width:100%}
+#cvPlot{height:300px}
+.timebar{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.timebar input[type=range]{flex:1;min-width:160px;padding:0}
+button{font:inherit;font-weight:600;font-size:.85rem;padding:6px 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--panel);cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tabs button{background:transparent;color:var(--muted);border-color:var(--line)}
+.tabs button[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.tablebox{overflow:auto;max-height:420px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-family:var(--f-mono);font-size:.83rem;font-variant-numeric:tabular-nums}
+th,td{padding:5px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{position:sticky;top:0;background:var(--panel);font-family:var(--f-body);font-weight:600;color:var(--muted);font-size:.76rem}
+tr.ev td{color:var(--accent);font-weight:500}
+.inv{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.inv .panel{padding:12px 14px}
+.out{font-family:var(--f-mono);font-size:.9rem;margin-top:8px;min-height:1.4em}
+.key{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 14px;font-size:.85rem}
+.key .s{font-family:var(--f-mono);color:var(--accent)}
+.key .un{font-family:var(--f-mono);color:var(--muted)}
+details summary{cursor:pointer;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Falling Pendulum Solver</h1>
+  <p>One arm on a fixed pivot, let go at rest from θ₀. θ is measured from straight up, clockwise positive. Every number below is solved live with 4th-order Runge–Kutta (0.2 ms step), so viscous and Coulomb friction are exact, not approximated.</p>
+  <div class="eq">I·α = m·g·l<sub>c</sub>·sin θ − b·ω − τ<sub>c</sub>·sgn ω &nbsp;&nbsp;(ω = dθ/dt, α = dω/dt) &nbsp;&nbsp;|&nbsp;&nbsp; tip: x = L sin θ, y = L cos θ</div>
+</header>
+
+<div class="grid">
+  <!-- INPUTS -->
+  <section class="panel" aria-label="Inputs">
+    <h2>Arm</h2>
+    <div class="fields">
+      <div class="field full"><label for="preset">Preset</label>
+        <select id="preset">
+          <option value="v2">V2 arm 1 (team model, rig b)</option>
+          <option value="rod">Uniform rod 0.3 m, 0.2 kg</option>
+          <option value="custom">Custom</option>
+        </select></div>
+      <div class="field full"><label for="imode">Inertia from</label>
+        <select id="imode">
+          <option value="pivot">I about pivot (enter it)</option>
+          <option value="cm">I about CoM + parallel axis</option>
+          <option value="rod">Uniform rod (l<sub>c</sub>=L/2, I=mL²/3)</option>
+        </select></div>
+      <div class="field"><label for="m"><b>m</b> mass (kg)</label><input id="m" type="number" step="any"></div>
+      <div class="field"><label for="L"><b>L</b> pivot→tip (m)</label><input id="L" type="number" step="any"></div>
+      <div class="field"><label for="lc"><b>l<sub>c</sub></b> pivot→CoM (m)</label><input id="lc" type="number" step="any"></div>
+      <div class="field"><label for="Icm"><b>I<sub>cm</sub></b> (kg·m²)</label><input id="Icm" type="number" step="any"></div>
+      <div class="field full"><label for="I"><b>I</b> about pivot (kg·m²)</label><input id="I" type="number" step="any"></div>
+    </div>
+    <div class="sep"></div>
+    <h2>Friction &amp; gravity</h2>
+    <div class="fields">
+      <div class="field"><label for="b"><b>b</b> viscous (N·m·s/rad)</label><input id="b" type="number" step="any"></div>
+      <div class="field"><label for="tc"><b>τ<sub>c</sub></b> Coulomb (N·m)</label><input id="tc" type="number" step="any"></div>
+      <div class="field"><label for="g"><b>g</b> (m/s²)</label><input id="g" type="number" step="any"></div>
+    </div>
+    <div class="sep"></div>
+    <h2>Release &amp; time</h2>
+    <div class="fields">
+      <div class="field"><label for="th0"><b>θ₀</b> release (deg)</label><input id="th0" type="number" step="any"></div>
+      <div class="field"><label for="tq"><b>t</b> look-up (s)</label><input id="tq" type="number" step="any" min="0"></div>
+      <div class="field"><label for="tend">Simulate to (s)</label><input id="tend" type="number" step="any" min="0.1" max="60"></div>
+      <div class="field"><label for="tstep">Table step (s)</label><input id="tstep" type="number" step="any" min="0.001"></div>
+    </div>
+    <p class="note" id="srcnote"></p>
+  </section>
+
+  <!-- OUTPUTS -->
+  <section style="display:grid;gap:18px;min-width:0">
+    <div class="panel">
+      <h2>State at t = <span id="tlabel"></span> s</h2>
+      <div class="readouts" id="ro"></div>
+      <div class="viz">
+        <canvas id="cvArm" width="600" height="600" aria-label="Arm drawing"></canvas>
+        <div style="min-width:0">
+          <div class="tabs" role="group" aria-label="Plot">
+            <button data-plot="theta" aria-pressed="true">θ(t)</button>
+            <button data-plot="omega" aria-pressed="false">ω(t)</button>
+            <button data-plot="tip" aria-pressed="false">tip x, y</button>
+            <button data-plot="energy" aria-pressed="false">energy</button>
+            <button data-plot="force" aria-pressed="false">pivot force</button>
+            <button data-plot="phase" aria-pressed="false">phase</button>
+          </div>
+          <canvas id="cvPlot" width="900" height="420" aria-label="Plot"></canvas>
+        </div>
+      </div>
+      <div class="timebar">
+        <button id="play">Play</button>
+        <input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Time">
+        <span class="note" style="margin:0">drag to set t</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Model numbers</h2>
+      <div class="readouts" id="derived"></div>
+    </div>
+  </section>
+</div>
+
+<section class="panel">
+  <h2>Inverse problems</h2>
+  <div class="inv">
+    <div class="panel">
+      <strong>Tip position → angle</strong>
+      <div class="fields" style="margin-top:8px">
+        <div class="field"><label for="ix">x (m)</label><input id="ix" type="number" step="any" value="0.1"></div>
+        <div class="field"><label for="iy">y (m)</label><input id="iy" type="number" step="any" value="0.1"></div>
+        <div class="field"><label for="ivx">v<sub>x</sub> (m/s)</label><input id="ivx" type="number" step="any" value="0"></div>
+        <div class="field"><label for="ivy">v<sub>y</sub> (m/s)</label><input id="ivy" type="number" step="any" value="0"></div>
+      </div>
+      <div class="out" id="ikout"></div>
+      <p class="note">θ = atan2(x, y), ω = (y·v<sub>x</sub> − x·v<sub>y</sub>)/(x²+y²)</p>
+    </div>
+    <div class="panel">
+      <strong>When does it reach an angle?</strong>
+      <div class="fields" style="margin-top:8px">
+        <div class="field full"><label for="tth">target |θ| (deg from upright)</label><input id="tth" type="number" step="any" value="135"></div>
+      </div>
+      <div class="out" id="ttout"></div>
+      <p class="note">First crossing in the simulation, plus the exact frictionless elliptic-integral time.</p>
+    </div>
+    <div class="panel">
+      <strong>Release angle for a fall time</strong>
+      <div class="fields" style="margin-top:8px">
+        <div class="field"><label for="gt">fall time (s)</label><input id="gt" type="number" step="any" value="0.5"></div>
+        <div class="field"><label for="gto">to angle</label>
+          <select id="gto"><option value="90">horizontal 90°</option><option value="180" selected>bottom 180°</option></select></div>
+      </div>
+      <div class="out" id="gsout"></div>
+      <p class="note">Bisection on θ₀ with the full friction model.</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px">
+    <h2 style="margin:0">Solved table</h2>
+    <button class="ghost" id="copy">Copy as CSV</button>
+  </div>
+  <div class="tablebox"><table id="tbl"></table></div>
+  <p class="note">Rows every table step, plus event rows (highlighted) where the arm crosses horizontal, the bottom and the far horizontal. θ is not wrapped: 270° is horizontal on the other side.</p>
+</section>
+
+<section class="panel">
+  <details>
+    <summary>Variable key</summary>
+    <div class="key" style="margin-top:10px">
+      <span class="s">θ</span><span>arm angle from straight up, clockwise +; 0 up, 90° horizontal, 180° hanging</span><span class="un">rad / deg</span>
+      <span class="s">θ₀</span><span>release angle, arm let go at rest</span><span class="un">deg</span>
+      <span class="s">ω, α</span><span>angular velocity dθ/dt, angular acceleration d²θ/dt²</span><span class="un">deg/s, deg/s²</span>
+      <span class="s">m</span><span>mass of everything that turns</span><span class="un">kg</span>
+      <span class="s">L</span><span>pivot to tip (the tracked point)</span><span class="un">m</span>
+      <span class="s">l<sub>c</sub></span><span>pivot to centre of mass</span><span class="un">m</span>
+      <span class="s">I</span><span>moment of inertia about the pivot, I = I<sub>cm</sub> + m·l<sub>c</sub>²</span><span class="un">kg·m²</span>
+      <span class="s">b</span><span>viscous friction (bearing + air), torque = −b·ω</span><span class="un">N·m·s/rad</span>
+      <span class="s">τ<sub>c</sub></span><span>Coulomb (dry) friction torque; also used as static friction, so the arm stays put if m·g·l<sub>c</sub>·|sin θ₀| ≤ τ<sub>c</sub></span><span class="un">N·m</span>
+      <span class="s">ω<sub>n</sub>, T<sub>n</sub></span><span>√(m g l<sub>c</sub>/I) and the small hanging-swing period 2π/ω<sub>n</sub></span><span class="un">rad/s, s</span>
+      <span class="s">ζ</span><span>damping ratio b / (2√(I m g l<sub>c</sub>))</span><span class="un">–</span>
+      <span class="s">r₁</span><span>fall rate near upright; the angle grows e-fold every 1/r₁</span><span class="un">1/s</span>
+      <span class="s">E</span><span>mechanical energy, zero when hanging at rest</span><span class="un">mJ</span>
+      <span class="s">R</span><span>force the pivot puts on the arm</span><span class="un">N</span>
+    </div>
+  </details>
+</section>
+</div>
+
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const D2R = Math.PI/180, R2D = 180/Math.PI;
+const PRESETS = {
+  v2:  {m:0.0981, L:0.200, lc:0.1478, Icm:3.40e-4, I:2.484e-3, b:1.63e-4, tc:0, g:9.81, imode:"pivot",
+        note:"V2 arm 1 alone: m, l_c, I from the team STL + measured-weight model (PUC params.md, 2026-10-29; predicts 0.830 s hanging period, rig measured 0.84–0.89 s). b from the 2026-11-04 rig fit (B1 = 0.0182 1/s × J1 = 8.96e-3, fitted with arm 2 on, so an estimate). τ_c has not been measured."},
+  rod: {m:0.2, L:0.3, lc:0.15, Icm:0.2*0.09/12, I:0.2*0.09/3, b:0.002, tc:0.005, g:9.81, imode:"rod",
+        note:"Textbook uniform rod with example friction values."}
+};
+const F = ["m","L","lc","Icm","I","b","tc","g"];
+let P = {}, sim = null, plotKind = "theta", playing = false, tNow = 0;
+
+function setPreset(k){
+  const p = PRESETS[k]; if(!p) return;
+  F.forEach(f => $(f).value = +p[f].toPrecision(6));
+  $("imode").value = p.imode; $("srcnote").textContent = p.note;
+}
+function readP(){
+  const v = {}; F.forEach(f => v[f] = parseFloat($(f).value));
+  const mode = $("imode").value;
+  if(mode==="rod"){ v.lc = v.L/2; v.Icm = v.m*v.L*v.L/12; v.I = v.m*v.L*v.L/3; }
+  else if(mode==="cm"){ v.I = v.Icm + v.m*v.lc*v.lc; }
+  else { v.Icm = v.I - v.m*v.lc*v.lc; }
+  ["lc","Icm","I"].forEach(f => { $(f).disabled = (mode==="rod") || (mode==="cm" && f==="I") || (mode==="pivot" && f==="Icm");
+    if($(f).disabled) $(f).value = +v[f].toPrecision(5); });
+  v.th0 = parseFloat($("th0").value)*D2R;
+  v.tend = Math.min(60, Math.max(0.1, parseFloat($("tend").value)||3));
+  v.tstep = Math.max(0.001, parseFloat($("tstep").value)||0.05);
+  return v;
+}
+function valid(p){
+  return p.m>0 && p.L>0 && p.lc>=0 && p.I>0 && p.b>=0 && p.tc>=0 && p.g>0 && isFinite(p.th0);
+}
+// ---------- dynamics ----------
+function accel(th, w, p){
+  const tg = p.m*p.g*p.lc*Math.sin(th) - p.b*w;
+  if(Math.abs(w) > 1e-4) return (tg - p.tc*Math.sign(w))/p.I;
+  if(Math.abs(tg) <= p.tc) return 0;
+  return (tg - p.tc*Math.sign(tg))/p.I;
+}
+function simulate(p, th0, tend, dt=2e-4){
+  const n = Math.round(tend/dt)+1;
+  const th = new Float64Array(n), w = new Float64Array(n);
+  th[0]=th0; w[0]=0;
+  const k = p.m*p.g*p.lc;
+  for(let i=0;i<n-1;i++){
+    const x=th[i], v=w[i];
+    const a1=accel(x,v,p);
+    const x2=x+.5*dt*v, v2=v+.5*dt*a1, a2=accel(x2,v2,p);
+    const x3=x+.5*dt*v2, v3=v+.5*dt*a2, a3=accel(x3,v3,p);
+    const x4=x+dt*v3, v4=v+dt*a3, a4=accel(x4,v4,p);
+    th[i+1]=x+dt/6*(v+2*v2+2*v3+v4);
+    let wn=v+dt/6*(a1+2*a2+2*a3+a4);
+    if(p.tc>0 && Math.abs(wn)<1e-4 && Math.abs(k*Math.sin(th[i+1]))<=p.tc) wn=0;
+    w[i+1]=wn;
+  }
+  return {th, w, dt, n};
+}
+function stateAt(s, p, t){
+  const f = Math.min(s.n-1.000001, Math.max(0, t/s.dt)), i = Math.floor(f), r = f-i;
+  const th = s.th[i]+(s.th[i+1]-s.th[i])*r, w = s.w[i]+(s.w[i+1]-s.w[i])*r;
+  const a = accel(th, w, p);
+  const L=p.L, lc=p.lc;
+  const c=Math.cos(th), sn=Math.sin(th);
+  const Rx = p.m*lc*(a*c - w*w*sn), Ry = p.m*p.g - p.m*lc*(a*sn + w*w*c);
+  return {t, th, w, a, x:L*sn, y:L*c, vx:L*w*c, vy:-L*w*sn, speed:L*Math.abs(w),
+    E: 0.5*p.I*w*w + p.m*p.g*lc*(c+1), Rx, Ry, R:Math.hypot(Rx,Ry)};
+}
+function crossTime(s, tgt){
+  const sg = Math.sign(s.th[0]) || 1;
+  for(let i=1;i<s.n;i++){
+    const a = sg*s.th[i-1], b = sg*s.th[i];
+    if(b>=tgt && a<tgt) return (i-1 + (tgt-a)/(b-a))*s.dt;
+  }
+  return null;
+}
+// Carlson RF for elliptic integrals
+function RF(x,y,z){
+  for(let i=0;i<60;i++){
+    const l=Math.sqrt(x*y)+Math.sqrt(y*z)+Math.sqrt(z*x);
+    x=(x+l)/4; y=(y+l)/4; z=(z+l)/4;
+    const m=(x+y+z)/3; if(Math.max(Math.abs(x-m),Math.abs(y-m),Math.abs(z-m))<1e-12*m) break;
+  }
+  return 1/Math.sqrt((x+y+z)/3);
+}
+function ellF(phi,k){ const s=Math.sin(phi), c=Math.cos(phi); return s*RF(c*c, 1-k*k*s*s, 1); }
+// exact frictionless time from |th0| to |th| (th <= 180 deg)
+function frictionlessTime(p, th0, th){
+  const wn = Math.sqrt(p.m*p.g*p.lc/p.I);
+  th0=Math.abs(th0); if(th<=th0 || th>Math.PI || th0===0) return th0===0?Infinity:(th<=th0?0:null);
+  const k = Math.cos(th0/2);
+  const sb = Math.min(1, Math.sin((Math.PI-th)/2)/k);
+  return (ellF(Math.PI/2,k) - ellF(Math.asin(sb),k))/wn;
+}
+// ---------- formatting ----------
+const fx = (v,d=3) => (v===null||!isFinite(v)) ? "—" : v.toFixed(d);
+const fs = (v,s=4) => (v===null||!isFinite(v)) ? "—" : (Math.abs(v)>=1e-3 && Math.abs(v)<1e5 ? (+v.toPrecision(s)).toString() : v.toExponential(s-1));
+function ro(k,v,u,hl){ return `<div class="ro${hl?' hl':''}"><div class="k">${k}</div><div class="v">${v}<span class="u">${u||""}</span></div></div>`; }
+
+// ---------- solve all ----------
+let events = {};
+function solve(){
+  P = readP();
+  if(!valid(P)){ $("ro").innerHTML = ro("Input","check values",""); return; }
+  sim = simulate(P, P.th0, P.tend);
+  const k = P.m*P.g*P.lc, wn=Math.sqrt(k/P.I), zeta=P.b/(2*Math.sqrt(P.I*k));
+  const r1 = -P.b/(2*P.I)+Math.sqrt((P.b/(2*P.I))**2 + k/P.I);
+  const thc = P.tc>=k ? 90 : Math.asin(P.tc/k)*R2D;
+  const falls = k*Math.abs(Math.sin(P.th0)) > P.tc;
+  events = {t90:crossTime(sim, Math.PI/2), t180:crossTime(sim, Math.PI), t270:crossTime(sim, 1.5*Math.PI)};
+  const tf90 = frictionlessTime(P, P.th0, Math.PI/2), tf180 = frictionlessTime(P, P.th0, Math.PI);
+  let wmax=0; for(let i=0;i<sim.n;i++) wmax=Math.max(wmax,Math.abs(sim.w[i]));
+  const fallPill = falls ? `<span class="pill ok">falls</span>` : `<span class="pill bad">held by friction</span>`;
+  $("derived").innerHTML =
+    ro("Will it fall?", fallPill, "") +
+    ro("Time to horizontal", fx(events.t90,4), "s", true) +
+    ro("Time to bottom", fx(events.t180,4), "s", true) +
+    ro("Frictionless to 90° (exact)", fx(tf90,4), "s") +
+    ro("Frictionless to 180° (exact)", fx(tf180,4), "s") +
+    ro("Max |ω|", fx(wmax*R2D,0), "deg/s") +
+    ro("ω<sub>n</sub>", fx(wn,3), "rad/s") +
+    ro("T<sub>n</sub> hanging period", fx(2*Math.PI/wn,3), "s") +
+    ro("ζ damping ratio", fs(zeta,3), "") +
+    ro("r₁ fall rate", fx(r1,3), "1/s") +
+    ro("Coulomb dead band θ<sub>c</sub>", fx(thc,3), "deg") +
+    ro("I used", fs(P.I,4), "kg·m²");
+  $("scrub").max = Math.round(P.tend*1000);
+  buildTable(); updateInverse();
+  setTime(Math.min(parseFloat($("tq").value)||0, P.tend), false);
+}
+function setTime(t, fromScrub){
+  tNow = Math.max(0, Math.min(t, P.tend));
+  if(!fromScrub) $("scrub").value = Math.round(tNow*1000);
+  if(document.activeElement!==$("tq")) $("tq").value = +tNow.toFixed(4);
+  const s = stateAt(sim, P, tNow);
+  $("tlabel").textContent = tNow.toFixed(3);
+  const wrapped = ((s.th*R2D % 360)+540)%360-180;
+  $("ro").innerHTML =
+    ro("θ (unwrapped)", fx(s.th*R2D,2), "°", true) +
+    ro("θ wrapped ±180°", fx(wrapped,2), "°") +
+    ro("ω", fx(s.w*R2D,1), "°/s", true) +
+    ro("α", fx(s.a*R2D,0), "°/s²") +
+    ro("tip x", fx(s.x*1000,1), "mm", true) +
+    ro("tip y", fx(s.y*1000,1), "mm", true) +
+    ro("tip speed", fx(s.speed,3), "m/s") +
+    ro("energy E", fx(s.E*1000,2), "mJ") +
+    ro("pivot force |R|", fx(s.R,3), "N") +
+    ro("R<sub>x</sub>, R<sub>y</sub>", fx(s.Rx,2)+", "+fx(s.Ry,2), "N");
+  drawArm(s); drawPlot();
+}
+// ---------- table ----------
+let csv = "";
+function buildTable(){
+  const rows = [];
+  for(let t=0; t<=P.tend+1e-9; t+=P.tstep) rows.push({t, ev:""});
+  if(rows.length>2000) rows.length=2000;
+  [["t90","→ 90°"],["t180","→ 180° bottom"],["t270","→ 270°"]].forEach(([k,l])=>{ if(events[k]!==null) rows.push({t:events[k], ev:l}); });
+  rows.sort((a,b)=>a.t-b.t);
+  const head = ["t (s)","θ (deg)","ω (deg/s)","α (deg/s²)","tip x (mm)","tip y (mm)","tip speed (m/s)","E (mJ)","|R| (N)","event"];
+  let h = "<thead><tr>"+head.map(x=>`<th>${x}</th>`).join("")+"</tr></thead><tbody>";
+  csv = "t_s,theta_deg,thetadot_deg_s,thetaddot_deg_s2,tip_x_mm,tip_y_mm,tip_speed_m_s,E_mJ,R_N,event\n";
+  rows.forEach(r=>{
+    const s = stateAt(sim, P, r.t);
+    const vals = [r.t.toFixed(4), (s.th*R2D).toFixed(3), (s.w*R2D).toFixed(2), (s.a*R2D).toFixed(1), (s.x*1000).toFixed(2), (s.y*1000).toFixed(2), s.speed.toFixed(4), (s.E*1000).toFixed(3), s.R.toFixed(4)];
+    h += `<tr class="${r.ev?'ev':''}">`+vals.map(v=>`<td>${v}</td>`).join("")+`<td style="text-align:left">${r.ev}</td></tr>`;
+    csv += vals.join(",")+","+r.ev+"\n";
+  });
+  $("tbl").innerHTML = h+"</tbody>";
+}
+$("copy").addEventListener("click", ()=>{
+  const done = ()=>{ $("copy").textContent="Copied"; setTimeout(()=>$("copy").textContent="Copy as CSV",1500); };
+  try{ navigator.clipboard.writeText(csv).then(done).catch(fallback); }catch(e){ fallback(); }
+  function fallback(){ const ta=document.createElement("textarea"); ta.value=csv; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy"); done();}catch(e){} ta.remove(); }
+});
+// ---------- inverse ----------
+function updateInverse(){
+  const x=parseFloat($("ix").value), y=parseFloat($("iy").value), vx=parseFloat($("ivx").value)||0, vy=parseFloat($("ivy").value)||0;
+  if(isFinite(x)&&isFinite(y)&&(x||y)){
+    const th=Math.atan2(x,y), r2=x*x+y*y;
+    $("ikout").innerHTML = `θ = ${fx(th*R2D,2)}°<br>ω = ${fx((y*vx-x*vy)/r2*R2D,2)} °/s<br>radius = ${fx(Math.sqrt(r2)*1000,1)} mm`;
+  } else $("ikout").textContent = "enter x and y";
+  if(!sim) return;
+  const tt = parseFloat($("tth").value)*D2R;
+  if(isFinite(tt)){
+    const tc = crossTime(sim, tt), tf = tt<=Math.PI ? frictionlessTime(P,P.th0,tt) : null;
+    $("ttout").innerHTML = `with friction: ${tc===null?"not reached in "+P.tend+" s":fx(tc,4)+" s"}<br>frictionless exact: ${tf===null?"(only up to 180°)":fx(tf,4)+" s"}`;
+  }
+  const gt = parseFloat($("gt").value), tgt = parseFloat($("gto").value)*D2R;
+  if(isFinite(gt) && gt>0){
+    const tOf = th0 => { const s=simulate(P, th0*D2R, Math.min(gt*1.5+0.5, 30), 5e-4); const c=crossTime(s,tgt); return c===null?Infinity:c; };
+    let lo=1e-4, hi=(tgt*R2D)-0.01;
+    if(tOf(hi)>gt) { $("gsout").textContent = "too short: even "+hi.toFixed(0)+"° takes longer"; }
+    else if(tOf(lo)<gt) { $("gsout").textContent = "too long: needs θ₀ < 0.0001°"; }
+    else {
+      for(let i=0;i<40;i++){ const mid=Math.sqrt(lo*hi); if(tOf(mid)>gt) lo=mid; else hi=mid; if(hi/lo<1+1e-6) break; }
+      $("gsout").innerHTML = `release at θ₀ = ${fs(Math.sqrt(lo*hi),5)}° from upright`;
+    }
+  }
+}
+// ---------- drawing ----------
+function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function prepCanvas(cv){
+  const r = cv.getBoundingClientRect(), dpr = window.devicePixelRatio||1;
+  const W = Math.max(50, Math.round(r.width*dpr)), H = Math.max(50, Math.round(r.height*dpr));
+  if(cv.width!==W||cv.height!==H){ cv.width=W; cv.height=H; }
+  const c = cv.getContext("2d"); c.setTransform(1,0,0,1,0,0); c.clearRect(0,0,W,H); return {c,W,H,dpr};
+}
+function drawArm(s){
+  const {c,W,H,dpr} = prepCanvas($("cvArm"));
+  const cx=W/2, cy=H/2, sc=(Math.min(W,H)*0.40)/P.L;
+  // trail
+  c.strokeStyle=css("--accent"); c.globalAlpha=.35; c.lineWidth=1.5*dpr; c.beginPath();
+  const i1 = Math.floor(tNow/sim.dt);
+  const i0 = Math.max(0, i1-Math.round(0.6/sim.dt));
+  for(let i=i0;i<=i1;i+=5){ const x=cx+P.L*Math.sin(sim.th[i])*sc, y=cy-P.L*Math.cos(sim.th[i])*sc; i===i0?c.moveTo(x,y):c.lineTo(x,y); }
+  c.stroke(); c.globalAlpha=1;
+  // guides
+  c.strokeStyle=css("--grid"); c.lineWidth=1*dpr; c.setLineDash([4*dpr,4*dpr]);
+  c.beginPath(); c.arc(cx,cy,P.L*sc,0,2*Math.PI); c.moveTo(cx,cy-P.L*sc*1.15); c.lineTo(cx,cy+P.L*sc*1.15); c.stroke(); c.setLineDash([]);
+  // start ghost
+  c.strokeStyle=css("--muted"); c.globalAlpha=.4; c.lineWidth=6*dpr; c.lineCap="round";
+  c.beginPath(); c.moveTo(cx,cy); c.lineTo(cx+P.L*Math.sin(P.th0)*sc, cy-P.L*Math.cos(P.th0)*sc); c.stroke(); c.globalAlpha=1;
+  // arm
+  const tx=cx+s.x*sc, ty=cy-s.y*sc;
+  c.strokeStyle=css("--accent"); c.lineWidth=9*dpr; c.beginPath(); c.moveTo(cx,cy); c.lineTo(tx,ty); c.stroke();
+  // com + gravity
+  const gx=cx+P.lc*Math.sin(s.th)*sc, gy=cy-P.lc*Math.cos(s.th)*sc;
+  c.fillStyle=css("--ink"); c.beginPath(); c.arc(gx,gy,4.5*dpr,0,2*Math.PI); c.fill();
+  c.strokeStyle=css("--grav"); c.fillStyle=css("--grav"); c.lineWidth=2*dpr;
+  const gl = 0.22*P.L*sc; c.beginPath(); c.moveTo(gx,gy); c.lineTo(gx,gy+gl); c.stroke();
+  c.beginPath(); c.moveTo(gx,gy+gl+6*dpr); c.lineTo(gx-4*dpr,gy+gl-2*dpr); c.lineTo(gx+4*dpr,gy+gl-2*dpr); c.fill();
+  // pivot
+  c.fillStyle=css("--panel"); c.strokeStyle=css("--ink"); c.lineWidth=2*dpr; c.beginPath(); c.arc(cx,cy,6*dpr,0,2*Math.PI); c.fill(); c.stroke();
+  c.fillStyle=css("--muted"); c.font=`${11*dpr}px ${css("--f-mono")}`; c.textAlign="left";
+  c.fillText(`t = ${tNow.toFixed(3)} s`, 10*dpr, 18*dpr);
+  c.fillText(`θ = ${(s.th*R2D).toFixed(1)}°`, 10*dpr, 34*dpr);
+  c.fillText("up", cx+5*dpr, cy-P.L*sc*1.1);
+}
+function drawPlot(){
+  const {c,W,H,dpr} = prepCanvas($("cvPlot"));
+  const pad={l:58*dpr,r:14*dpr,t:14*dpr,b:34*dpr};
+  const step = Math.max(1, Math.floor(sim.n/1500));
+  const series=[]; let xlab="t (s)", ylab="";
+  const T = i=>i*sim.dt;
+  const pick = (fn,col,name)=>{ const xs=[],ys=[]; for(let i=0;i<sim.n;i+=step){ const s=fn(i); xs.push(s[0]); ys.push(s[1]); } series.push({xs,ys,col,name}); };
+  const st = i => stateAt(sim,P,T(i));
+  if(plotKind==="theta"){ ylab="θ (deg)"; pick(i=>[T(i),sim.th[i]*R2D],css("--accent"),"θ"); }
+  if(plotKind==="omega"){ ylab="ω (deg/s)"; pick(i=>[T(i),sim.w[i]*R2D],css("--accent"),"ω"); }
+  if(plotKind==="tip"){ ylab="mm"; pick(i=>[T(i),P.L*Math.sin(sim.th[i])*1000],css("--accent"),"x"); pick(i=>[T(i),P.L*Math.cos(sim.th[i])*1000],css("--grav"),"y"); }
+  if(plotKind==="energy"){ ylab="E (mJ)"; pick(i=>[T(i),st(i).E*1000],css("--accent"),"E"); }
+  if(plotKind==="force"){ ylab="N"; pick(i=>[T(i),st(i).Rx],css("--accent"),"Rx"); pick(i=>[T(i),st(i).Ry],css("--grav"),"Ry"); pick(i=>[T(i),st(i).R],css("--plot2"),"|R|"); }
+  if(plotKind==="phase"){ xlab="θ (deg)"; ylab="ω (deg/s)"; pick(i=>[sim.th[i]*R2D, sim.w[i]*R2D],css("--accent"),"phase"); }
+  let x0=Infinity,x1=-Infinity,y0=Infinity,y1=-Infinity;
+  series.forEach(s=>{ s.xs.forEach(v=>{x0=Math.min(x0,v);x1=Math.max(x1,v);}); s.ys.forEach(v=>{y0=Math.min(y0,v);y1=Math.max(y1,v);}); });
+  if(y1-y0<1e-9){y0-=1;y1+=1;} const yp=(y1-y0)*0.06; y0-=yp; y1+=yp; if(x1-x0<1e-9) x1=x0+1;
+  const X=v=>pad.l+(v-x0)/(x1-x0)*(W-pad.l-pad.r), Y=v=>H-pad.b-(v-y0)/(y1-y0)*(H-pad.t-pad.b);
+  const nice = (a,b,n)=>{ const r=(b-a)/n, p=Math.pow(10,Math.floor(Math.log10(r))), m=r/p; const st=(m<1.5?1:m<3?2:m<7?5:10)*p; const out=[]; for(let v=Math.ceil(a/st)*st; v<=b+1e-9; v+=st) out.push(+v.toPrecision(10)); return out; };
+  c.font=`${10.5*dpr}px ${css("--f-mono")}`; c.lineWidth=1*dpr;
+  c.strokeStyle=css("--grid"); c.fillStyle=css("--muted");
+  c.textAlign="right"; c.textBaseline="middle";
+  nice(y0,y1,5).forEach(v=>{ c.beginPath(); c.moveTo(pad.l,Y(v)); c.lineTo(W-pad.r,Y(v)); c.stroke(); c.fillText(v,pad.l-6*dpr,Y(v)); });
+  c.textAlign="center"; c.textBaseline="top";
+  nice(x0,x1,6).forEach(v=>{ c.beginPath(); c.moveTo(X(v),pad.t); c.lineTo(X(v),H-pad.b); c.stroke(); c.fillText(v,X(v),H-pad.b+5*dpr); });
+  c.fillText(xlab, (W+pad.l)/2, H-14*dpr);
+  c.save(); c.translate(13*dpr,(H-pad.b+pad.t)/2); c.rotate(-Math.PI/2); c.textBaseline="middle"; c.fillText(ylab,0,0); c.restore();
+  if(plotKind==="theta"){ c.setLineDash([3*dpr,3*dpr]); c.strokeStyle=css("--muted"); [90,180,270,360].forEach(v=>{ if(v>y0&&v<y1){ c.beginPath(); c.moveTo(pad.l,Y(v)); c.lineTo(W-pad.r,Y(v)); c.stroke(); }}); c.setLineDash([]); }
+  series.forEach(s=>{ c.strokeStyle=s.col; c.lineWidth=1.8*dpr; c.beginPath(); s.xs.forEach((v,i)=> i?c.lineTo(X(v),Y(s.ys[i])):c.moveTo(X(v),Y(s.ys[i]))); c.stroke(); });
+  // legend
+  if(series.length>1){ c.textAlign="left"; c.textBaseline="middle"; let lx=pad.l+8*dpr; series.forEach(s=>{ c.fillStyle=s.col; c.fillRect(lx,pad.t+8*dpr,12*dpr,3*dpr); c.fillStyle=css("--ink"); c.fillText(s.name,lx+16*dpr,pad.t+10*dpr); lx+=60*dpr; }); }
+  // cursor
+  const s=stateAt(sim,P,tNow); c.fillStyle=css("--ink");
+  if(plotKind==="phase"){ c.beginPath(); c.arc(X(s.th*R2D),Y(s.w*R2D),4*dpr,0,2*Math.PI); c.fill(); }
+  else { c.strokeStyle=css("--ink"); c.globalAlpha=.5; c.beginPath(); c.moveTo(X(tNow),pad.t); c.lineTo(X(tNow),H-pad.b); c.stroke(); c.globalAlpha=1; }
+}
+// ---------- events ----------
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  plotKind=b.dataset.plot; document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false")); drawPlot(); }));
+$("preset").addEventListener("change", ()=>{ setPreset($("preset").value); solve(); });
+let tmr=null;
+const deb = ()=>{ clearTimeout(tmr); tmr=setTimeout(solve,120); };
+[...F,"th0","tend","tstep"].forEach(id=>$(id).addEventListener("input", ()=>{ if(F.includes(id)) $("preset").value="custom"; deb(); }));
+$("imode").addEventListener("change", ()=>{ $("preset").value="custom"; solve(); });
+$("tq").addEventListener("input", ()=>{ const v=parseFloat($("tq").value); if(isFinite(v)) setTime(v,false); });
+$("scrub").addEventListener("input", ()=>{ playing=false; $("play").textContent="Play"; setTime($("scrub").value/1000,true); });
+["ix","iy","ivx","ivy","tth","gt","gto"].forEach(id=>$(id).addEventListener("input", ()=>{ clearTimeout(tmr); tmr=setTimeout(updateInverse,150); }));
+let last=0;
+function frame(ts){ if(!playing) return; const dt=last?(ts-last)/1000:0; last=ts; let t=tNow+dt; if(t>P.tend){ t=P.tend; playing=false; $("play").textContent="Play"; } setTime(t,false); if(playing) requestAnimationFrame(frame); }
+$("play").addEventListener("click", ()=>{ playing=!playing; $("play").textContent=playing?"Pause":"Play"; if(playing){ if(tNow>=P.tend-1e-6) tNow=0; last=0; requestAnimationFrame(frame);} });
+window.addEventListener("resize", ()=>{ if(sim) setTime(tNow,false); });
+if(window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", ()=>sim&&setTime(tNow,false));
+new MutationObserver(()=>sim&&setTime(tNow,false)).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+// ---------- start ----------
+setPreset("v2"); $("th0").value=10; $("tq").value=0.4; $("tend").value=3; $("tstep").value=0.05;
+solve();
+})();
+</script>
