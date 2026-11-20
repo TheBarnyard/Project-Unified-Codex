@@ -31,6 +31,7 @@ A cart on a rail is driven by a stepper motor through an Arduino Mega 2560. One 
 - **Gate Report 2:** drafted 2026-10-26.
 - **Gate 2.5 presentation:** slides 5.5, 5.6 and 5.6 (cont.: HTML twin as a mask for MuJoCo) + Works Cited [8]-[14] built 2026-11-18, project files `Gate2.5/` ([session](sessions/2026/11/2026-11-18_1238_Barney_gate-2.5-slides-5.5-5.6.md)).
 - **PUC:** this codex was set up 2026-10-28.
+- **NewArms script copies (2026-11-20):** `PythonMaster2_swingup_V2b_D_NewArms.py` (double, `--model new|fit`, 4 re-planned paths) and `PythonMaster3_triple_NewArms.py` (`--arms new|old`) use Barney's arm estimates (arm 1 165 g / 169 mm, arm 2 174 g / 210 mm, arm 3 132 g / 229 mm). Arm 1 matches the rig; arm 2 disagrees ~50 % with the 11-04 fit, so it is unclear which double model to run until arm 2 is checked ([open question 25](open-questions.md)). ChatGPT-Pendulum-Project `claude/project-thread-evv7sw`. See [session](sessions/2026/11/2026-11-20_1855_Barney_newarms-double-triple-scripts.md).
 - **Math teaching pages:** [Math/](Math/README.md) for single, double (both checked against the team's scripts) and triple (assumed rig), 2026-10-29.
 
 ## Where things live

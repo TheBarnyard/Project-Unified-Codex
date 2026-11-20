@@ -107,3 +107,15 @@ Ratios ([Math/Double 1.5](Math/Double/01_variables.md#15-the-ratios-what-the-scr
 Held-out 3 s prediction error (median RMS arm 1 / arm 2): 1.7 / 2.7 deg, against 5.0 / 7.9 (sysid 2026-10-27), 5.8 / 8.4 (swingfit 2026-10-27) and 9.1 / 12.5 deg (STL model above). Check: H/P2 = 0.200 m = the real arm 1 joint distance. The STL model gets P1 right, but its arm-2 terms (P2, J2r, H) are 12 to 16 % too high. Fit files: `V2ArmsFit/` on branch `claude/project-thread-74rdr9` of `TheBarnyard/ChatGPT-Pendulum-Project`.
 
 Rig check: single IDENTIFY period 0.84-0.89 s [HW] vs 0.830 s (shaft out) / 0.858 s (shaft in) here. Source: `build_arms_v3.py` in the [viewer](https://claude.ai/artifact/8SnLwfoxa9DyULJxHKt21b) download and `/mnt/project-files/NewArmModel_v2/` (Claude project).
+
+## Barney's arm estimates (2026-11-20) [HYP]
+From the parts list, with the hub parts placed from each arm's END shaft ([session](sessions/2026/11/2026-11-20_1855_Barney_newarms-double-triple-scripts.md)): bar 34.5 g per 200 mm, 2x608 bearings 23.6 g + shaft 39.2 g + 2 collars 11.0 g on the end axis (arms 1, 2), rest of hub 57.1 g centred 29.1 mm inboard (k 12 mm assumed). Joint shafts counted in the arm below.
+
+| Arm | Length | Mass | CoM from own pivot | Izz about CoM | Hanging period |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 200 mm | 165.4 g | 169.1 mm | 3.586e-4 kg m² | 0.856 s (rig 0.84-0.89 s [HW]) |
+| 2 (with joint-3 shaft) | 250 mm | 174.0 g | 209.5 mm | 6.692e-4 kg m² | 0.958 s |
+| 2 without shaft/collars | 250 mm | 123.8 g | 193.0 mm | 5.534e-4 kg m² | 0.933 s |
+| 3 (no shaft/collars) | 300 mm | 132.5 g | 228.8 mm | 9.385e-4 kg m² | 1.023 s |
+
+Conflict: as a double these give P1 5.210, P2 3.026, J2r 0.689, H 0.605; the 2026-11-04 rig fit above gives 5.225, 2.015, 0.451, 0.403. Arm 1 agrees; arm 2's first moment is about 50 % higher than the fit, and the 3 s prediction error on the 11-04 run is 13.7 / 19.0 deg vs 1.7 / 2.7. See [open questions](open-questions.md) #25. Used by `PythonMaster2_swingup_V2b_D_NewArms.py` (`--model new`) and `PythonMaster3_triple_NewArms.py`.
