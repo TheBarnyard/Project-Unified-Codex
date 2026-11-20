@@ -19,6 +19,8 @@ Barney is bringing up a 3rd arm. Find the new TX3 sketch made on the Pi and chec
 - GitHub upload skipped (Barney did not want a login on the Pi); checked with `diff` on the Pi instead.
 - `diff TX2/TX2.ino TX3/TX3.ino`: only line 17 differs, `SENDER_ID 1` -> `SENDER_ID 2`. The backup source is identical to the checkout copy [HW, file read].
 
+- 19:33 UTC: Barney sent `Pendulum_Firmware_20261120_143233.zip` (Pi sources: TX1, TX2, TX3, Receivermaster). TX1/TX2/TX3 are identical except SENDER_ID 0/1/2 (channel 6, master MAC FC:B4:67:F6:50:F4, 200 Hz). `Receivermaster.ino` + `angle_protocol.h` are byte-identical to ENGT480 main 5c79dca (framed v1, 37-byte frames, `NUM_SENDERS 3`), which is what `PythonMaster3_triple.py` reads (AnglePacketReader). `Receivermaster.ino.backup` is the old 6-byte unframed receiver; the triple script cannot read it [code read].
+
 ## Findings
 - TX3.ino is correct on its own: same channel, master MAC and encoder code as the working TX2; SENDER_ID 2 = receiver slot 3. Receivermaster (`NUM_SENDERS 3`) accepts IDs 0-2 [code read: ENGT480 main 5c79dca and legacy].
 - Risk: TX2 was sending as SENDER_ID 2 (slot 3) since about 2026-11-04 ([open-questions](../../../open-questions.md) resolved row, [gotchas](../../../gotchas.md)). If TX2 was never reflashed, TX2 and TX3 collide in slot 3 [HYP, not checked on the rig].
