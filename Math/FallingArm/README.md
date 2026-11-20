@@ -4,7 +4,7 @@ updated_by: Ryan (Claude, falling pendulum session)
 ---
 # Falling single arm on a fixed pivot
 
-One arm, pivot fixed (cart locked), let go at rest from θ0 (θ from straight up, clockwise +). Full write-up: [falling_pendulum.pdf](falling_pendulum.pdf) (derivation, key, plots). Interactive solver: https://claude.ai/artifact/WFymT1r6PRcSD5hDxvJsCw (source [falling_pendulum_calculator.html](falling_pendulum_calculator.html)). Python: [falling_pendulum.py](falling_pendulum.py) (`python falling_pendulum.py --theta0 30 --tau_c 0.002`).
+One arm, pivot fixed (cart locked), let go at rest from θ0 (θ from straight up, clockwise +). **Main PDF (math only, variable key on every page): [falling_pendulum_math.pdf](falling_pendulum_math.pdf)** (Barney asked for this version 2026-11-20). Longer version with plots: [falling_pendulum.pdf](falling_pendulum.pdf). Interactive solver: https://claude.ai/artifact/WFymT1r6PRcSD5hDxvJsCw (source [falling_pendulum_calculator.html](falling_pendulum_calculator.html)). Also: exact frictionless θ(t) = π − 2 arcsin[κ sn(K(κ) − ωn t, κ)] (checked to 1e-10° vs RK4). Python: [falling_pendulum.py](falling_pendulum.py) (`python falling_pendulum.py --theta0 30 --tau_c 0.002`).
 
 ## Key equations
 - EOM (Lagrange + Rayleigh + Coulomb): `I θ'' = m g lc sin θ − b θ' − τc sgn θ'`, `I = Icm + m lc²`.
